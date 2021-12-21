@@ -1,6 +1,6 @@
 
 *** tstart() called on laptop21
-*** at Fri Dec 17 08:04:50 2021
+*** at Mon Dec 20 20:12:07 2021
 
    => Loading Basis Set <=
 
@@ -114,12 +114,12 @@
 
    @RHF iter SAD:   -75.50773245934793   -7.55077e+01   0.00000e+00 
    @RHF iter   1:   -75.95378451303728   -4.46052e-01   1.74065e-02 DIIS
-   @RHF iter   2:   -76.00708060915024   -5.32961e-02   9.96982e-03 DIIS
-   @RHF iter   3:   -76.02624491761588   -1.91643e-02   9.09897e-04 DIIS
-   @RHF iter   4:   -76.02663310976159   -3.88192e-04   2.09785e-04 DIIS
-   @RHF iter   5:   -76.02665270339190   -1.95936e-05   3.85308e-05 DIIS
-   @RHF iter   6:   -76.02665363514940   -9.31757e-07   6.12746e-06 DIIS
-   @RHF iter   7:   -76.02665366131475   -2.61654e-08   8.64590e-07 DIIS
+   @RHF iter   2:   -76.00708060915025   -5.32961e-02   9.96982e-03 DIIS
+   @RHF iter   3:   -76.02624491761590   -1.91643e-02   9.09897e-04 DIIS
+   @RHF iter   4:   -76.02663310976165   -3.88192e-04   2.09785e-04 DIIS
+   @RHF iter   5:   -76.02665270339189   -1.95936e-05   3.85308e-05 DIIS
+   @RHF iter   6:   -76.02665363514937   -9.31757e-07   6.12746e-06 DIIS
+   @RHF iter   7:   -76.02665366131474   -2.61654e-08   8.64590e-07 DIIS
   Energy and wave function converged.
 
 
@@ -147,14 +147,14 @@
               A 
     DOCC [     5 ]
 
-  @RHF Final Energy:   -76.02665366131475
+  @RHF Final Energy:   -76.02665366131474
 
    => Energetics <=
 
     Nuclear Repulsion Energy =              9.1681932964254411
-    One-Electron Energy =                -123.1035632578483074
-    Two-Electron Energy =                  37.9087163001081038
-    Total Energy =                        -76.0266536613147537
+    One-Electron Energy =                -123.1035632578482648
+    Two-Electron Energy =                  37.9087163001080825
+    Total Energy =                        -76.0266536613147395
 
 Computation Completed
 
@@ -176,93 +176,12 @@ Properties computed using the SCF density matrix
      X:     0.0000      Y:    -0.0000      Z:     2.0592     Total:     2.0592
 
 
-*** tstop() called on laptop21 at Fri Dec 17 08:04:50 2021
+*** tstop() called on laptop21 at Mon Dec 20 20:12:07 2021
 Module time:
-	user time   =       0.22 seconds =       0.00 minutes
-	system time =       0.00 seconds =       0.00 minutes
+	user time   =       0.21 seconds =       0.00 minutes
+	system time =       0.02 seconds =       0.00 minutes
 	total time  =          0 seconds =       0.00 minutes
 Total time:
-	user time   =       0.22 seconds =       0.00 minutes
-	system time =       0.00 seconds =       0.00 minutes
+	user time   =       0.21 seconds =       0.00 minutes
+	system time =       0.02 seconds =       0.00 minutes
 	total time  =          0 seconds =       0.00 minutes
-  Basis Set: CC-PVDZ
-    Blend: CC-PVDZ
-    Number of shells: 12
-    Number of basis function: 24
-    Number of Cartesian functions: 25
-    Spherical Harmonics?: true
-    Max angular momentum: 2
-
-  -AO BASIS SET INFORMATION:
-    Name                   = CC-PVDZ
-    Blend                  = CC-PVDZ
-    Total number of shells = 12
-    Number of primitives   = 32
-    Number of AO           = 25
-    Number of SO           = 24
-    Maximum AM             = 2
-    Spherical Harmonics    = TRUE
-
-  -Contraction Scheme:
-    Atom   Type   All Primitives // Shells:
-   ------ ------ --------------------------
-       1     O     17s 4p 1d // 3s 2p 1d 
-       2     H     4s 1p // 2s 1p 
-       3     H     4s 1p // 2s 1p 
-
-  ==> AO Basis Functions <==
-
-    [ CC-PVDZ ]
-    spherical
-    ****
-    O   1
-    S   8 1.00
-                     11720.00000000           0.00071000
-                      1759.00000000           0.00547000
-                       400.80000000           0.02783700
-                       113.70000000           0.10480000
-                        37.03000000           0.28306200
-                        13.27000000           0.44871900
-                         5.02500000           0.27095200
-                         1.01300000           0.01545800
-    S   8 1.00
-                     11720.00000000          -0.00016000
-                      1759.00000000          -0.00126300
-                       400.80000000          -0.00626700
-                       113.70000000          -0.02571600
-                        37.03000000          -0.07092400
-                        13.27000000          -0.16541100
-                         5.02500000          -0.11695500
-                         1.01300000           0.55736800
-    S   1 1.00
-                         0.30230000           1.00000000
-    P   3 1.00
-                        17.70000000           0.04301800
-                         3.85400000           0.22891300
-                         1.04600000           0.50872800
-    P   1 1.00
-                         0.27530000           1.00000000
-    D   1 1.00
-                         1.18500000           1.00000000
-    ****
-    H   2
-    S   3 1.00
-                        13.01000000           0.01968500
-                         1.96200000           0.13797700
-                         0.44460000           0.47814800
-    S   1 1.00
-                         0.12200000           1.00000000
-    P   1 1.00
-                         0.72700000           1.00000000
-    ****
-    H   3
-    S   3 1.00
-                        13.01000000           0.01968500
-                         1.96200000           0.13797700
-                         0.44460000           0.47814800
-    S   1 1.00
-                         0.12200000           1.00000000
-    P   1 1.00
-                         0.72700000           1.00000000
-    ****
-
