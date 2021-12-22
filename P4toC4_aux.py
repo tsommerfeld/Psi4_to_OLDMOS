@@ -14,23 +14,23 @@ import sys
 #import psi4
 
 
-def psi4_to_c4(Cp4, offset):
+def psi4_to_c4(Cp4, map_p2c, scale):
     """
-    reorder the Psi4_MOs into Cfour order based on offset[]
-    Cfour_MO[i+offset[i]] = Psi4_MO[i]
+    reorder the Psi4_MOs into Cfour order based on map_p2c[]
+    Cfour4_MO[map_p2c[i]] = Psi4_MO[i]
 
     Parameters
     ----------
-    Cp4 : np.array(nbf, nbf) Psi4MOs
-    
-    offset : np.array(nbf) offset vector
+    Cp4 : np.array(nbf, nbf) Psi4MOs    
+    map_p2c : np.array(nbf) mapping vector Psi4 to Cfour
+    scale : np.array(nbf) scaling vector Psi4 to Cfour
 
     Returns
     -------
     Cc4:  np.array(nbf, nbf) Cfour4MOs
 
     """
-    nbf = len(offset)
+    nbf = len(map_p2c)
     n, m = Cp4.shape
     if n != nbf or m != m:
         msg = 'Error in psi4_to_c4: inconsistent dimensions %d %d %d' % (nbf, n, m)
@@ -38,13 +38,14 @@ def psi4_to_c4(Cp4, offset):
     
     Cc4=np.zeros((nbf,nbf))
     for i in range(nbf):
-        Cc4[i+offset[i],:] = Cp4[i,:]
+        Cc4[map_p2c[i],:] = Cp4[i,:]/scale[i]
     return Cc4
 
 
 def basis_mapping(basisset, verbose=1):
     """
-    Cfour4_MO[i] = Psi4_MO[map[i]]
+    Cfour4_MO[map_p2c[i]] = Psi4_MO[i]
+    = where do we put a given MO
     
     for Cfour, we assume all s, then all p, ...
     
@@ -61,29 +62,39 @@ def basis_mapping(basisset, verbose=1):
 
     Returns
     -------
-    map : int np.array to be used in psi4_to_c4()
-
+    two vectors to be used in psi4_to_c4()
+    map : int np.array; mapping Psi4 to Cfour 
+    scale : np.array; scaling factors Psi4 to Cfour
     """
     max_l = 5
-    max_m = 2*max_l + 1
+    #max_m = 2*max_l + 1
     
     mol = basisset.molecule()
     n_atoms = mol.natom()
     nbf_atom = np.zeros(n_atoms, int)
     nbf = basisset.nbf()
-    map = np.zeros(nbf, int)
+    map_p2c = np.zeros(nbf, int)
+    scale = np.zeros(nbf)
 
-    """ map from Psi4 to Cfour m-order 
-        (z,x,y) -> (x,y,z)
-    
-    
+    """ 
+      map from Psi4 to Cfour m-order  (trial and error)
+      p:    (z,x,y)     -> (x,y,z)
+      d:    (0,1,2,3,4) -> (0,2,4,3,1) 
+      f:  ???
+      and MO coefficient scaling (even more trial and error)
     """
     m_map = np.array(
-        [[0, 0, 0, 0, 0],
-         [2, 1, 0, 0, 0],
-         [0, 1, 2, 3, 4],
-         [0, 1, 2, 3, 4]]
-        )                   
+        [[0, 0, 0, 0, 0, 0, 0],
+         [2, 0, 1, 0, 0, 0, 0],
+         [0, 2, 4, 3, 1, 0, 0],
+         [0, 1, 2, 3, 4, 5, 6]]
+        )
+    s_map = np.array(
+        [[1, 0, 0, 0, 0, 0, 0],
+         [1, 1, 1, 0, 0, 0, 0],
+         [2*np.sqrt(3), 1, 1, 2, 1, 0, 0],
+         [1, 1, 1, 1, 1, 1, 1]]
+        )                                      
 
 
     atom_offset = 0  # identical for Psi4_MO and Cfour_MO
@@ -125,22 +136,24 @@ def basis_mapping(basisset, verbose=1):
         for i_shell in range(basisset.nshell_on_center(j_atom)):
             shell = basisset.shell(j_atom, i_shell)
             l = shell.am
-            print(f'l = {l}, nl[l]={nl[l]}')
+            if verbose > 0:
+                print(f'l = {l}, nl[l]={nl[l]}')
             for m in range(2*l+1):
                 m_cfour = m_map[l,m]
                 ptr = atom_offset + shell_offset[l,m_cfour] + nl[l]
-                print(f'  m={m} -> m={m_cfour}   ptr={ptr}')
-                map[i_mo] = ptr
+                if verbose > 1:
+                    print(f'  m={m} -> m={m_cfour}   ptr={ptr}')
+                map_p2c[i_mo] = ptr
+                scale[i_mo] = s_map[l,m]
                 i_mo += 1
             nl[l] += 1
         
         atom_offset += nbf_atom[j_atom]
 
-
     if verbose > 0:    
         print(f'nbf = {nbf}   sum(nbf_atom)={np.sum(nbf_atom)}')
     
-    return map
+    return map_p2c, scale
 
 
 def ao_offset(basisset, verbose=0):
