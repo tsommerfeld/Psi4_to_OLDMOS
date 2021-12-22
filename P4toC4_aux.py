@@ -44,8 +44,10 @@ def psi4_to_c4(Cp4, map_p2c, scale):
 
 def basis_mapping(basisset, verbose=1):
     """
-    Cfour4_MO[map_p2c[i]] = Psi4_MO[i]
-    = where do we put a given MO
+    Computes the arrays needed for the operation:
+    Cfour4_MO[map_p2c[i]] = Psi4_MO[i]/scale[i]    
+    map_p2c = where to put MO coefficient i in the Cfour vector
+    scale = how to scale MO coefficient i
     
     for Cfour, we assume all s, then all p, ...
     
@@ -53,7 +55,7 @@ def basis_mapping(basisset, verbose=1):
     for every atom
     
     so for every atom we need first the offsets: shell_offset[l,m]
-    then we can go over the atom-basis again and compute map[i]
+    then we can go over the atom-basis again and compute map_p2c[i]
     
     Parameters
     ----------
@@ -63,8 +65,8 @@ def basis_mapping(basisset, verbose=1):
     Returns
     -------
     two vectors to be used in psi4_to_c4()
-    map : int np.array; mapping Psi4 to Cfour 
-    scale : np.array; scaling factors Psi4 to Cfour
+    map_p2c : int np.array; mapping Psi4 to Cfour (see above)
+    scale : np.array; scaling factors Psi4 to Cfour (see above)
     """
     max_l = 5
     #max_m = 2*max_l + 1
@@ -78,24 +80,29 @@ def basis_mapping(basisset, verbose=1):
 
     """ 
       map from Psi4 to Cfour m-order  (trial and error)
-      p:    (z,x,y)     -> (x,y,z)
-      d:    (0,1,2,3,4) -> (0,2,4,3,1) 
-      f:  ???
+      m_map[l,m], s_map[l,m]
+      within a shell with fixed l:
+      m_map = where to put MO coefficient m in the Cfour vector
+      s_map = how to scale MO coefficient m
+      p:    (0,1,2)         -> (2,0,1)   
+      Psi4 uses (z,x,y) so 0(z) to 2, 1(x) to 0, 2(y) to 1 = (x,y,z)
+      d:    (0,1,2,3,4)     -> (0,2,4,3,1)
+      f:    (0,1,2,3,4,5,6) -> (2,0,1,6,4,3,5)
       and MO coefficient scaling (even more trial and error)
     """
     m_map = np.array(
         [[0, 0, 0, 0, 0, 0, 0],
          [2, 0, 1, 0, 0, 0, 0],
          [0, 2, 4, 3, 1, 0, 0],
-         [0, 1, 2, 3, 4, 5, 6]]
+         [2, 0, 1, 6, 4, 3, 5]]
         )
+    sq12, sq24, sq40, sq60 = np.sqrt([12, 24, 40, 60])
     s_map = np.array(
         [[1, 0, 0, 0, 0, 0, 0],
          [1, 1, 1, 0, 0, 0, 0],
-         [2*np.sqrt(3), 1, 1, 2, 1, 0, 0],
-         [1, 1, 1, 1, 1, 1, 1]]
+         [sq12, 1, 1, 2, 1, 0, 0],
+         [sq60, sq40, sq40, 2, 1, sq24, sq24]]
         )                                      
-
 
     atom_offset = 0  # identical for Psi4_MO and Cfour_MO
     i_mo = 0

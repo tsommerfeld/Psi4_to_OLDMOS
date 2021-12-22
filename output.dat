@@ -1,14 +1,14 @@
 
 *** tstart() called on laptop21
-*** at Wed Dec 22 15:52:57 2021
+*** at Wed Dec 22 17:31:12 2021
 
    => Loading Basis Set <=
 
-    Name: MY_BASISSPEC
+    Name: CC-PVTZ
     Role: ORBITAL
     Keyword: BASIS
     atoms 1   entry O          line   262 file /home/thomas/anaconda3/envs/psi4/share/psi4/basis/cc-pvtz.gbs 
-    atoms 2-3 entry H          line    19 file /home/thomas/anaconda3/envs/psi4/share/psi4/basis/sto-3g.gbs 
+    atoms 2-3 entry H          line    23 file /home/thomas/anaconda3/envs/psi4/share/psi4/basis/cc-pvtz.gbs 
 
 
          ---------------------------------------------------------
@@ -57,11 +57,11 @@
 
   ==> Primary Basis <==
 
-  Basis Set: MY_BASISSPEC
-    Blend: CC-PVTZ + STO-3G
-    Number of shells: 12
-    Number of basis function: 32
-    Number of Cartesian functions: 37
+  Basis Set: CC-PVTZ
+    Blend: CC-PVTZ
+    Number of shells: 22
+    Number of basis function: 58
+    Number of Cartesian functions: 65
     Spherical Harmonics?: true
     Max angular momentum: 3
 
@@ -70,9 +70,9 @@
    -------------------------------------------------------
     Irrep   Nso     Nmo     Nalpha   Nbeta   Ndocc  Nsocc
    -------------------------------------------------------
-     A         32      32       0       0       0       0
+     A         58      58       0       0       0       0
    -------------------------------------------------------
-    Total      32      32       5       5       5       0
+    Total      58      58       5       5       5       0
    -------------------------------------------------------
 
   ==> Integral Setup <==
@@ -80,18 +80,18 @@
   Using in-core PK algorithm.
    Calculation information:
       Number of atoms:                   3
-      Number of AO shells:              12
-      Number of primitives:             32
-      Number of atomic orbitals:        37
-      Number of basis functions:        32
+      Number of AO shells:              22
+      Number of primitives:             42
+      Number of atomic orbitals:        65
+      Number of basis functions:        58
 
       Integral cutoff                 1.00e-12
       Number of threads:                 1
 
   Performing in-core PK
-  Using 279312 doubles for integral storage.
-  We computed 3081 shell quartets total.
-  Whereas there are 3081 unique shell quartets.
+  Using 2929232 doubles for integral storage.
+  We computed 32131 shell quartets total.
+  Whereas there are 32131 unique shell quartets.
 
   ==> DiskJK: Disk-Based J/K Matrices <==
 
@@ -103,7 +103,7 @@
 
     OpenMP threads:              1
 
-  Minimum eigenvalue in the overlap matrix is 2.8179462580E-02.
+  Minimum eigenvalue in the overlap matrix is 2.5191858817E-03.
   Using Symmetric Orthogonalization.
 
   SCF Guess: Superposition of Atomic Densities via on-the-fly atomic UHF.
@@ -112,17 +112,17 @@
 
                         Total Energy        Delta E     RMS |[F,P]|
 
-   @RHF iter SAD:   -75.34002547114287   -7.53400e+01   0.00000e+00 
-   @RHF iter   1:   -75.97364849233099   -6.33623e-01   1.23449e-02 DIIS
-   @RHF iter   2:   -76.01511539963272   -4.14669e-02   7.45811e-03 DIIS
-   @RHF iter   3:   -76.03184941957248   -1.67340e-02   6.01700e-04 DIIS
-   @RHF iter   4:   -76.03209141102393   -2.41991e-04   1.96519e-04 DIIS
-   @RHF iter   5:   -76.03212096228398   -2.95513e-05   2.78305e-05 DIIS
-   @RHF iter   6:   -76.03212179943972   -8.37156e-07   5.69885e-06 DIIS
-   @RHF iter   7:   -76.03212183490302   -3.54633e-08   5.80510e-07 DIIS
-   @RHF iter   8:   -76.03212183521119   -3.08162e-10   9.77592e-08 DIIS
-   @RHF iter   9:   -76.03212183522064   -9.45022e-12   2.09874e-08 DIIS
-   @RHF iter  10:   -76.03212183522113   -4.97380e-13   2.73574e-09 DIIS
+   @RHF iter SAD:   -75.49812401195834   -7.54981e+01   0.00000e+00 
+   @RHF iter   1:   -75.97850248136184   -4.80378e-01   7.78277e-03 DIIS
+   @RHF iter   2:   -76.03102452195786   -5.25220e-02   5.03103e-03 DIIS
+   @RHF iter   3:   -76.05654669714291   -2.55222e-02   3.75896e-04 DIIS
+   @RHF iter   4:   -76.05693807454995   -3.91377e-04   9.21267e-05 DIIS
+   @RHF iter   5:   -76.05696293908960   -2.48645e-05   1.90842e-05 DIIS
+   @RHF iter   6:   -76.05696451249736   -1.57341e-06   3.71057e-06 DIIS
+   @RHF iter   7:   -76.05696457338453   -6.08872e-08   5.99052e-07 DIIS
+   @RHF iter   8:   -76.05696457469807   -1.31354e-09   9.35689e-08 DIIS
+   @RHF iter   9:   -76.05696457473104   -3.29692e-11   2.61403e-08 DIIS
+   @RHF iter  10:   -76.05696457473371   -2.67164e-12   3.28765e-09 DIIS
   Energy and wave function converged.
 
 
@@ -133,33 +133,42 @@
 
     Doubly Occupied:                                                      
 
-       1A    -20.566831     2A     -1.348431     3A     -0.715185  
-       4A     -0.583467     5A     -0.512082  
+       1A    -20.555232     2A     -1.344244     3A     -0.708249  
+       4A     -0.577218     5A     -0.504254  
 
     Virtual:                                                              
 
-       6A      0.555119     7A      0.633770     8A      0.783702  
-       9A      0.809964    10A      0.840837    11A      1.272767  
-      12A      1.648173    13A      1.660753    14A      1.696670  
-      15A      2.226964    16A      2.458483    17A      4.047006  
-      18A      4.064856    19A      4.095006    20A      5.446420  
-      21A      5.494081    22A      5.508628    23A      5.544002  
-      24A      5.555089    25A      5.628353    26A      5.712625  
-      27A      6.682352    28A      6.693368    29A      6.711966  
-      30A      6.846781    31A      7.106146    32A      7.867998  
+       6A      0.141977     7A      0.203802     8A      0.543057  
+       9A      0.600691    10A      0.668721    11A      0.787381  
+      12A      0.800215    13A      0.805187    14A      0.860566  
+      15A      0.954881    16A      1.133764    17A      1.195537  
+      18A      1.524475    19A      1.562071    20A      2.035836  
+      21A      2.056357    22A      2.064937    23A      2.170550  
+      24A      2.235014    25A      2.588627    26A      2.961541  
+      27A      3.355762    28A      3.489683    29A      3.580110  
+      30A      3.652547    31A      3.798463    32A      3.875879  
+      33A      3.884215    34A      3.960005    35A      4.018829  
+      36A      4.075117    37A      4.189330    38A      4.309344  
+      39A      4.384153    40A      4.577914    41A      4.682811  
+      42A      4.859505    43A      5.148787    44A      5.250631  
+      45A      5.526564    46A      6.046592    47A      6.560368  
+      48A      6.915497    49A      6.938764    50A      7.001984  
+      51A      7.014134    52A      7.055018    53A      7.166200  
+      54A      7.231268    55A      7.454036    56A      7.787536  
+      57A      8.277659    58A     12.832156  
 
     Final Occupation by Irrep:
               A 
     DOCC [     5 ]
 
-  @RHF Final Energy:   -76.03212183522113
+  @RHF Final Energy:   -76.05696457473371
 
    => Energetics <=
 
     Nuclear Repulsion Energy =              9.1681932964254411
-    One-Electron Energy =                -122.9486393993027207
-    Two-Electron Energy =                  37.7483242676561375
-    Total Energy =                        -76.0321218352211474
+    One-Electron Energy =                -123.0719200111545888
+    Two-Electron Energy =                  37.8467621399954481
+    Total Energy =                        -76.0569645747336978
 
 Computation Completed
 
@@ -172,21 +181,21 @@ Properties computed using the SCF density matrix
      X:     0.0000      Y:     0.0000      Z:     0.9783
 
   Electronic Dipole Moment: [e a0]
-     X:     0.0000      Y:     0.0000      Z:    -0.1742
+     X:     0.0000      Y:     0.0000      Z:    -0.1806
 
   Dipole Moment: [e a0]
-     X:     0.0000      Y:     0.0000      Z:     0.8041     Total:     0.8041
+     X:     0.0000      Y:     0.0000      Z:     0.7977     Total:     0.7977
 
   Dipole Moment: [D]
-     X:     0.0000      Y:     0.0000      Z:     2.0439     Total:     2.0439
+     X:     0.0000      Y:     0.0000      Z:     2.0275     Total:     2.0275
 
 
-*** tstop() called on laptop21 at Wed Dec 22 15:52:57 2021
+*** tstop() called on laptop21 at Wed Dec 22 17:31:12 2021
 Module time:
-	user time   =       0.22 seconds =       0.00 minutes
-	system time =       0.01 seconds =       0.00 minutes
+	user time   =       0.32 seconds =       0.01 minutes
+	system time =       0.02 seconds =       0.00 minutes
 	total time  =          0 seconds =       0.00 minutes
 Total time:
-	user time   =       0.22 seconds =       0.00 minutes
-	system time =       0.01 seconds =       0.00 minutes
+	user time   =       0.32 seconds =       0.01 minutes
+	system time =       0.02 seconds =       0.00 minutes
 	total time  =          0 seconds =       0.00 minutes
