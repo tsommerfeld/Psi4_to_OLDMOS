@@ -1,0 +1,190 @@
+
+*** tstart() called on laptop21
+*** at Thu Dec 23 15:15:31 2021
+
+   => Loading Basis Set <=
+
+    Name: CC-PVDZ
+    Role: ORBITAL
+    Keyword: BASIS
+    atoms 1   entry O          line   198 file /home/thomas/anaconda3/envs/psi4/share/psi4/basis/cc-pvdz.gbs 
+    atoms 2-3 entry H          line    22 file /home/thomas/anaconda3/envs/psi4/share/psi4/basis/cc-pvdz.gbs 
+
+
+         ---------------------------------------------------------
+                                   SCF
+               by Justin Turney, Rob Parrish, Andy Simmonett
+                          and Daniel G. A. Smith
+                              RHF Reference
+                        1 Threads,    476 MiB Core
+         ---------------------------------------------------------
+
+  ==> Geometry <==
+
+    Molecular point group: c1
+    Full point group: C2v
+
+    Geometry (in Angstrom), charge = 0, multiplicity = 1:
+
+       Center              X                  Y                   Z               Mass       
+    ------------   -----------------  -----------------  -----------------  -----------------
+         O            0.000000000000     0.000000000000    -0.065775570547    15.994914619570
+         H            0.000000000000    -0.759061990794     0.521953018286     1.007825032230
+         H            0.000000000000     0.759061990794     0.521953018286     1.007825032230
+
+  Running in c1 symmetry.
+
+  Rotational constants: A =     27.26297  B =     14.51533  C =      9.47217 [cm^-1]
+  Rotational constants: A = 817323.21126  B = 435158.60141  C = 283968.37536 [MHz]
+  Nuclear repulsion =    9.168193296425441
+
+  Charge       = 0
+  Multiplicity = 1
+  Electrons    = 10
+  Nalpha       = 5
+  Nbeta        = 5
+
+  ==> Algorithm <==
+
+  SCF Algorithm Type is PK.
+  DIIS enabled.
+  MOM disabled.
+  Fractional occupation disabled.
+  Guess Type is SAD.
+  Energy threshold   = 1.00e-06
+  Density threshold  = 1.00e-08
+  Integral threshold = 0.00e+00
+
+  ==> Primary Basis <==
+
+  Basis Set: CC-PVDZ
+    Blend: CC-PVDZ
+    Number of shells: 12
+    Number of basis function: 24
+    Number of Cartesian functions: 25
+    Spherical Harmonics?: true
+    Max angular momentum: 2
+
+  ==> Pre-Iterations <==
+
+   -------------------------------------------------------
+    Irrep   Nso     Nmo     Nalpha   Nbeta   Ndocc  Nsocc
+   -------------------------------------------------------
+     A         24      24       0       0       0       0
+   -------------------------------------------------------
+    Total      24      24       5       5       5       0
+   -------------------------------------------------------
+
+  ==> Integral Setup <==
+
+  Using in-core PK algorithm.
+   Calculation information:
+      Number of atoms:                   3
+      Number of AO shells:              12
+      Number of primitives:             32
+      Number of atomic orbitals:        25
+      Number of basis functions:        24
+
+      Integral cutoff                 1.00e-12
+      Number of threads:                 1
+
+  Performing in-core PK
+  Using 90300 doubles for integral storage.
+  We computed 3081 shell quartets total.
+  Whereas there are 3081 unique shell quartets.
+
+  ==> DiskJK: Disk-Based J/K Matrices <==
+
+    J tasked:                  Yes
+    K tasked:                  Yes
+    wK tasked:                  No
+    Memory [MiB]:              357
+    Schwarz Cutoff:          1E-12
+
+    OpenMP threads:              1
+
+  Minimum eigenvalue in the overlap matrix is 3.4377086613E-02.
+  Using Symmetric Orthogonalization.
+
+  SCF Guess: Superposition of Atomic Densities via on-the-fly atomic UHF.
+
+  ==> Iterations <==
+
+                        Total Energy        Delta E     RMS |[F,P]|
+
+   @RHF iter SAD:   -75.50773245934793   -7.55077e+01   0.00000e+00 
+   @RHF iter   1:   -75.95378451303728   -4.46052e-01   1.74065e-02 DIIS
+   @RHF iter   2:   -76.00708060915024   -5.32961e-02   9.96982e-03 DIIS
+   @RHF iter   3:   -76.02624491761588   -1.91643e-02   9.09897e-04 DIIS
+   @RHF iter   4:   -76.02663310976159   -3.88192e-04   2.09785e-04 DIIS
+   @RHF iter   5:   -76.02665270339190   -1.95936e-05   3.85308e-05 DIIS
+   @RHF iter   6:   -76.02665363514940   -9.31757e-07   6.12746e-06 DIIS
+   @RHF iter   7:   -76.02665366131475   -2.61654e-08   8.64590e-07 DIIS
+   @RHF iter   8:   -76.02665366185408   -5.39330e-10   2.01120e-07 DIIS
+   @RHF iter   9:   -76.02665366188769   -3.36087e-11   3.40206e-08 DIIS
+   @RHF iter  10:   -76.02665366188855   -8.52651e-13   2.80733e-09 DIIS
+  Energy and wave function converged.
+
+
+  ==> Post-Iterations <==
+
+    Orbital Energies [Eh]
+    ---------------------
+
+    Doubly Occupied:                                                      
+
+       1A    -20.550919     2A     -1.335305     3A     -0.697799  
+       4A     -0.566090     5A     -0.492954  
+
+    Virtual:                                                              
+
+       6A      0.185103     7A      0.255849     8A      0.787301  
+       9A      0.851798    10A      1.163709    11A      1.200352  
+      12A      1.253479    13A      1.444918    14A      1.475588  
+      15A      1.674083    16A      1.867861    17A      1.931955  
+      18A      2.446380    19A      2.483524    20A      3.283305  
+      21A      3.336169    22A      3.506961    23A      3.862825  
+      24A      4.144454  
+
+    Final Occupation by Irrep:
+              A 
+    DOCC [     5 ]
+
+  @RHF Final Energy:   -76.02665366188855
+
+   => Energetics <=
+
+    Nuclear Repulsion Energy =              9.1681932964254411
+    One-Electron Energy =                -123.1035619927256590
+    Two-Electron Energy =                  37.9087150344116708
+    Total Energy =                        -76.0266536618885453
+
+Computation Completed
+
+
+Properties will be evaluated at   0.000000,   0.000000,   0.000000 [a0]
+
+Properties computed using the SCF density matrix
+
+  Nuclear Dipole Moment: [e a0]
+     X:     0.0000      Y:     0.0000      Z:     0.9783
+
+  Electronic Dipole Moment: [e a0]
+     X:    -0.0000      Y:    -0.0000      Z:    -0.1682
+
+  Dipole Moment: [e a0]
+     X:    -0.0000      Y:    -0.0000      Z:     0.8101     Total:     0.8101
+
+  Dipole Moment: [D]
+     X:    -0.0000      Y:    -0.0000      Z:     2.0592     Total:     2.0592
+
+
+*** tstop() called on laptop21 at Thu Dec 23 15:15:31 2021
+Module time:
+	user time   =       0.22 seconds =       0.00 minutes
+	system time =       0.00 seconds =       0.00 minutes
+	total time  =          0 seconds =       0.00 minutes
+Total time:
+	user time   =       0.22 seconds =       0.00 minutes
+	system time =       0.00 seconds =       0.00 minutes
+	total time  =          0 seconds =       0.00 minutes
