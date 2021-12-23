@@ -1,0 +1,45 @@
+#! /usr/bin/env bash
+
+threads=2
+mem_in_gb=2
+WorkDir=$CFOUR_SCRATCH
+
+CurrDir=$PWD
+export OMP_NUM_THREADS=$threads
+#export PATH=$PATH:$Path_to_Cfour
+
+if [ ! -d $WorkDir ]; then
+    echo $WorkDir does not exit.
+    exit
+fi
+cd $WorkDir
+rm -rf $WorkDir/*
+
+cp $CurrDir/../P4.BASIS $WorkDir/GENBAS
+cp $CurrDir/PSIMOS $WorkDir/OLDMOS
+touch $WorkDir/JFSGUESS
+
+cat >> ZMAT << EOF
+H2O
+O            0.000000000000     0.000000000000    -0.065775570547
+H            0.000000000000    -0.759061990794     0.521953018286
+H            0.000000000000     0.759061990794     0.521953018286
+
+*CFOUR(CALC=SCF
+COORDIANTES=CARTESIAN
+SYMMETRY=ON 
+BASIS=SPECIAL,SPHERICAL=ON
+REFERENCE=UHF
+CHARGE=1
+MULT=2
+MEM_SIZE=$mem_in_gb,MEM_UNIT=GB)
+
+O:P4_PVDZ
+H:P4_PVDZ
+H:P4_PVDZ
+
+
+EOF
+
+xcfour
+

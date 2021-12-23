@@ -257,7 +257,7 @@ def read_oldmos(fname, verbose = 1):
 
 
 
-def write_oldmos(fname, Cs):
+def write_oldmos(fname, Cas, Cbs=None):
     """
     Write MOs in Cfour OLDMOS format
     That means packages of four MOs   
@@ -267,6 +267,10 @@ def write_oldmos(fname, Cs):
     ...    ...     ...    ...
 
     Format for each individual coefficient: 30.20E
+
+    Write alpha and beta orbitals, or the alpha set twice.
+    Writting the alpha set (RHF) twice doesn't affect a RHF guess
+    and can serve as a UHF guess.
 
     Parameters
     ----------
@@ -279,18 +283,33 @@ def write_oldmos(fname, Cs):
     """
 
     f = open(fname, 'w')
-    nbf = Cs.shape[0]
+    nbf = Cas.shape[0]
+
     for j in range(0, nbf, 4):
         """ Normally we write groups of 4 MOs. The last group may be smaller. """
         ngr = 4
         if j + ngr >= nbf:
             ngr = nbf - j
-            
         for ao in range(nbf):
             line = ''
             for igr in range(ngr):
-                line += f"{Cs[ao,j+igr]:30.20E}"
+                line += f"{Cas[ao,j+igr]:30.20E}"
             line += "\n"
             f.write(line)
+    
+    if Cbs is None:
+        Cbs = Cas
+    for j in range(0, nbf, 4):
+        """ Normally we write groups of 4 MOs. The last group may be smaller. """
+        ngr = 4
+        if j + ngr >= nbf:
+            ngr = nbf - j
+        for ao in range(nbf):
+            line = ''
+            for igr in range(ngr):
+                line += f"{Cbs[ao,j+igr]:30.20E}"
+            line += "\n"
+            f.write(line)
+        
     f.close()
     return
