@@ -31,7 +31,7 @@ Run SCF/STO-3G in either Psi4 or CFOUR, and make sure both codes codes don't reo
 
 ## Repository
 
-* lib : Python auxiliary functions.
-* dev : uncommented notebooks used for development
-* Samples : notebooks for creating OLDMOS with Psi4
-* CFOUR : scripts to run CFOUR with the standard core guess or with the OLDMOS guess 
+* `CFOUR` : scripts to run CFOUR with the standard core guess or with the OLDMOS guess 
+* `Samples` : notebooks for creating OLDMOS with Psi4
+* `dev` : uncommented notebooks used for development
+* `lib` : Python auxiliary functions.
