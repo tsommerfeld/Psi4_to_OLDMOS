@@ -16,13 +16,13 @@ cd $WorkDir
 rm -rf $WorkDir/*
 
 cp $CurrDir/../P4.BASIS $WorkDir/GENBAS
-#cp $CurrDir/PSIMOS $WorkDir/OLDMOS
-#touch $WorkDir/JFSGUESS
+cp $CurrDir/PSIMOS $WorkDir/OLDMOS
+touch $WorkDir/JFSGUESS
 
 cat >> ZMAT << EOF
 OH
-O   0.0   0.0  -0.057496044831
-H   0.0   0.0   0.912503955169
+O   0.0   0.0   0.057496044831
+H   0.0   0.0  -0.912503955169
 
 *CFOUR(CALC=SCF
 REFERENCE=UHF
@@ -32,8 +32,8 @@ SYMMETRY=OFF
 BASIS=SPECIAL,SPHERICAL=ON
 MEM_SIZE=$mem_in_gb,MEM_UNIT=GB)
 
-O:STO-3G
-H:STO-3G
+O:P4_PVDZ
+H:P4_PVDZ
 
 
 EOF
