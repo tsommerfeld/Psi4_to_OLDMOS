@@ -6,12 +6,12 @@ CFOUR is an excellent many-body package, but sometimes it can be tricky to conve
 the SCF. Personally I had trouble with
 * non-valence anions (one-center with a (7s7p7d) set of diffuse functions).
 * temporary anion calculations (several centers with (2s4p2d) sets of diffuse functions with tight exponents).
-* cluster anions such as O2(-)..benzene
+* cluster anions such as O2(-)..benzene.
 
 In some of these cases, neither varients of the normal tricks [SCF_MAXCYC, SCF_DAMP, SCF_EXTRAP] nor QRHF_GUESS variations nor QCSCF helped. 
-I had some discussions with the developers, but make nor mistake, these systems are hard to converge in any code.
+I had some discussions with the developers, but make nor mistake, these systems can be hard to converge in any code.
 
-The Psi4_to_OLDMOS interface adds one more option: Converge the SCF of your choice in Psi4- provided you can- and use them as a guess in CFOUR.
+The Psi4_to_OLDMOS interface adds yet another option: Converge the SCF of your choice in Psi4- provided you can- and use the Psi4 orbitals as a guess in CFOUR.
 
 If everything is done exactly the same in both codes, this works as well as it should: CFOUR converges in one iteration.
 
