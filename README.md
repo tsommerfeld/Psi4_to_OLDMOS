@@ -26,5 +26,12 @@ Currently, the limitations are:
 Run SCF/STO-3G in either Psi4 or CFOUR, and make sure both codes codes don't reorient the molecule.
 2. Run the desired SCF in Psi4.
 3. For optimal results, use the Psi4 wavefunction object to create GENBAS (see notebooks). Psi4 uses segmented contraction, CFOUR doesn't. 
-4. Use the provided Jupyter notebooks or Python libraries to create a OLDMOS file.
-4. Start CFOUR with ZMAT, GENBAS, OLDMOS, and an empty file JFSGUESS present. 
+4. Use the provided Jupyter notebooks or Python libraries to create an OLDMOS file.
+4. Start CFOUR with ZMAT, GENBAS, OLDMOS, and an empty file JFSGUESS present.
+
+## Repository
+
+* lib : Python auxiliary functions.
+* dev : uncommented notebooks used for development
+* Samples : notebooks for creating OLDMOS with Psi4
+* CFOUR : scripts to run CFOUR with the standard core guess or with the OLDMOS guess 
