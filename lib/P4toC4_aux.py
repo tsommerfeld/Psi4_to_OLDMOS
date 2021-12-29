@@ -3,9 +3,7 @@
 """
 Created on Wed Dec 15 17:27:58 2021
 
-@author: thomas
-
-  
+@author: Thomas Sommerfeld
 
 """
 
@@ -206,10 +204,82 @@ def ao_offset(basisset, verbose=0):
     return offset
     
 
-def read_oldmos(fname, verbose = 1):
+def Cfour_irrep_order(n_psi, group, verbose=1):
+    """
+    reorders the the vector n_per_irepp from Psi4 into Cfour order
+    
+    cfour[map[i]] = psi[i]
+    
+    Parameters
+    ----------
+    n_psi: np.array(int); number of orbitals per irrep in Psi4
+    group : str; Schoenflies symbol; lower case
+    verbose : output level
+
+    Returns
+    -------
+    n_cfour; the reordered array according to Cfour convention
+    
+    --------
+    C1, C2, Cs, Ci : nothing to do
+    
+    C2v: A1, A2, B1, B2 -> A1, B1, B2, A2
+    C2h:   -> Ag, Au, Bu, Bg
+    D2:   -> A, B2, B1, B3
+    D2h:   -> Ag, B2u, B3u, B1g,   B1u, B2g, B3g, Au
+    """
+    #c2v = (0, 3, 1, 2)
+    if len(n_psi) < 4:
+        return n_psi
+
+
+def read_oldmos(fname, nmos, RHF=True, verbose=1):
+    """
+    read OLDMOS to compare with created PSIMOS
+    
+    The number of MOs per irrep are known
+
+    Parameters
+    ----------
+    fname : str; file name
+    nmos : np.array(int); number of MOs per irrep in Cfour-irrep order  
+    RHF : Bool; False = UHF
+    verbose : int; output level 
+
+    Returns
+    -------
+    a list with array of MO coefficients in Cfour-irrep order
+    """
+    Cs = []
+    if verbose > 0:
+        print('reading orbitals from '+fname)
+    file = open(fname)
+    lines = file.readlines()
+    file.close()
+
+    l = 0
+    nirrep = len(nmos)
+
+    for h in range(nirrep):
+        nc = nmos[h]
+        #print(h,nc)
+        Cs.append(np.zeros([nc,nc]))
+        for jmo in range(0, nc, 4):
+            #print(f'  jmo={jmo}')
+            for ao in range(0, nc):
+                #print(f'     jao={ao}, l={l}')
+                words = lines[l].split()
+                for i in range(len(words)):
+                    Cs[h][ao,jmo+i] = float(words[i])
+                l += 1
+
+    return Cs
+
+
+def read_oldmos_C1(fname, verbose = 1):
     """
     read a Cfour OLDMOS file
-    ASSUMES nAOs = nMOs
+    ASSUMES nAOs = nMOs and tries to work out nAOs
 
     Parameters
     ----------

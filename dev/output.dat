@@ -1,0 +1,183 @@
+
+*** tstart() called on laptop21
+*** at Wed Dec 29 17:18:40 2021
+
+   => Loading Basis Set <=
+
+    Name: STO-3G
+    Role: ORBITAL
+    Keyword: BASIS
+    atoms 1   entry O          line    81 file /home/thomas/anaconda3/envs/psi4/share/psi4/basis/sto-3g.gbs 
+    atoms 2-3 entry H          line    19 file /home/thomas/anaconda3/envs/psi4/share/psi4/basis/sto-3g.gbs 
+
+
+         ---------------------------------------------------------
+                                   SCF
+               by Justin Turney, Rob Parrish, Andy Simmonett
+                          and Daniel G. A. Smith
+                              RHF Reference
+                        1 Threads,    476 MiB Core
+         ---------------------------------------------------------
+
+  ==> Geometry <==
+
+    Molecular point group: cs
+    Full point group: Cs
+
+    Geometry (in Bohr), charge = 0, multiplicity = 1:
+
+       Center              X                  Y                   Z               Mass       
+    ------------   -----------------  -----------------  -----------------  -----------------
+         O           -0.005580556816     0.124770196240     0.000000000000    15.994914619570
+         H           -1.409609476816    -1.024054213760     0.000000000000     1.007825032230
+         H            1.498176963184    -0.956139343760     0.000000000000     1.007825032230
+
+  Running in cs symmetry.
+
+  Rotational constants: A =     27.02869  B =     14.11434  C =      9.27234 [cm^-1]
+  Rotational constants: A = 810299.65045  B = 423137.31641  C = 277977.73927 [MHz]
+  Nuclear repulsion =    9.073432657898776
+
+  Charge       = 0
+  Multiplicity = 1
+  Electrons    = 10
+  Nalpha       = 5
+  Nbeta        = 5
+
+  ==> Algorithm <==
+
+  SCF Algorithm Type is PK.
+  DIIS enabled.
+  MOM disabled.
+  Fractional occupation disabled.
+  Guess Type is SAD.
+  Energy threshold   = 1.00e-06
+  Density threshold  = 1.00e-08
+  Integral threshold = 0.00e+00
+
+  ==> Primary Basis <==
+
+  Basis Set: STO-3G
+    Blend: STO-3G
+    Number of shells: 5
+    Number of basis function: 7
+    Number of Cartesian functions: 7
+    Spherical Harmonics?: true
+    Max angular momentum: 1
+
+  ==> Pre-Iterations <==
+
+   -------------------------------------------------------
+    Irrep   Nso     Nmo     Nalpha   Nbeta   Ndocc  Nsocc
+   -------------------------------------------------------
+     A'         6       6       0       0       0       0
+     A"         1       1       0       0       0       0
+   -------------------------------------------------------
+    Total       7       7       5       5       5       0
+   -------------------------------------------------------
+
+  ==> Integral Setup <==
+
+  Using in-core PK algorithm.
+   Calculation information:
+      Number of atoms:                   3
+      Number of AO shells:               5
+      Number of primitives:             15
+      Number of atomic orbitals:         7
+      Number of basis functions:         7
+
+      Integral cutoff                 1.00e-12
+      Number of threads:                 1
+
+  Performing in-core PK
+  Using 812 doubles for integral storage.
+  We computed 120 shell quartets total.
+  Whereas there are 120 unique shell quartets.
+
+  ==> DiskJK: Disk-Based J/K Matrices <==
+
+    J tasked:                  Yes
+    K tasked:                  Yes
+    wK tasked:                  No
+    Memory [MiB]:              357
+    Schwarz Cutoff:          1E-12
+
+    OpenMP threads:              1
+
+  Minimum eigenvalue in the overlap matrix is 3.4999313141E-01.
+  Using Symmetric Orthogonalization.
+
+  SCF Guess: Superposition of Atomic Densities via on-the-fly atomic UHF.
+
+  ==> Iterations <==
+
+                        Total Energy        Delta E     RMS |[F,P]|
+
+   @RHF iter SAD:   -74.19092699810966   -7.41909e+01   0.00000e+00 
+   @RHF iter   1:   -74.91319749983586   -7.22271e-01   4.11630e-02 DIIS
+   @RHF iter   2:   -74.96294311380157   -4.97456e-02   6.32095e-03 DIIS
+   @RHF iter   3:   -74.96383722327374   -8.94109e-04   1.48745e-03 DIIS
+   @RHF iter   4:   -74.96390957097208   -7.23477e-05   1.47546e-04 DIIS
+   @RHF iter   5:   -74.96391080391855   -1.23295e-06   1.08274e-05 DIIS
+   @RHF iter   6:   -74.96391080918899   -5.27044e-09   5.57984e-07 DIIS
+   @RHF iter   7:   -74.96391080920252   -1.35287e-11   9.45573e-08 DIIS
+   @RHF iter   8:   -74.96391080920293   -4.12115e-13   1.58023e-09 DIIS
+  Energy and wave function converged.
+
+
+  ==> Post-Iterations <==
+
+    Orbital Energies [Eh]
+    ---------------------
+
+    Doubly Occupied:                                                      
+
+       1Ap   -20.242622     2Ap    -1.261486     3Ap    -0.611966  
+       4Ap    -0.450269     1App   -0.390086  
+
+    Virtual:                                                              
+
+       5Ap     0.591341     6Ap     0.729614  
+
+    Final Occupation by Irrep:
+             Ap   App 
+    DOCC [     4,    1 ]
+
+  @RHF Final Energy:   -74.96391080920293
+
+   => Energetics <=
+
+    Nuclear Repulsion Energy =              9.0734326578987758
+    One-Electron Energy =                -122.1618283131292202
+    Two-Electron Energy =                  38.1244848460275065
+    Total Energy =                        -74.9639108092029289
+
+Computation Completed
+
+
+Properties will be evaluated at   0.000000,   0.000000,   0.000000 [a0]
+
+Properties computed using the SCF density matrix
+
+  Nuclear Dipole Moment: [e a0]
+     X:     0.0439      Y:    -0.9820      Z:     0.0000
+
+  Electronic Dipole Moment: [e a0]
+     X:    -0.0271      Y:     0.3110      Z:     0.0000
+
+  Dipole Moment: [e a0]
+     X:     0.0168      Y:    -0.6710      Z:     0.0000     Total:     0.6712
+
+  Dipole Moment: [D]
+     X:     0.0427      Y:    -1.7056      Z:     0.0000     Total:     1.7061
+
+
+*** tstop() called on laptop21 at Wed Dec 29 17:18:40 2021
+Module time:
+	user time   =       0.17 seconds =       0.00 minutes
+	system time =       0.00 seconds =       0.00 minutes
+	total time  =          0 seconds =       0.00 minutes
+Total time:
+	user time   =       0.17 seconds =       0.00 minutes
+	system time =       0.00 seconds =       0.00 minutes
+	total time  =          0 seconds =       0.00 minutes
