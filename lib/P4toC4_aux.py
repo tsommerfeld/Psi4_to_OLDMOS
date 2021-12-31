@@ -9,7 +9,65 @@ Created on Wed Dec 15 17:27:58 2021
 
 import numpy as np
 import sys
-#import psi4
+import psi4
+
+
+
+def AO_MO_by_irrep(wfn, verbose=0):
+    """
+    creates the psi4.core.Matrix C_AO_pi; each entry in C_AO_pi.nph has
+        index 0: AOs
+        index 1: MO[irrep]
+
+    Parameters
+    ----------
+    wfn : psi4.core.wavefunction (so far RHF)
+
+    Returns
+    -------
+    psi4.core.Matrix C_AO_pi
+    
+    """
+    eps_pi = wfn.epsilon_a()
+    eps_by_sym = np.concatenate(eps_pi.nph)
+    j_sym2E = np.argsort(eps_by_sym)
+    n = len(j_sym2E)
+    j_E2sym = np.zeros(n, int)
+    for i in range(n):
+        j_E2sym[j_sym2E[i]] = i
+    if verbose > 1:
+        print(' MO  sym-to-E   E-to-sym')    
+        for i in range(n):    
+            print(f'{i:3d}   {j_sym2E[i]:7d}   {j_E2sym[i]:7d}')
+
+    C_AO_by_E = psi4.core.Matrix.array_interface(wfn.Ca_subset('AO','ALL'))[0]
+    C_AO_by_sym = C_AO_by_E[:,j_E2sym]
+    n_irrep = wfn.nirrep()
+    n_mo_pi = wfn.nmopi()
+    Ns = n_mo_pi.to_tuple()
+    irrep_lst = []
+    offset = 0
+    for i in range(n_irrep):
+        dim = Ns[i]
+        irrep_lst.append(C_AO_by_sym[:,offset:offset+dim])
+        offset += dim
+    C_AO_pi = psi4.core.Matrix.from_array(irrep_lst)
+
+    return C_AO_pi
+
+
+def AO_to_SO():
+    """
+    
+
+    Returns
+    -------
+    None.
+
+    """
+    
+
+
 
 
 def psi4_to_c4(Cp4, map_p2c, scale):
@@ -237,7 +295,8 @@ def read_oldmos(fname, nmos, RHF=True, verbose=1):
     """
     read OLDMOS to compare with created PSIMOS
     
-    The number of MOs per irrep are known
+    The number of MOs per irrep are known.
+    We assume square matrices.
 
     Parameters
     ----------
@@ -250,15 +309,25 @@ def read_oldmos(fname, nmos, RHF=True, verbose=1):
     -------
     a list with array of MO coefficients in Cfour-irrep order
     """
-    Cs = []
+    
+    """ Compute number of expected lines """
+    nirrep = len(nmos)
+    lexp = 0
+    for irrep in range(nirrep):
+        lexp += nmos[irrep] * (nmos[irrep]//4 + 1)
+
     if verbose > 0:
         print('reading orbitals from '+fname)
     file = open(fname)
     lines = file.readlines()
     file.close()
+    if len(lines) != lexp:
+        print(f'{len(lines)} lines read from {fname}.')
+        print(f'But {lexp} lines needed for n_mos_per_irrep vector.')
+        sys.exit('Error')
 
-    l = 0
-    nirrep = len(nmos)
+    l = 0 # line counter
+    Cs = []
 
     for h in range(nirrep):
         nc = nmos[h]

@@ -19,6 +19,8 @@ cp $CurrDir/../P4.BASIS $WorkDir/GENBAS
 #cp $CurrDir/PSIMOS $WorkDir/OLDMOS
 #touch $WorkDir/JFSGUESS
 
+BASIS=def2-SV
+
 cat >> ZMAT << EOF
 H2O
 O           -0.005580556816     0.124770196240     0.000000000000
@@ -31,12 +33,15 @@ BASIS=SPECIAL,SPHERICAL=ON
 REFERENCE=RHF
 MEM_SIZE=$mem_in_gb,MEM_UNIT=GB)
 
-O:STO-3G
-H:STO-3G
-H:STO-3G
+O:P4_$BASIS
+H:P4_$BASIS
+H:P4_$BASIS
 
 
 EOF
 
-xcfour
+xcfour > $CurrDir/runcs.$BASIS
+
+cp $WorkDir/OLDMOS $CurrDir/OLDMOS.Cs_$BASIS
+
 
