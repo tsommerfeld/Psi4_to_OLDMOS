@@ -51,50 +51,113 @@ def AO_MO_by_irrep(wfn, verbose=0):
         dim = Ns[i]
         irrep_lst.append(C_AO_by_sym[:,offset:offset+dim])
         offset += dim
-    C_AO_pi = psi4.core.Matrix.from_array(irrep_lst)
-
-    return C_AO_pi
-
-
-def AO_to_SO():
-    """
     
+    #C_AO_pi = psi4.core.Matrix.from_array(irrep_lst)
+    return psi4.core.Matrix.from_array(irrep_lst)
 
-    Returns
-    -------
-    None.
 
+def AO_to_SO(C_AO_pi, wfn):
     """
-    
-
-
-
-
-def psi4_to_c4(Cp4, map_p2c, scale):
-    """
-    reorder the Psi4_MOs into Cfour order based on map_p2c[]
-    Cfour4_MO[map_p2c[i]] = Psi4_MO[i]
+    transforms n_irrep blocks of Psi4-MOs from the Psi4-AO 
+    to the Psi4-SO representation
 
     Parameters
     ----------
-    Cp4 : np.array(nbf, nbf) Psi4MOs    
-    map_p2c : np.array(nbf) mapping vector Psi4 to Cfour
-    scale : np.array(nbf) scaling vector Psi4 to Cfour
+    C_AO_pi : psi4.core.Matrix C[AO:MO[irrep]]
+    wfn : psi4.core.wavefunction (tested for RHF)
 
     Returns
     -------
-    Cc4:  np.array(nbf, nbf) Cfour4MOs
+    psi4.coreMatrix C[SO:MO[irrep]]
+
+    """
+    Ls = wfn.aotoso()
+    n_irrep = wfn.nirrep()
+    irrep_lst = []
+    for sym in range(n_irrep):
+        L, C = Ls.nph[sym], C_AO_pi.nph[sym]
+        irrep_lst.append( np.matmul(np.transpose(L), C) )
+    return psi4.core.Matrix.from_array(irrep_lst)
+
+
+"""
+
+This function doesn't change the outcome of the transformation.
+We keep Psi4 order, it is simply a sum over AOs, no matter in which
+order.
+
+In other words, Cfour really uses a different SO order, and I have no clue
+what that order would be.
+
+
+
+
+"""
+
+
+def AO_to_Cfour_SO(C_AO_pi, wfn, map_p2c, scale):
+    """
+    transforms n_irrep blocks of Psi4-MOs from the Psi4-AO to the 
+    Cfour-SO representation
+
+    Parameters
+    ----------
+    C_AO_pi : psi4.core.Matrix C[AO:MO[irrep]]
+    wfn : psi4.core.wavefunction (tested for RHF)
+    map_p2c: np.array[AO]
+    scale:np.array[AO]
+    Cfour4_MO[map_p2c[i]] = Psi4_MO[i]/scale[i]
+    Cfour_AO_to_SO[map_p2c[i]] = Psi4_AO_to_SO[i]
+
+    Returns
+    -------
+    psi4.coreMatrix C[SO:MO[irrep]]
+    same dimensions as Psi4 MOs, but reordered and scaled
+
+    """
+    Ls = wfn.aotoso()
+    n_irrep = wfn.nirrep()
+    irrep_lst = []
+    for sym in range(n_irrep):
+        #L = Ls.nph[sym]
+        L = psi4_to_c4(Ls.nph[sym], map_p2c, scale, use_scale=False)
+        #C = C_AO_pi.nph[sym]
+        C = psi4_to_c4(C_AO_pi.nph[sym], map_p2c, scale, use_scale=True)
+        irrep_lst.append( np.matmul(np.transpose(L), C) )
+    return psi4.core.Matrix.from_array(irrep_lst)
+
+
+def psi4_to_c4(Cp4, map_p2c, scale, use_scale=True):
+    """
+    reorder the Psi4_Matrix C into Cfour order based on map_p2c[]
+    Cfour4_C[map_p2c[i]] = Psi4_C[i]/scale[i]  [default, for MOs]
+    Cfour4_C[map_p2c[i]] = Psi4_C[i]           [for AO_to_SO matrix]
+    
+    Parameters
+    ----------
+    Cp4 : np.array(nao, nmo) Psi4-matrix C    
+    map_p2c : np.array(nao) mapping vector Psi4 to Cfour
+    scale : np.array(nao) scaling vector Psi4 to Cfour
+    use_scale: bool; don't use scale if reordering a AO-to-SO matrix
+
+    Returns
+    -------
+    Cc4:  np.array(nao, nmo) Cfour4-matrix C
 
     """
     nbf = len(map_p2c)
-    n, m = Cp4.shape
-    if n != nbf or m != m:
-        msg = 'Error in psi4_to_c4: inconsistent dimensions %d %d %d' % (nbf, n, m)
+    n_ao, n_mo = Cp4.shape
+    if n_ao != nbf:
+        msg = 'Error in psi4_to_c4: inconsistent AO-dimensions %d %d' % (nbf, n_ao)
         sys.exit(msg)
     
-    Cc4=np.zeros((nbf,nbf))
-    for i in range(nbf):
-        Cc4[map_p2c[i],:] = Cp4[i,:]/scale[i]
+    Cc4=np.zeros((n_ao,n_mo))
+    if use_scale:
+        for i in range(n_ao):
+            Cc4[map_p2c[i],:] = Cp4[i,:]/scale[i]
+    else:
+        for i in range(n_ao):
+            Cc4[map_p2c[i],:] = Cp4[i,:]        
     return Cc4
 
 
