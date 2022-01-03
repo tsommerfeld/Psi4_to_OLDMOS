@@ -1,14 +1,14 @@
 
 *** tstart() called on laptop21
-*** at Fri Dec 31 10:13:05 2021
+*** at Sat Jan  1 20:34:58 2022
 
    => Loading Basis Set <=
 
-    Name: DEF2-SV
+    Name: STO-3G
     Role: ORBITAL
     Keyword: BASIS
-    atoms 1   entry O          line   126 file /home/thomas/anaconda3/envs/psi4/share/psi4/basis/def2-sv.gbs 
-    atoms 2-3 entry H          line    21 file /home/thomas/anaconda3/envs/psi4/share/psi4/basis/def2-sv.gbs 
+    atoms 1-2 entry H          line    19 file /home/thomas/anaconda3/envs/psi4/share/psi4/basis/sto-3g.gbs 
+    atoms 3-4 entry HE         line    25 file /home/thomas/anaconda3/envs/psi4/share/psi4/basis/sto-3g.gbs 
 
 
          ---------------------------------------------------------
@@ -22,27 +22,28 @@
   ==> Geometry <==
 
     Molecular point group: cs
-    Full point group: C2v
+    Full point group: Cs
 
-    Geometry (in Angstrom), charge = 0, multiplicity = 1:
+    Geometry (in Bohr), charge = 0, multiplicity = 1:
 
        Center              X                  Y                   Z               Mass       
     ------------   -----------------  -----------------  -----------------  -----------------
-         O            0.000000000000     0.000000000000    -0.065775570547    15.994914619570
-         H            0.000000000000    -0.759061990794     0.521953018286     1.007825032230
-         H            0.000000000000     0.759061990794     0.521953018286     1.007825032230
+         H           -1.143562933067    -1.241346651963     0.755890610000     1.007825032230
+         H           -1.143562933067    -1.241346651963    -0.755890610000     1.007825032230
+         HE          -1.814088223067     0.525419368037     0.000000000000     4.002603254130
+         HE           2.389969106933     0.099703908037     0.000000000000     4.002603254130
 
   Running in cs symmetry.
 
-  Rotational constants: A =     27.26297  B =     14.51533  C =      9.47217 [cm^-1]
-  Rotational constants: A = 817323.21126  B = 435158.60141  C = 283968.37536 [MHz]
-  Nuclear repulsion =    9.168193296424349
+  Rotational constants: A =     11.14303  B =      1.51170  C =      1.40255 [cm^-1]
+  Rotational constants: A = 334059.63734  B =  45319.59940  C =  42047.37133 [MHz]
+  Nuclear repulsion =    4.611208230113766
 
   Charge       = 0
   Multiplicity = 1
-  Electrons    = 10
-  Nalpha       = 5
-  Nbeta        = 5
+  Electrons    = 6
+  Nalpha       = 3
+  Nbeta        = 3
 
   ==> Algorithm <==
 
@@ -57,42 +58,42 @@
 
   ==> Primary Basis <==
 
-  Basis Set: DEF2-SV
-    Blend: DEF2-SV
-    Number of shells: 9
-    Number of basis function: 13
-    Number of Cartesian functions: 13
+  Basis Set: STO-3G
+    Blend: STO-3G
+    Number of shells: 4
+    Number of basis function: 4
+    Number of Cartesian functions: 4
     Spherical Harmonics?: true
-    Max angular momentum: 1
+    Max angular momentum: 0
 
   ==> Pre-Iterations <==
 
    -------------------------------------------------------
     Irrep   Nso     Nmo     Nalpha   Nbeta   Ndocc  Nsocc
    -------------------------------------------------------
-     A'        11      11       0       0       0       0
-     A"         2       2       0       0       0       0
+     A'         3       3       0       0       0       0
+     A"         1       1       0       0       0       0
    -------------------------------------------------------
-    Total      13      13       5       5       5       0
+    Total       4       4       3       3       3       0
    -------------------------------------------------------
 
   ==> Integral Setup <==
 
   Using in-core PK algorithm.
    Calculation information:
-      Number of atoms:                   3
-      Number of AO shells:               9
-      Number of primitives:             19
-      Number of atomic orbitals:        13
-      Number of basis functions:        13
+      Number of atoms:                   4
+      Number of AO shells:               4
+      Number of primitives:             12
+      Number of atomic orbitals:         4
+      Number of basis functions:         4
 
       Integral cutoff                 1.00e-12
       Number of threads:                 1
 
   Performing in-core PK
-  Using 8372 doubles for integral storage.
-  We computed 1035 shell quartets total.
-  Whereas there are 1035 unique shell quartets.
+  Using 110 doubles for integral storage.
+  We computed 55 shell quartets total.
+  Whereas there are 55 unique shell quartets.
 
   ==> DiskJK: Disk-Based J/K Matrices <==
 
@@ -104,7 +105,7 @@
 
     OpenMP threads:              1
 
-  Minimum eigenvalue in the overlap matrix is 6.2573883350E-02.
+  Minimum eigenvalue in the overlap matrix is 3.7919254517E-01.
   Using Symmetric Orthogonalization.
 
   SCF Guess: Superposition of Atomic Densities via on-the-fly atomic UHF.
@@ -113,17 +114,9 @@
 
                         Total Energy        Delta E     RMS |[F,P]|
 
-   @RHF iter SAD:   -75.45376239882586   -7.54538e+01   0.00000e+00 
-   @RHF iter   1:   -75.83543894883941   -3.81677e-01   3.72361e-02 DIIS
-   @RHF iter   2:   -75.89412761747244   -5.86887e-02   2.20710e-02 DIIS
-   @RHF iter   3:   -75.91522847564904   -2.11009e-02   1.87894e-03 DIIS
-   @RHF iter   4:   -75.91561937031739   -3.90895e-04   2.77924e-04 DIIS
-   @RHF iter   5:   -75.91562837085814   -9.00054e-06   4.55253e-05 DIIS
-   @RHF iter   6:   -75.91562868515956   -3.14301e-07   6.54831e-06 DIIS
-   @RHF iter   7:   -75.91562869239846   -7.23890e-09   1.45819e-06 DIIS
-   @RHF iter   8:   -75.91562869280926   -4.10807e-10   2.88590e-07 DIIS
-   @RHF iter   9:   -75.91562869282171   -1.24487e-11   2.64056e-08 DIIS
-   @RHF iter  10:   -75.91562869282183   -1.13687e-13   2.05498e-09 DIIS
+   @RHF iter SAD:    -6.53727551444749   -6.53728e+00   0.00000e+00 
+   @RHF iter   1:    -6.48165793168291    5.56176e-02   5.03657e-17 DIIS
+   @RHF iter   2:    -6.48165793168291    0.00000e+00   1.27255e-16 DIIS
   Energy and wave function converged.
 
 
@@ -134,27 +127,24 @@
 
     Doubly Occupied:                                                      
 
-       1Ap   -20.549158     2Ap    -1.336525     3Ap    -0.709974  
-       4Ap    -0.561479     1App   -0.505683  
+       1Ap    -0.988890     2Ap    -0.874268     3Ap    -0.392172  
 
     Virtual:                                                              
 
-       5Ap     0.165461     6Ap     0.250844     7Ap     0.809341  
-       8Ap     0.921688     2App    1.195218     9Ap     1.220830  
-      10Ap     1.384398    11Ap     1.434381  
+       1App    0.593452  
 
     Final Occupation by Irrep:
              Ap   App 
-    DOCC [     4,    1 ]
+    DOCC [     3,    0 ]
 
-  @RHF Final Energy:   -75.91562869282183
+  @RHF Final Energy:    -6.48165793168291
 
    => Energetics <=
 
-    Nuclear Repulsion Energy =              9.1681932964243487
-    One-Electron Energy =                -122.8420058946134787
-    Two-Electron Energy =                  37.7581839053673107
-    Total Energy =                        -75.9156286928218265
+    Nuclear Repulsion Energy =              4.6112082301137658
+    One-Electron Energy =                 -17.6750718479672813
+    Two-Electron Energy =                   6.5822056861706031
+    Total Energy =                         -6.4816579316829124
 
 Computation Completed
 
@@ -164,24 +154,24 @@ Properties will be evaluated at   0.000000,   0.000000,   0.000000 [a0]
 Properties computed using the SCF density matrix
 
   Nuclear Dipole Moment: [e a0]
-     X:     0.0000      Y:     0.0000      Z:     0.9783
+     X:    -1.1354      Y:    -1.2324      Z:     0.0000
 
   Electronic Dipole Moment: [e a0]
-     X:     0.0000      Y:    -0.0000      Z:     0.0273
+     X:     1.0972      Y:     1.3670      Z:     0.0000
 
   Dipole Moment: [e a0]
-     X:     0.0000      Y:    -0.0000      Z:     1.0056     Total:     1.0056
+     X:    -0.0382      Y:     0.1345      Z:     0.0000     Total:     0.1398
 
   Dipole Moment: [D]
-     X:     0.0000      Y:    -0.0000      Z:     2.5561     Total:     2.5561
+     X:    -0.0970      Y:     0.3419      Z:     0.0000     Total:     0.3554
 
 
-*** tstop() called on laptop21 at Fri Dec 31 10:13:06 2021
+*** tstop() called on laptop21 at Sat Jan  1 20:34:58 2022
 Module time:
 	user time   =       0.18 seconds =       0.00 minutes
-	system time =       0.01 seconds =       0.00 minutes
-	total time  =          1 seconds =       0.02 minutes
+	system time =       0.00 seconds =       0.00 minutes
+	total time  =          0 seconds =       0.00 minutes
 Total time:
 	user time   =       0.18 seconds =       0.00 minutes
-	system time =       0.01 seconds =       0.00 minutes
-	total time  =          1 seconds =       0.02 minutes
+	system time =       0.00 seconds =       0.00 minutes
+	total time  =          0 seconds =       0.00 minutes
