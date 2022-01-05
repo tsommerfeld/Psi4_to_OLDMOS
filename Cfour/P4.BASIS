@@ -140,7 +140,7 @@ Psi4 basis DEF2-SVP for element HE atom 3
 
 
 
-H:P4_PVDZ
+H:P4_CC-PVDZ
 Psi4 basis CC-PVDZ for element H atom 2
 
   2
@@ -160,7 +160,7 @@ Psi4 basis CC-PVDZ for element H atom 2
  1.0000000
 
 
-O:P4_PVDZ
+O:P4_CC-PVDZ
 Psi4 basis CC-PVDZ for element O atom 1
 
   3
@@ -193,7 +193,7 @@ Psi4 basis CC-PVDZ for element O atom 1
  1.0000000
 
 
-H:P4_AUG2
+H:P4_AUG-CC-PVDZ
 Psi4 basis AUG-CC-PVDZ for element H atom 2
 
   2
@@ -215,7 +215,7 @@ Psi4 basis AUG-CC-PVDZ for element H atom 2
  0.0000000  1.0000000
 
 
-O:P4_AUG2
+O:P4_AUG-CC-PVDZ
 Psi4 basis AUG-CC-PVDZ for element O atom 1
 
   3
@@ -251,7 +251,7 @@ Psi4 basis AUG-CC-PVDZ for element O atom 1
  0.0000000  1.0000000
 
 
-H:P4_PVTZ
+H:P4_CC-PVTZ
 Psi4 basis CC-PVTZ for element H atom 2
 
   3
@@ -277,7 +277,7 @@ Psi4 basis CC-PVTZ for element H atom 2
  1.0000000 
 
 
-O:P4_PVTZ
+O:P4_CC-PVTZ
 Psi4 basis MY_BASISSPEC for element O atom 1
 
   4

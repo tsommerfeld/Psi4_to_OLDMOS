@@ -1,3 +1,5 @@
+Basis is STO-3G
+Core-guess
  --invoking executable--
 /home/thomas/Packages/cfour19/bin/xjoda
 
@@ -24,27 +26,29 @@
                        Version 1.2
 
                      laptop21                                          
-                     Tue 21 Dec 2021 07:24:59 PM CST                   
+                     Wed 05 Jan 2022 01:58:33 PM CST                   
                      integer*8 version is running
 
 ********************************************************************************
 *                          Input from ZMAT file                                *
 ********************************************************************************
 H2O                                                                             
-O            0.000000000000     0.000000000000    -0.065775570547               
-H            0.000000000000    -0.759061990794     0.521953018286               
-H            0.000000000000     0.759061990794     0.521953018286               
+O                                                                               
+H 1 R                                                                           
+H 1 R 2 A                                                                       
+                                                                                
+R=0.96                                                                          
+A=104.5                                                                         
                                                                                 
 *CFOUR(CALC=SCF                                                                 
-COORDIANTES=CARTESIAN                                                           
 SYMMETRY=OFF                                                                    
 BASIS=SPECIAL,SPHERICAL=ON                                                      
 REFERENCE=RHF                                                                   
 MEM_SIZE=2,MEM_UNIT=GB)                                                         
                                                                                 
-O:P4_PVDZ                                                                       
-H:P4_PVDZ                                                                       
-H:P4_PVDZ                                                                       
+O:P4_STO-3G                                                                     
+H:P4_STO-3G                                                                     
+H:P4_STO-3G                                                                     
                                                                                 
 ********************************************************************************
     -------------------------------------------------------------------
@@ -99,7 +103,7 @@ H:P4_PVDZ
        CONSTANT             ICONST         OLD         [  1]    ***   
        CONTINUUM            ICONTU         NONE        [  0]    ***   
        CONTRACTION          ICNTYP         GENERAL     [  1]    ***   
-       COORDINATES          ICOORD         CARTESIAN   [  1]    ***   
+       COORDINATES          ICOORD         INTERNAL    [  0]    ***   
        CPHF_CONVER          ICPHFT          10D- 16             ***   
        CPHF_MAXCYC          ICPHFC             64              cycles 
        CUBIC                ICUBIC         OFF         [  0]    ***   
@@ -293,25 +297,52 @@ H:P4_PVDZ
        ZSCALE_EXP           IZEXPS         OFF         [  0]    ***   
     -------------------------------------------------------------------
  cholesky/tol? F   1.0000000000000005E-004
-  @GETXYZ-I,     3 atoms read from ZMAT.
+   3 entries found in Z-matrix 
+   Job Title : H2O                                                                             
+   There are  2 unique internal coordinates.
+   Of these,  0 will be optimized.
+   User supplied Z-matrix: 
+--------------------------------------------------------------------------------
+       SYMBOL    BOND      LENGTH    ANGLE     ANGLE     DIHED     ANGLE
+                  TO      (ANGST)    WRT      (DEG)      WRT      (DEG)
+--------------------------------------------------------------------------------
+        O    
+        H          1         R    
+        H          1         R          2        A    
+                  *Initial values for internal coordinates* 
+                      Name             Value
+                        R               0.9600000000
+                        A             104.5000000000
+--------------------------------------------------------------------------------
 Line Symbol    AtNr   At. Mass
   1  O          8    15.99491
   2  H          1     1.00783
   3  H          1     1.00783
-Line Symbol    AtNr   At. Mass
-  1  O          8    15.99491
-  2  H          1     1.00783
-  3  H          1     1.00783
-                    1                    4                    0
+                    1                    4                    3
    Rotational constants (in cm-1): 
           9.4721666755            14.5153304387            27.2629713647
    Rotational constants (in MHz): 
-     283968.4528055855        435158.7200552447        817323.4342849226
+     283968.4528055178        435158.7200551420        817323.4342847244
 ********************************************************************************
    The full molecular point group is C2v .
    The largest Abelian subgroup of the full molecular point group is C2v .
    The computational point group is C1  .
 ********************************************************************************
+--------------------------------------------------------------------------------
+   Analysis of internal coordinates specified by Z-matrix 
+--------------------------------------------------------------------------------
+   *The nuclear repulsion energy is    9.168191379025162 a.u.
+   *There are   2 degrees of freedom within the tot. symm. molecular subspace.
+   *Z-matrix requests optimization of   0 coordinates.
+   *The optimization is constrained.
+   *The following   2 parameters can have non-zero 
+    derivatives within the totally symmetric subspace:
+             A    [ 3]  R    [ 1]
+   *The following   0 parameters are to be optimized:
+
+   *The following coordinates must be varied in an  unconstrained optimization.
+             A    [ 3]  R    [ 1]
+--------------------------------------------------------------------------------
 
 
  ----------------------------------------------------------------
@@ -320,9 +351,9 @@ Line Symbol    AtNr   At. Mass
  Z-matrix   Atomic            Coordinates (in bohr)
   Symbol    Number           X              Y              Z
  ----------------------------------------------------------------
-     O         8         0.00000000     0.00000000    -0.12429784
-     H         1         0.00000000    -1.43441957     0.98634846
-     H         1         0.00000000     1.43441957     0.98634846
+     O         8        -0.00000000     0.00000000     0.12429784
+     H         1         0.00000000    -1.43441957    -0.98634846
+     H         1         0.00000000     1.43441957    -0.98634846
  ----------------------------------------------------------------
 
    Interatomic distance matrix (Angstroms) 
@@ -335,7 +366,7 @@ Line Symbol    AtNr   At. Mass
    Rotational constants (order x, y, z, in cm-1): 
           9.4721666755            27.2629713647            14.5153304387
    Rotational constants (order x, y, z, in MHz): 
-     283968.4528055855        817323.4342849226        435158.7200552447
+     283968.4528055178        817323.4342847244        435158.7200551418
   ECPDATA file not present.   Using default ECPDATA. 
  cholesky/tol? F   1.0000000000000005E-004
   calling rdbas                     1
@@ -347,10 +378,10 @@ Line Symbol    AtNr   At. Mass
   calling rdbas                     3
   in rdbas
   in rdbas
-  There are   24 basis functions.
+  There are    7 basis functions.
  @GEOPT-W, Archive file not created for single-point calculation.
  @CHECKOUT-I, Total execution time (CPU/WALL):         0.14/       0.08 seconds.
---executable xjoda finished with status     0 in        0.14 seconds (walltime).
+--executable xjoda finished with status     0 in        0.13 seconds (walltime).
   TWOST is  F                    5
     0    0    0    7    7   11  100    8    0    1
     0    5    5   15    0  150  999    0    0   10
@@ -358,7 +389,7 @@ Line Symbol    AtNr   At. Mass
    64    0    0    1    0***** 4096    0    0    2
     0    0    0   10    0    0    5    5    1    0
     0    0  300    0    0    1    0    0    1    1
-    0    1    0    0    0    0    0    1    1    0
+    0    1    0    0    0    0    0    0    1    0
     0    0    0    0    0    4    0    0    0    1
     0    0    0    1    0    0    0    7    0    0
     0   50    0    0    1    1   40    5    0    0
@@ -376,43 +407,31 @@ INTGRL        1    0    1    0    0    0    0    0    0
 H2O                                                                             
     3    0            0.10E-08              0    0                              
    9999.00      3.00                                                            
-          8.00000000    1    3    1    1    1                                   
-O #1   0.000000000000000   0.000000000000000  -0.124297840306181                
-    9    3                                                                      
-   11720.000000000000        7.1000000000000002E-004  -1.6000000000000001E-004  
-   1759.0000000000000        5.4700000000000000E-003  -1.2630000000000000E-003  
-   400.80000000000001        2.7837000000000001E-002  -6.2670000000000000E-003  
-   113.70000000000000       0.10480000000000000       -2.5715999999999999E-002  
-   37.030000000000001       0.28306199999999998       -7.0924000000000001E-002  
-   13.270000000000000       0.44871899999999998      -0.16541100000000000       
-   5.0250000000000004       0.27095200000000003      -0.11695500000000000       
-   1.0129999999999999        1.5458000000000000E-002  0.55736799999999997       
-  0.30230000000000001        0.0000000000000000        0.0000000000000000       
-    4    2                                                                      
-   17.699999999999999        4.3018000000000001E-002   0.0000000000000000       
-   3.8540000000000001       0.22891300000000001        0.0000000000000000       
-   1.0460000000000000       0.50872799999999996        0.0000000000000000       
-  0.27529999999999999        0.0000000000000000        1.0000000000000000       
-    1    1                                                                      
-   1.1850000000000001        1.0000000000000000                                 
-          1.00000000    1    2    1    1                                        
-H #2   0.000000000000000  -1.434419574834210   0.986348460966115                
-    4    2                                                                      
-   13.010000000000000        1.9685000000000001E-002   0.0000000000000000       
-   1.9620000000000000       0.13797699999999999        0.0000000000000000       
-  0.44460000000000000       0.47814800000000002        0.0000000000000000       
-  0.12200000000000000        0.0000000000000000        1.0000000000000000       
-    1    1                                                                      
-  0.72699999999999998        1.0000000000000000                                 
-          1.00000000    1    2    1    1                                        
-H #3   0.000000000000000   1.434419574834210   0.986348460966115                
-    4    2                                                                      
-   13.010000000000000        1.9685000000000001E-002   0.0000000000000000       
-   1.9620000000000000       0.13797699999999999        0.0000000000000000       
-  0.44460000000000000       0.47814800000000002        0.0000000000000000       
-  0.12200000000000000        0.0000000000000000        1.0000000000000000       
-    1    1                                                                      
-  0.72699999999999998        1.0000000000000000                                 
+          8.00000000    1    2    1    1                                        
+O #1  -0.000000000000000   0.000000000000000   0.124297840306196                
+    6    2                                                                      
+   130.70931999999999       0.15432899999999999        0.0000000000000000       
+   23.808861000000000       0.53532809999999997        0.0000000000000000       
+   6.4436083000000002       0.44463449999999999        0.0000000000000000       
+   5.0331513000000001        0.0000000000000000       -9.9967200000000006E-002  
+   1.1695960999999999        0.0000000000000000       0.39951280000000000       
+  0.38038899999999998        0.0000000000000000       0.70011550000000000       
+    3    1                                                                      
+   5.0331513000000001       0.15591630000000001                                 
+   1.1695960999999999       0.60768370000000005                                 
+  0.38038899999999998       0.39195740000000001                                 
+          1.00000000    1    1    1                                             
+H #2   0.000000000000000  -1.434419574834380  -0.986348460966234                
+    3    1                                                                      
+   3.4252509000000000       0.15432899999999999                                 
+  0.62391370000000002       0.53532809999999997                                 
+  0.16885539999999999       0.44463449999999999                                 
+          1.00000000    1    1    1                                             
+H #3   0.000000000000001   1.434419574834379  -0.986348460966236                
+    3    1                                                                      
+   3.4252509000000000       0.15432899999999999                                 
+  0.62391370000000002       0.53532809999999997                                 
+  0.16885539999999999       0.44463449999999999                                 
 FINISH                                                                          
 
 ********************************************************************************
@@ -422,33 +441,13 @@ FINISH
   
   INTEGRALS LESS THAN  0.10E-13 ARE NEGLECTED.
 
-   BASIS FUNCTION NOT NORMALIZED: 
-   CENTER (AS ORDERED IN MOL FILE):   1
-   ANGULAR MOMENTUM TYPE          : S
-   OFFSET WITHIN ANGULAR MOMENTUM :  2
-   <CHI|CHI>                      :    1.9652713231
-   BASIS FUNCTION NOT NORMALIZED: 
-   CENTER (AS ORDERED IN MOL FILE):   1
-   ANGULAR MOMENTUM TYPE          : P
-   OFFSET WITHIN ANGULAR MOMENTUM :  1
-   <CHI|CHI>                      :    1.4570451039
-   BASIS FUNCTION NOT NORMALIZED: 
-   CENTER (AS ORDERED IN MOL FILE):   2
-   ANGULAR MOMENTUM TYPE          : S
-   OFFSET WITHIN ANGULAR MOMENTUM :  1
-   <CHI|CHI>                      :    1.7017387041
-   BASIS FUNCTION NOT NORMALIZED: 
-   CENTER (AS ORDERED IN MOL FILE):   3
-   ANGULAR MOMENTUM TYPE          : S
-   OFFSET WITHIN ANGULAR MOMENTUM :  1
-   <CHI|CHI>                      :    1.7017387041
   NUCLEAR REPULSION ENERGY :    9.1681913790 A.U.
   @MOLECU-I, ONE ELECTRON INTEGRALS (CPU/WALL):        0.00/       0.00 SECONDS.
-  @TWOEL-I,      21643 INTEGRALS OF SYMMETRY TYPE  I I I I
-  @TWOEL-I, TOTAL NUMBER OF 2-E INTEGRALS      21643.
-  @MOLECU-I, TWO ELECTRON INTEGRALS (CPU/WALL):        0.03/       0.01 SECONDS.
- @CHECKOUT-I, Total execution time (CPU/WALL):         0.03/       0.01 seconds.
---executable xvmol finished with status     0 in        0.02 seconds (walltime).
+  @TWOEL-I,        228 INTEGRALS OF SYMMETRY TYPE  I I I I
+  @TWOEL-I, TOTAL NUMBER OF 2-E INTEGRALS        228.
+  @MOLECU-I, TWO ELECTRON INTEGRALS (CPU/WALL):        0.00/       0.00 SECONDS.
+ @CHECKOUT-I, Total execution time (CPU/WALL):         0.00/       0.00 seconds.
+--executable xvmol finished with status     0 in        0.01 seconds (walltime).
  --invoking executable--
 /home/thomas/Packages/cfour19/bin/xvmol2ja
  @GETMEM-I,  Allocated    1907 MB of main memory.
@@ -460,12 +459,12 @@ FINISH
   Self-Consistent-Field Program for HF calculations
   -------------------------------------------------
     Integrals from VMOL are used
-  There are   24 functions in the AO basis.
+  There are    7 functions in the AO basis.
 
   There are 1 irreducible representations.
 
        Irrep        # of functions
-         1                 24
+         1                  7
 
 
   occupations read                     0                    0                    0                    0                    0                    0                    0                    0                    0                    0                    0                    0                    0                    0                    0                    0
@@ -484,7 +483,7 @@ FINISH
  @GETMEM-I,  Allocated       0 MB of main memory.
    Smallest overlap matrix eigenvalues 
      Symmetry    Eigenvalue    
-         1      .3467282811D-01              
+         1      .3440530847D+00              
   gssopt is  F
   going down and gssopt F
   isther here  F
@@ -499,20 +498,15 @@ FINISH
   --------------------------------------------------------------------
   Iteration         Total Energy            Largest Density Difference
   --------------------------------------------------------------------
-       0             9.168191379026256              0.0000000000D+00
-       1           -68.876881042766456              0.2595635199D+01
-       2           -69.946906279292705              0.7103953397D+01
-       3           -75.738503961652171              0.7099857186D+01
-       4           -76.001690756335137              0.1985419020D+00
-       5           -76.026367058141190              0.7200594918D-01
-       6           -76.026611222246743              0.9544872416D-02
-       7           -76.026651944269503              0.5157119169D-02
-       8           -76.026653559898378              0.9220415287D-03
-       9           -76.026653649528967              0.2044887482D-03
-      10           -76.026653650277893              0.2700878851D-04
-      11           -76.026653650327248              0.6008032442D-05
-      12           -76.026653650328399              0.8468911371D-06
-      13           -76.026653650328399              0.1251385505D-06
+       0             9.168191379025162              0.0000000000D+00
+       1           -73.233933017227685              0.2729789564D+01
+       2           -74.945453088950288              0.1751549080D+01
+       3           -74.962389857094948              0.1432436581D+00
+       4           -74.963279834311152              0.6333762220D-01
+       5           -74.963317068388974              0.8992704845D-02
+       6           -74.963319077814020              0.2218347581D-02
+       7           -74.963319097761044              0.2350819108D-03
+       8           -74.963319097761044              0.2608416687D-06
    final occupation vector 
      5
      5
@@ -520,8 +514,8 @@ FINISH
   SCF has converged.
 
  Density matrix saved to file den.dat
- total electron number:   10.000000000000005     
-     E(SCF)=       -76.026653650328484              0.1558090390D-07
+ total electron number:   10.000000000000000     
+     E(SCF)=       -74.963319097761030              0.8814768915D-08
 
   Eigenvector printing suppressed.
 
@@ -532,38 +526,21 @@ FINISH
 
        MO #        E(hartree)               E(eV)           FULLSYM    COMPSYM
        ----   --------------------   --------------------   -------   ---------
-    1     1         -20.5509187759        -559.2188996131      A1         A (1)
-    2     2          -1.3353044533         -36.3354794572      A1         A (1)
-    3     3          -0.6977989659         -18.9880741654      B2         A (1)
-    4     4          -0.5660898287         -15.4040865287      A1         A (1)
-    5     5          -0.4929537405         -13.4139525006      B1         A (1)
+    1     1         -20.2420985927        -550.8154756621      A1         A (1)
+    2     2          -1.2669979733         -34.4767657433      A1         A (1)
+    3     3          -0.6164226546         -16.7737122795      B2         A (1)
+    4     4          -0.4527034384         -12.3186861598      A1         A (1)
+    5     5          -0.3910740704         -10.6416658875      B1         A (1)
   +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    6     6           0.1851025009           5.0368948456      A1         A (1)
-    7     7           0.2558493951           6.9620156040      B2         A (1)
-    8     8           0.7873010043          21.4235483130      B2         A (1)
-    9     9           0.8517973748          23.1785836827      A1         A (1)
-   10    10           1.1637087998          31.6661245937      A1         A (1)
-   11    11           1.2003524690          32.6632494709      B1         A (1)
-   12    12           1.2534793131          34.1089043168      B2         A (1)
-   13    13           1.4449176730          39.3182066426      A1         A (1)
-   14    14           1.4755883649          40.1527985532      A2         A (1)
-   15    15           1.6740827970          45.5541063556      B1         A (1)
-   16    16           1.8678607230          50.8270715060      A1         A (1)
-   17    17           1.9319543243          52.5711469689      B2         A (1)
-   18    18           2.4463794480          66.5693654804      B2         A (1)
-   19    19           2.4835235687          67.5801083358      A1         A (1)
-   20    20           3.2833050730          89.3432683014      B1         A (1)
-   21    21           3.3361692972          90.7817768960      A2         A (1)
-   22    22           3.5069605504          95.4292429156      A1         A (1)
-   23    23           3.8628247426         105.1127993594      A1         A (1)
-   24    24           4.1444539826         112.7763201695      B2         A (1)
+    6     6           0.6029182664          16.4062392129      A1         A (1)
+    7     7           0.7390167279          20.1096664283      B2         A (1)
 
 
   iflags(77) is                     0
   iflags(38) is                     0
   VSCF finished.
 
- @CHECKOUT-I, Total execution time (CPU/WALL):         0.02/       0.01 seconds.
+ @CHECKOUT-I, Total execution time (CPU/WALL):         0.01/       0.00 seconds.
 --executable xvscf finished with status     0 in        0.01 seconds (walltime).
-  The final electronic energy is       -76.026653650328484 a.u. 
-  This computation required                            0.18 seconds (walltime).
+  The final electronic energy is       -74.963319097761030 a.u. 
+  This computation required                            0.16 seconds (walltime).
