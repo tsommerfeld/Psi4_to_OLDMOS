@@ -1,3 +1,5 @@
+Basis is CC-PVDZ
+Core-guess
  --invoking executable--
 /home/thomas/Packages/cfour19/bin/xjoda
 
@@ -24,26 +26,27 @@
                        Version 1.2
 
                      laptop21                                          
-                     Fri 24 Dec 2021 09:53:51 AM CST                   
+                     Wed 05 Jan 2022 04:13:45 PM CST                   
                      integer*8 version is running
 
 ********************************************************************************
 *                          Input from ZMAT file                                *
 ********************************************************************************
-OH                                                                              
-O   0.0   0.0  -0.057496044831                                                  
-H   0.0   0.0   0.912503955169                                                  
+H2O                                                                             
+O                                                                               
+H 1 R                                                                           
+                                                                                
+R=0.97                                                                          
                                                                                 
 *CFOUR(CALC=SCF                                                                 
 REFERENCE=UHF                                                                   
 MULT=2                                                                          
-COORDIANTES=CARTESIAN                                                           
 SYMMETRY=OFF                                                                    
 BASIS=SPECIAL,SPHERICAL=ON                                                      
 MEM_SIZE=2,MEM_UNIT=GB)                                                         
                                                                                 
-O:P4_PVDZ                                                                       
-H:P4_PVDZ                                                                       
+O:P4_CC-PVDZ                                                                    
+H:P4_CC-PVDZ                                                                    
                                                                                 
 ********************************************************************************
     -------------------------------------------------------------------
@@ -98,7 +101,7 @@ H:P4_PVDZ
        CONSTANT             ICONST         OLD         [  1]    ***   
        CONTINUUM            ICONTU         NONE        [  0]    ***   
        CONTRACTION          ICNTYP         GENERAL     [  1]    ***   
-       COORDINATES          ICOORD         CARTESIAN   [  1]    ***   
+       COORDINATES          ICOORD         INTERNAL    [  0]    ***   
        CPHF_CONVER          ICPHFT          10D- 16             ***   
        CPHF_MAXCYC          ICPHFC             64              cycles 
        CUBIC                ICUBIC         OFF         [  0]    ***   
@@ -292,14 +295,25 @@ H:P4_PVDZ
        ZSCALE_EXP           IZEXPS         OFF         [  0]    ***   
     -------------------------------------------------------------------
  cholesky/tol? F   1.0000000000000005E-004
-  @GETXYZ-I,     2 atoms read from ZMAT.
+   2 entries found in Z-matrix 
+   Job Title : H2O                                                                             
+   There are  1 unique internal coordinates.
+   Of these,  0 will be optimized.
+   User supplied Z-matrix: 
+--------------------------------------------------------------------------------
+       SYMBOL    BOND      LENGTH    ANGLE     ANGLE     DIHED     ANGLE
+                  TO      (ANGST)    WRT      (DEG)      WRT      (DEG)
+--------------------------------------------------------------------------------
+        O    
+        H          1         R    
+                  *Initial values for internal coordinates* 
+                      Name             Value
+                        R               0.9700000000
+--------------------------------------------------------------------------------
 Line Symbol    AtNr   At. Mass
   1  O          8    15.99491
   2  H          1     1.00783
-Line Symbol    AtNr   At. Mass
-  1  O          8    15.99491
-  2  H          1     1.00783
-                    1                    4                    0
+                    1                    4                    1
    Rotational constants (in cm-1): 
          18.8975247631            18.8975247631
    Rotational constants (in MHz): 
@@ -309,6 +323,21 @@ Line Symbol    AtNr   At. Mass
    The largest Abelian subgroup of the full molecular point group is C2v .
    The computational point group is C1  .
 ********************************************************************************
+--------------------------------------------------------------------------------
+   Analysis of internal coordinates specified by Z-matrix 
+--------------------------------------------------------------------------------
+   *The nuclear repulsion energy is    4.364347216494845 a.u.
+   *There is   1 degree of freedom within the tot. symm. molecular subspace.
+   *Z-matrix requests optimization of   0 coordinates.
+   *The optimization is constrained.
+   *The following   1 parameters can have non-zero 
+    derivatives within the totally symmetric subspace:
+             R    [ 1]
+   *The following   0 parameters are to be optimized:
+
+   *The following coordinates must be varied in an  unconstrained optimization.
+             R    [ 1]
+--------------------------------------------------------------------------------
 
 
  ----------------------------------------------------------------
@@ -341,8 +370,8 @@ Line Symbol    AtNr   At. Mass
   in rdbas
   There are   19 basis functions.
  @GEOPT-W, Archive file not created for single-point calculation.
- @CHECKOUT-I, Total execution time (CPU/WALL):         0.14/       0.08 seconds.
---executable xjoda finished with status     0 in        0.14 seconds (walltime).
+ @CHECKOUT-I, Total execution time (CPU/WALL):         0.15/       0.08 seconds.
+--executable xjoda finished with status     0 in        0.13 seconds (walltime).
   TWOST is  F                    5
     0    0    0    7    7   11  100    8    0    1
     1    5    5   15    0  150  999    0    0   10
@@ -350,7 +379,7 @@ Line Symbol    AtNr   At. Mass
    64    0    0    1    0***** 4096    0    0    2
     0    0    0   10    0    0    5    5    1    0
     0    0  300    0    0    1    0    0    1    1
-    0    1    0    0    0    0    0    1    1    0
+    0    1    0    0    0    0    0    0    1    0
     0    0    0    0    0    4    0    0    0    1
     0    0    0    1    0    0    0    7    0    0
     0   50    0    0    1    1   40    5    0    0
@@ -365,7 +394,7 @@ Running with 2 threads/proc
 ********************************************************************************
 INTGRL        1    0    1    0    0    0    0    0    0                         
          *** CFOUR Program System (Release V0.1) ***                            
-OH                                                                              
+H2O                                                                             
     2    0            0.10E-08              0    0                              
    9999.00      3.00                                                            
           8.00000000    1    3    1    1    1                                   
@@ -573,4 +602,4 @@ FINISH
  @CHECKOUT-I, Total execution time (CPU/WALL):         0.02/       0.01 seconds.
 --executable xvscf finished with status     0 in        0.01 seconds (walltime).
   The final electronic energy is       -75.393838921680469 a.u. 
-  This computation required                            0.17 seconds (walltime).
+  This computation required                            0.16 seconds (walltime).

@@ -1,0 +1,17 @@
+The eastest way to run Cfour with a Psi4-guess and compare with the build-in
+core guess is the run_me script.
+This is good for production runs.
+
+
+A better documented version of the psi4_scf.py program is available as
+a jupyter lab notebook: H2O.ipynb
+This is much better when starting new projects. 
+
+For new molecules, a lot of user input and attention is required:
+* The Psi4 versions of any basis sets should be put into the P4.BASIS file
+  using the psi4.core basisset.genbas() function.
+  This is probably not strictly needed, but Cfour tends to use general contraction, 
+  while Psi4 uses segmented, so the MOs are slightly different.
+* In both cfour_scf and psi4_scf.py, charge, multiplicity, and reference must be updated.
+
+

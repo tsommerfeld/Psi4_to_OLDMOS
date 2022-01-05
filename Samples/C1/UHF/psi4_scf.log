@@ -1,0 +1,9 @@
+
+  Memory set to 476.837 MiB by Python driver.
+Molecule from cfour_scf.log
+O    -0.00000000   0.00000000   0.10865180
+H     0.00000000   0.00000000  -1.72438292
+
+Basis is CC-PVDZ
+HF energy = -75.39383892174534
+Psi4-MOs written to PSIMOS
