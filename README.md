@@ -22,16 +22,17 @@ Currently, the limitations are:
 
 ## Workflow
 
-1. Obtain Cartesian coordinates that will not reorient in either code: 
-Run SCF/STO-3G in either Psi4 or CFOUR, and make sure both codes codes don't reorient the molecule.
+1. Obtain a common orientation
+  * Cartesian coordinates that will not reorient in Cfour and Psi4.
+  * Or read the computational geometry from Cfour into Psi4 and use no_reorient (see Samples).
 2. Run the desired SCF in Psi4.
 3. For optimal results, use the Psi4 wavefunction object to create GENBAS (see notebooks). Psi4 uses segmented contraction, CFOUR doesn't. 
-4. Use the provided Jupyter notebooks or Python libraries to create an OLDMOS file.
+4. Create OLDMOS as shown in the provided Jupyter notebooks and Python scripts. 
 4. Start CFOUR with ZMAT, GENBAS, OLDMOS, and an empty file JFSGUESS present.
 
 ## Repository
 
-* `CFOUR` : scripts to run CFOUR with the standard core guess or with the OLDMOS guess 
-* `Samples` : notebooks for creating OLDMOS with Psi4
-* `dev` : uncommented notebooks used for development
+* `Samples` : complete comparison of the build-in core guess with the Psi4-guess.
+* `CFOUR` : Psi4 basis sets (P4.BASIS) and some experimental scripts with symmetry.  
 * `lib` : Python auxiliary functions.
+* `dev` : uncommented notebooks used for development.
