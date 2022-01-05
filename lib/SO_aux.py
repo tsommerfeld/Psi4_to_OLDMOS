@@ -55,6 +55,14 @@ class SymOrbs:
         """ returns the indices of the first AOs contributing to each SO """
         return self.jao[0,:]
 
+    def inv_coef(self):
+        """ 
+        return the inverse of the SO vector elements 
+        this factor is needed for Cfour-MO = Psi4-MO/inv_coef
+        performed by P4toC4_aux.psi4_to_c4()
+        """ 
+        return 1.0/abs(self.cao[0,:])
+
     def matrix(self):
         """ recreate matrix representation C[iAO,jSO] in Psi4 order """
         nao, nso = self.nbfs, self.nsos        
