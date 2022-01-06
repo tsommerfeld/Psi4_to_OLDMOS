@@ -15,7 +15,7 @@ fi
 cd $WorkDir
 rm -rf $WorkDir/*
 
-cp $CurrDir/../../Cfour/P4.BASIS $WorkDir/GENBAS
+cp $CurrDir/../../P4.BASIS $WorkDir/GENBAS
 #cp $CurrDir/PSIMOS $WorkDir/OLDMOS
 #touch $WorkDir/JFSGUESS
 

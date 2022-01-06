@@ -377,7 +377,7 @@ def read_oldmos(fname, nmos, RHF=True, verbose=1):
     nirrep = len(nmos)
     lexp = 0
     for irrep in range(nirrep):
-        lexp += nmos[irrep] * (nmos[irrep]//4 + 1)
+        lexp += nmos[irrep] * np.ceil(nmos[irrep]/4)
 
     if verbose > 0:
         print('reading orbitals from '+fname)
@@ -385,10 +385,12 @@ def read_oldmos(fname, nmos, RHF=True, verbose=1):
     lines = file.readlines()
     file.close()
     if len(lines) != lexp:
+        print('An error seems to have occured.')
         print(f'{len(lines)} lines read from {fname}.')
         print(f'But {lexp} lines needed for n_mos_per_irrep vector.')
-        sys.exit('Error')
+        return 0
 
+    
     l = 0 # line counter
     Cs = []
 
