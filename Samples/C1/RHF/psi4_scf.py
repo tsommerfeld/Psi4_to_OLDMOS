@@ -15,8 +15,6 @@ sys.path.append('../../../lib')
 from P4toC4_aux import basis_mapping, psi4_to_c4, write_oldmos
 from c4_comp_geo import cfour_comp_sym_and_geo
 
-BASIS='CC-PVDZ'
-
 def main():
 
     parser = argparse.ArgumentParser(description='Psi4 SCF')

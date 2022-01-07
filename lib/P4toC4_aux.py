@@ -461,7 +461,7 @@ def read_oldmos_C1(fname, verbose = 1):
 
 
 
-def write_oldmos(fname, Cas, Cbs=None):
+def write_oldmos(fname, Cas, Cbs=None, mode='w'):
     """
     Write MOs in Cfour OLDMOS format
     That means packages of four MOs   
@@ -486,7 +486,7 @@ def write_oldmos(fname, Cas, Cbs=None):
     None.
     """
 
-    f = open(fname, 'w')
+    f = open(fname, mode)
     nbf = Cas.shape[0]
 
     for j in range(0, nbf, 4):
@@ -502,7 +502,7 @@ def write_oldmos(fname, Cas, Cbs=None):
             f.write(line)
     
     if Cbs is None:
-        Cbs = Cas
+        return
     for j in range(0, nbf, 4):
         """ Normally we write groups of 4 MOs. The last group may be smaller. """
         ngr = 4
@@ -517,3 +517,10 @@ def write_oldmos(fname, Cas, Cbs=None):
         
     f.close()
     return
+
+
+
+
+
+
+

@@ -1,0 +1,20 @@
+#! /usr/bin/env bash
+
+BASIS=CC-PVDZ
+
+# 
+# Psi4 guess:
+#
+#   (1) run Cfour/STO-3G to get point group and orientaton
+#   (2) run Psi4 for to create GUESS
+#   (3) run Cfour/$BASIS with GUESS
+#
+./cfour_scf > cfour_scf.log
+./psi4_scf.py -b $BASIS -v 2 cfour_scf.log > psi4_scf.log
+./cfour_scf $BASIS GUESS > cfour_scf.psi4_guess
+
+
+#
+#  As a comparsion run Cfour from its Core guess
+#
+./cfour_scf $BASIS > cfour_scf.core_guess

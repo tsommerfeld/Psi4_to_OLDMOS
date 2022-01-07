@@ -1,0 +1,201 @@
+
+*** tstart() called on laptop21
+*** at Fri Jan  7 15:29:27 2022
+
+   => Loading Basis Set <=
+
+    Name: CC-PVDZ
+    Role: ORBITAL
+    Keyword: BASIS
+    atoms 1-2 entry N          line   168 file /home/thomas/anaconda3/envs/psi4/share/psi4/basis/cc-pvdz.gbs 
+    atoms 3-6 entry H          line    22 file /home/thomas/anaconda3/envs/psi4/share/psi4/basis/cc-pvdz.gbs 
+
+
+         ---------------------------------------------------------
+                                   SCF
+               by Justin Turney, Rob Parrish, Andy Simmonett
+                          and Daniel G. A. Smith
+                              RHF Reference
+                        1 Threads,    476 MiB Core
+         ---------------------------------------------------------
+
+  ==> Geometry <==
+
+    Molecular point group: ci
+    Full point group: Ci
+
+    Geometry (in Bohr), charge = 0, multiplicity = 1:
+
+       Center              X                  Y                   Z               Mass       
+    ------------   -----------------  -----------------  -----------------  -----------------
+         N           -1.331517450000     0.003212430000     0.165001520000    14.003074004430
+         N            1.331517450000    -0.003212430000    -0.165001520000    14.003074004430
+         H            2.098977990000     1.549948130000     0.722264420000     1.007825032230
+         H            2.086937930000    -1.530412200000     0.736296510000     1.007825032230
+         H           -2.098977990000    -1.549948130000    -0.722264420000     1.007825032230
+         H           -2.086937930000     1.530412200000    -0.736296510000     1.007825032230
+
+  Running in ci symmetry.
+
+  Rotational constants: A =      4.82746  B =      0.85731  C =      0.78308 [cm^-1]
+  Rotational constants: A = 144723.51831  B =  25701.58644  C =  23476.04147 [MHz]
+  Nuclear repulsion =   41.561355808923757
+
+  Charge       = 0
+  Multiplicity = 1
+  Electrons    = 18
+  Nalpha       = 9
+  Nbeta        = 9
+
+  ==> Algorithm <==
+
+  SCF Algorithm Type is PK.
+  DIIS enabled.
+  MOM disabled.
+  Fractional occupation disabled.
+  Guess Type is SAD.
+  Energy threshold   = 1.00e-06
+  Density threshold  = 1.00e-08
+  Integral threshold = 0.00e+00
+
+  ==> Primary Basis <==
+
+  Basis Set: CC-PVDZ
+    Blend: CC-PVDZ
+    Number of shells: 24
+    Number of basis function: 48
+    Number of Cartesian functions: 50
+    Spherical Harmonics?: true
+    Max angular momentum: 2
+
+  ==> Pre-Iterations <==
+
+   -------------------------------------------------------
+    Irrep   Nso     Nmo     Nalpha   Nbeta   Ndocc  Nsocc
+   -------------------------------------------------------
+     Ag        24      24       0       0       0       0
+     Au        24      24       0       0       0       0
+   -------------------------------------------------------
+    Total      48      48       9       9       9       0
+   -------------------------------------------------------
+
+  ==> Integral Setup <==
+
+  Using in-core PK algorithm.
+   Calculation information:
+      Number of atoms:                   6
+      Number of AO shells:              24
+      Number of primitives:             64
+      Number of atomic orbitals:        50
+      Number of basis functions:        48
+
+      Integral cutoff                 1.00e-12
+      Number of threads:                 1
+
+  Performing in-core PK
+  Using 1384152 doubles for integral storage.
+  We computed 45150 shell quartets total.
+  Whereas there are 45150 unique shell quartets.
+
+  ==> DiskJK: Disk-Based J/K Matrices <==
+
+    J tasked:                  Yes
+    K tasked:                  Yes
+    wK tasked:                  No
+    Memory [MiB]:              357
+    Schwarz Cutoff:          1E-12
+
+    OpenMP threads:              1
+
+  Minimum eigenvalue in the overlap matrix is 1.1231795627E-02.
+  Using Symmetric Orthogonalization.
+
+  SCF Guess: Superposition of Atomic Densities via on-the-fly atomic UHF.
+
+  ==> Iterations <==
+
+                        Total Energy        Delta E     RMS |[F,P]|
+
+   @RHF iter SAD:  -110.58583074479414   -1.10586e+02   0.00000e+00 
+   @RHF iter   1:  -111.10471912849519   -5.18888e-01   1.07499e-02 DIIS
+   @RHF iter   2:  -111.16568308109559   -6.09640e-02   4.86143e-03 DIIS
+   @RHF iter   3:  -111.17715728337284   -1.14742e-02   8.85949e-04 DIIS
+   @RHF iter   4:  -111.17790041320120   -7.43130e-04   1.67208e-04 DIIS
+   @RHF iter   5:  -111.17792754477546   -2.71316e-05   2.72993e-05 DIIS
+   @RHF iter   6:  -111.17792857768370   -1.03291e-06   5.28696e-06 DIIS
+   @RHF iter   7:  -111.17792864020650   -6.25228e-08   1.77733e-06 DIIS
+   @RHF iter   8:  -111.17792865002218   -9.81568e-09   4.79027e-07 DIIS
+   @RHF iter   9:  -111.17792865073022   -7.08042e-10   8.56617e-08 DIIS
+   @RHF iter  10:  -111.17792865074459   -1.43672e-11   7.86519e-09 DIIS
+  Energy and wave function converged.
+
+
+  ==> Post-Iterations <==
+
+    Orbital Energies [Eh]
+    ---------------------
+
+    Doubly Occupied:                                                      
+
+       1Ag   -15.560874     1Au   -15.560410     2Ag    -1.246716  
+       2Au    -0.996197     3Au    -0.689076     3Ag    -0.609146  
+       4Ag    -0.553139     4Au    -0.528452     5Ag    -0.328563  
+
+    Virtual:                                                              
+
+       6Ag     0.192220     5Au     0.212951     6Au     0.239813  
+       7Ag     0.293205     7Au     0.456813     8Au     0.680429  
+       9Au     0.831636     8Ag     0.839565     9Ag     0.877571  
+      10Ag     0.927185    10Au     0.974572    11Ag     1.018273  
+      12Ag     1.085100    11Au     1.099560    12Au     1.114373  
+      13Ag     1.335667    13Au     1.348731    14Au     1.404243  
+      15Au     1.533236    14Ag     1.599320    15Ag     1.811243  
+      16Ag     1.913902    16Au     1.925486    17Ag     1.991778  
+      17Au     2.123836    18Au     2.197990    19Au     2.269015  
+      18Ag     2.285060    19Ag     2.345628    20Au     2.418117  
+      20Ag     2.528132    21Au     2.712288    21Ag     2.882535  
+      22Ag     2.893549    22Au     2.939063    23Ag     3.157706  
+      23Au     3.282948    24Ag     3.344133    24Au     3.450199  
+
+    Final Occupation by Irrep:
+             Ag    Au 
+    DOCC [     5,    4 ]
+
+  @RHF Final Energy:  -111.17792865074459
+
+   => Energetics <=
+
+    Nuclear Repulsion Energy =             41.5613558089237571
+    One-Electron Energy =                -233.3334249764742481
+    Two-Electron Energy =                  80.5941405168058935
+    Total Energy =                       -111.1779286507445903
+
+Computation Completed
+
+
+Properties will be evaluated at   0.000000,   0.000000,   0.000000 [a0]
+
+Properties computed using the SCF density matrix
+
+  Nuclear Dipole Moment: [e a0]
+     X:    -0.0000      Y:     0.0000      Z:     0.0000
+
+  Electronic Dipole Moment: [e a0]
+     X:     0.0000      Y:     0.0000      Z:     0.0000
+
+  Dipole Moment: [e a0]
+     X:    -0.0000      Y:     0.0000      Z:     0.0000     Total:     0.0000
+
+  Dipole Moment: [D]
+     X:    -0.0000      Y:     0.0000      Z:     0.0000     Total:     0.0000
+
+
+*** tstop() called on laptop21 at Fri Jan  7 15:29:28 2022
+Module time:
+	user time   =       0.37 seconds =       0.01 minutes
+	system time =       0.01 seconds =       0.00 minutes
+	total time  =          1 seconds =       0.02 minutes
+Total time:
+	user time   =       0.37 seconds =       0.01 minutes
+	system time =       0.01 seconds =       0.00 minutes
+	total time  =          1 seconds =       0.02 minutes
