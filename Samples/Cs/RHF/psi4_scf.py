@@ -16,8 +16,8 @@ sys.path.append(root+'lib')
 import argparse
 
 import psi4
-from c4_comp_geo import cfour_comp_sym_and_geo
-from P4toC4_aux import make_OLDMOS
+import c4_comp_geo
+import P4toC4_aux
 
 # for low-level calls the following imports are needed:
 # import numpy as np
@@ -35,7 +35,7 @@ def main():
 
     verbose = arguments.v
     Basis = arguments.b         
-    sym, coors = cfour_comp_sym_and_geo(arguments.fname)
+    sym, coors = c4_comp_geo.cfour_comp_sym_and_geo(arguments.fname)
 
     if verbose > 0:
         print('Molecule from', arguments.fname)
@@ -61,7 +61,7 @@ def main():
     print(f'HF energy = {E}')
 
 
-    make_OLDMOS(wf, verbose)
+    P4toC4_aux.make_OLDMOS(wf, verbose)
 
     """
 

@@ -26,7 +26,7 @@ Psi-guess
                        Version 1.2
 
                      laptop21                                          
-                     Sun 09 Jan 2022 06:52:10 PM CST                   
+                     Mon 10 Jan 2022 02:35:16 PM CST                   
                      integer*8 version is running
 
 ********************************************************************************
@@ -528,8 +528,8 @@ FINISH
   --------------------------------------------------------------------
   Iteration         Total Energy            Largest Density Difference
   --------------------------------------------------------------------
-       0          -150.779142743558708              0.0000000000D+00
-     E(SCF)=      -150.779142747024821              0.3538267563D-08
+       0          -150.779142743558793              0.0000000000D+00
+     E(SCF)=      -150.779142747025020              0.3538267593D-08
 
    final occupation vector 
      5  4
@@ -538,8 +538,8 @@ FINISH
   SCF has converged.
 
  Density matrix saved to file den.dat
- total electron number:   18.000000000000021     
-     E(SCF)=      -150.779142747024935              0.1712853265D-08
+ total electron number:   18.000000000000025     
+     E(SCF)=      -150.779142747025077              0.1712853370D-08
 
   Eigenvector printing suppressed.
 
@@ -597,5 +597,5 @@ FINISH
 
  @CHECKOUT-I, Total execution time (CPU/WALL):         0.02/       0.01 seconds.
 --executable xvscf finished with status     0 in        0.01 seconds (walltime).
-  The final electronic energy is      -150.779142747024935 a.u. 
+  The final electronic energy is      -150.779142747025077 a.u. 
   This computation required                            0.21 seconds (walltime).

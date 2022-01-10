@@ -1,6 +1,6 @@
 
 *** tstart() called on laptop21
-*** at Wed Jan  5 13:58:33 2022
+*** at Mon Jan 10 14:34:47 2022
 
    => Loading Basis Set <=
 
@@ -113,16 +113,16 @@
                         Total Energy        Delta E     RMS |[F,P]|
 
    @RHF iter SAD:   -75.50773218455252   -7.55077e+01   0.00000e+00 
-   @RHF iter   1:   -75.95378449003830   -4.46052e-01   1.74065e-02 DIIS
-   @RHF iter   2:   -76.00708058805763   -5.32961e-02   9.96982e-03 DIIS
-   @RHF iter   3:   -76.02624490587155   -1.91643e-02   9.09897e-04 DIIS
-   @RHF iter   4:   -76.02663309831183   -3.88192e-04   2.09785e-04 DIIS
-   @RHF iter   5:   -76.02665269197449   -1.95937e-05   3.85308e-05 DIIS
-   @RHF iter   6:   -76.02665362373327   -9.31759e-07   6.12746e-06 DIIS
-   @RHF iter   7:   -76.02665364989866   -2.61654e-08   8.64591e-07 DIIS
-   @RHF iter   8:   -76.02665365043799   -5.39330e-10   2.01120e-07 DIIS
-   @RHF iter   9:   -76.02665365047164   -3.36513e-11   3.40206e-08 DIIS
-   @RHF iter  10:   -76.02665365047247   -8.24230e-13   2.80733e-09 DIIS
+   @RHF iter   1:   -75.95378449003829   -4.46052e-01   1.74065e-02 DIIS
+   @RHF iter   2:   -76.00708058805762   -5.32961e-02   9.96982e-03 DIIS
+   @RHF iter   3:   -76.02624490587159   -1.91643e-02   9.09897e-04 DIIS
+   @RHF iter   4:   -76.02663309831185   -3.88192e-04   2.09785e-04 DIIS
+   @RHF iter   5:   -76.02665269197446   -1.95937e-05   3.85308e-05 DIIS
+   @RHF iter   6:   -76.02665362373335   -9.31759e-07   6.12746e-06 DIIS
+   @RHF iter   7:   -76.02665364989869   -2.61653e-08   8.64591e-07 DIIS
+   @RHF iter   8:   -76.02665365043802   -5.39330e-10   2.01120e-07 DIIS
+   @RHF iter   9:   -76.02665365047163   -3.36087e-11   3.40206e-08 DIIS
+   @RHF iter  10:   -76.02665365047245   -8.24230e-13   2.80733e-09 DIIS
   Energy and wave function converged.
 
 
@@ -150,13 +150,13 @@
               A 
     DOCC [     5 ]
 
-  @RHF Final Energy:   -76.02665365047247
+  @RHF Final Energy:   -76.02665365047245
 
    => Energetics <=
 
     Nuclear Repulsion Energy =              9.1681914025706082
-    One-Electron Energy =                -123.1035586259902459
-    Two-Electron Energy =                  37.9087135729471640
+    One-Electron Energy =                -123.1035586259902885
+    Two-Electron Energy =                  37.9087135729472138
     Total Energy =                        -76.0266536504724684
 
 Computation Completed
@@ -179,12 +179,12 @@ Properties computed using the SCF density matrix
      X:     0.0000      Y:    -0.0000      Z:    -2.0592     Total:     2.0592
 
 
-*** tstop() called on laptop21 at Wed Jan  5 13:58:33 2022
+*** tstop() called on laptop21 at Mon Jan 10 14:34:47 2022
 Module time:
-	user time   =       0.20 seconds =       0.00 minutes
-	system time =       0.01 seconds =       0.00 minutes
+	user time   =       0.22 seconds =       0.00 minutes
+	system time =       0.00 seconds =       0.00 minutes
 	total time  =          0 seconds =       0.00 minutes
 Total time:
-	user time   =       0.20 seconds =       0.00 minutes
-	system time =       0.01 seconds =       0.00 minutes
+	user time   =       0.22 seconds =       0.00 minutes
+	system time =       0.00 seconds =       0.00 minutes
 	total time  =          0 seconds =       0.00 minutes

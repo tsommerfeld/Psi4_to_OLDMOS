@@ -6,5 +6,7 @@ H     0.00000000  -1.43441957  -0.98634846
 H     0.00000000   1.43441957  -0.98634846
 
 Basis is CC-PVDZ
-HF energy = -76.02665365047247
+HF energy = -76.02665365047245
+SO dimensions: (24, 24)
+MO dimensions: (24, 24)
 Psi4-MOs written to PSIMOS

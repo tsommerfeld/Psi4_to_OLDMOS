@@ -26,7 +26,7 @@ Core-guess
                        Version 1.2
 
                      laptop21                                          
-                     Sun 09 Jan 2022 06:52:10 PM CST                   
+                     Mon 10 Jan 2022 02:35:15 PM CST                   
                      integer*8 version is running
 
 ********************************************************************************
@@ -447,7 +447,7 @@ FINISH
   @TWOEL-I,        530 INTEGRALS OF SYMMETRY TYPE  I J I J
   @TWOEL-I,        353 INTEGRALS OF SYMMETRY TYPE  I I J J
   @TWOEL-I, TOTAL NUMBER OF 2-E INTEGRALS       1257.
-  @MOLECU-I, TWO ELECTRON INTEGRALS (CPU/WALL):        0.00/       0.00 SECONDS.
+  @MOLECU-I, TWO ELECTRON INTEGRALS (CPU/WALL):        0.01/       0.00 SECONDS.
  @CHECKOUT-I, Total execution time (CPU/WALL):         0.01/       0.00 seconds.
 --executable xvmol finished with status     0 in        0.01 seconds (walltime).
  --invoking executable--

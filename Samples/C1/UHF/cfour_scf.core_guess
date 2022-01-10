@@ -26,7 +26,7 @@ Core-guess
                        Version 1.2
 
                      laptop21                                          
-                     Wed 05 Jan 2022 04:13:45 PM CST                   
+                     Mon 10 Jan 2022 02:37:47 PM CST                   
                      integer*8 version is running
 
 ********************************************************************************
@@ -371,7 +371,7 @@ Line Symbol    AtNr   At. Mass
   There are   19 basis functions.
  @GEOPT-W, Archive file not created for single-point calculation.
  @CHECKOUT-I, Total execution time (CPU/WALL):         0.15/       0.08 seconds.
---executable xjoda finished with status     0 in        0.13 seconds (walltime).
+--executable xjoda finished with status     0 in        0.12 seconds (walltime).
   TWOST is  F                    5
     0    0    0    7    7   11  100    8    0    1
     1    5    5   15    0  150  999    0    0   10
@@ -602,4 +602,4 @@ FINISH
  @CHECKOUT-I, Total execution time (CPU/WALL):         0.02/       0.01 seconds.
 --executable xvscf finished with status     0 in        0.01 seconds (walltime).
   The final electronic energy is       -75.393838921680469 a.u. 
-  This computation required                            0.16 seconds (walltime).
+  This computation required                            0.15 seconds (walltime).

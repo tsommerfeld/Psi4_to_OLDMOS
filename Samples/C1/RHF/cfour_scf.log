@@ -26,7 +26,7 @@ Core-guess
                        Version 1.2
 
                      laptop21                                          
-                     Wed 05 Jan 2022 01:58:33 PM CST                   
+                     Mon 10 Jan 2022 02:34:46 PM CST                   
                      integer*8 version is running
 
 ********************************************************************************
@@ -380,7 +380,7 @@ Line Symbol    AtNr   At. Mass
   in rdbas
   There are    7 basis functions.
  @GEOPT-W, Archive file not created for single-point calculation.
- @CHECKOUT-I, Total execution time (CPU/WALL):         0.14/       0.08 seconds.
+ @CHECKOUT-I, Total execution time (CPU/WALL):         0.15/       0.08 seconds.
 --executable xjoda finished with status     0 in        0.13 seconds (walltime).
   TWOST is  F                    5
     0    0    0    7    7   11  100    8    0    1
@@ -499,14 +499,14 @@ FINISH
   Iteration         Total Energy            Largest Density Difference
   --------------------------------------------------------------------
        0             9.168191379025162              0.0000000000D+00
-       1           -73.233933017227685              0.2729789564D+01
-       2           -74.945453088950288              0.1751549080D+01
-       3           -74.962389857094948              0.1432436581D+00
-       4           -74.963279834311152              0.6333762220D-01
+       1           -73.233933017227699              0.2729789564D+01
+       2           -74.945453088950273              0.1751549080D+01
+       3           -74.962389857094934              0.1432436581D+00
+       4           -74.963279834311081              0.6333762220D-01
        5           -74.963317068388974              0.8992704845D-02
-       6           -74.963319077814020              0.2218347581D-02
-       7           -74.963319097761044              0.2350819108D-03
-       8           -74.963319097761044              0.2608416687D-06
+       6           -74.963319077814077              0.2218347581D-02
+       7           -74.963319097761016              0.2350819108D-03
+       8           -74.963319097761072              0.2608475138D-06
    final occupation vector 
      5
      5
@@ -514,8 +514,8 @@ FINISH
   SCF has converged.
 
  Density matrix saved to file den.dat
- total electron number:   10.000000000000000     
-     E(SCF)=       -74.963319097761030              0.8814768915D-08
+ total electron number:   9.9999999999999929     
+     E(SCF)=       -74.963319097761001              0.7491435472D-08
 
   Eigenvector printing suppressed.
 
@@ -526,14 +526,14 @@ FINISH
 
        MO #        E(hartree)               E(eV)           FULLSYM    COMPSYM
        ----   --------------------   --------------------   -------   ---------
-    1     1         -20.2420985927        -550.8154756621      A1         A (1)
-    2     2          -1.2669979733         -34.4767657433      A1         A (1)
-    3     3          -0.6164226546         -16.7737122795      B2         A (1)
-    4     4          -0.4527034384         -12.3186861598      A1         A (1)
-    5     5          -0.3910740704         -10.6416658875      B1         A (1)
+    1     1         -20.2420985939        -550.8154756943      A1         A (1)
+    2     2          -1.2669979736         -34.4767657519      A1         A (1)
+    3     3          -0.6164226550         -16.7737122904      B2         A (1)
+    4     4          -0.4527034384         -12.3186861580      A1         A (1)
+    5     5          -0.3910740709         -10.6416659026      B1         A (1)
   +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    6     6           0.6029182664          16.4062392129      A1         A (1)
-    7     7           0.7390167279          20.1096664283      B2         A (1)
+    6     6           0.6029182659          16.4062391998      A1         A (1)
+    7     7           0.7390167280          20.1096664306      B2         A (1)
 
 
   iflags(77) is                     0
@@ -542,5 +542,5 @@ FINISH
 
  @CHECKOUT-I, Total execution time (CPU/WALL):         0.01/       0.00 seconds.
 --executable xvscf finished with status     0 in        0.01 seconds (walltime).
-  The final electronic energy is       -74.963319097761030 a.u. 
-  This computation required                            0.16 seconds (walltime).
+  The final electronic energy is       -74.963319097761001 a.u. 
+  This computation required                            0.15 seconds (walltime).

@@ -1,6 +1,6 @@
 
 *** tstart() called on laptop21
-*** at Sun Jan  9 18:52:10 2022
+*** at Mon Jan 10 14:35:15 2022
 
    => Loading Basis Set <=
 
@@ -115,18 +115,18 @@
                         Total Energy        Delta E     RMS |[F,P]|
 
    @RHF iter SAD:  -149.90087106109550   -1.49901e+02   0.00000e+00 
-   @RHF iter   1:  -150.73665022425564   -8.35779e-01   1.10298e-02 DIIS
-   @RHF iter   2:  -150.77545324005268   -3.88030e-02   3.54385e-03 DIIS
-   @RHF iter   3:  -150.77875622947039   -3.30299e-03   8.88726e-04 DIIS
-   @RHF iter   4:  -150.77910796630590   -3.51737e-04   2.52874e-04 DIIS
-   @RHF iter   5:  -150.77914109835334   -3.31320e-05   4.39869e-05 DIIS
-   @RHF iter   6:  -150.77914270228615   -1.60393e-06   6.91888e-06 DIIS
-   @RHF iter   7:  -150.77914274469146   -4.24053e-08   1.63069e-06 DIIS
-   @RHF iter   8:  -150.77914274727061   -2.57916e-09   3.85698e-07 DIIS
-   @RHF iter   9:  -150.77914274745146   -1.80847e-10   1.43444e-07 DIIS
-   @RHF iter  10:  -150.77914274749057   -3.91083e-11   6.29721e-08 DIIS
-   @RHF iter  11:  -150.77914274749983   -9.26548e-12   1.66527e-08 DIIS
-   @RHF iter  12:  -150.77914274750017   -3.41061e-13   2.37939e-09 DIIS
+   @RHF iter   1:  -150.73665022425578   -8.35779e-01   1.10298e-02 DIIS
+   @RHF iter   2:  -150.77545324005283   -3.88030e-02   3.54385e-03 DIIS
+   @RHF iter   3:  -150.77875622947033   -3.30299e-03   8.88726e-04 DIIS
+   @RHF iter   4:  -150.77910796630599   -3.51737e-04   2.52874e-04 DIIS
+   @RHF iter   5:  -150.77914109835331   -3.31320e-05   4.39869e-05 DIIS
+   @RHF iter   6:  -150.77914270228609   -1.60393e-06   6.91888e-06 DIIS
+   @RHF iter   7:  -150.77914274469157   -4.24055e-08   1.63069e-06 DIIS
+   @RHF iter   8:  -150.77914274727055   -2.57899e-09   3.85698e-07 DIIS
+   @RHF iter   9:  -150.77914274745149   -1.80933e-10   1.43444e-07 DIIS
+   @RHF iter  10:  -150.77914274749051   -3.90230e-11   6.29721e-08 DIIS
+   @RHF iter  11:  -150.77914274749969   -9.18021e-12   1.66527e-08 DIIS
+   @RHF iter  12:  -150.77914274750012   -4.26326e-13   2.37939e-09 DIIS
   Energy and wave function converged.
 
 
@@ -158,14 +158,14 @@
               A     B 
     DOCC [     5,    4 ]
 
-  @RHF Final Energy:  -150.77914274750017
+  @RHF Final Energy:  -150.77914274750012
 
    => Energetics <=
 
     Nuclear Repulsion Energy =             36.2482605812722412
-    One-Electron Energy =                -280.2386260035164014
-    Two-Electron Energy =                  93.2112226747439792
-    Total Energy =                       -150.7791427475002024
+    One-Electron Energy =                -280.2386260035165151
+    Two-Electron Energy =                  93.2112226747441639
+    Total Energy =                       -150.7791427475001171
 
 Computation Completed
 
@@ -187,12 +187,12 @@ Properties computed using the SCF density matrix
      X:     0.0000      Y:     0.0000      Z:     1.8099     Total:     1.8099
 
 
-*** tstop() called on laptop21 at Sun Jan  9 18:52:10 2022
+*** tstop() called on laptop21 at Mon Jan 10 14:35:15 2022
 Module time:
 	user time   =       0.29 seconds =       0.00 minutes
-	system time =       0.00 seconds =       0.00 minutes
+	system time =       0.01 seconds =       0.00 minutes
 	total time  =          0 seconds =       0.00 minutes
 Total time:
 	user time   =       0.29 seconds =       0.00 minutes
-	system time =       0.00 seconds =       0.00 minutes
+	system time =       0.01 seconds =       0.00 minutes
 	total time  =          0 seconds =       0.00 minutes

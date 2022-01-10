@@ -17,7 +17,7 @@ symmetry C2
 units Bohr
 no_reorient
 -------------------
-HF energy = -150.77914274750017
+HF energy = -150.77914274750012
 SO dimensions: ((38, 19), (38, 19))
 MO dimensions: ((19, 19), (19, 19))
 

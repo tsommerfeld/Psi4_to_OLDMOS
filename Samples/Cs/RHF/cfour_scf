@@ -14,7 +14,7 @@ else
     echo Core-guess
 fi
 
-GitRoot=../..
+GitRoot=../../..
 threads=2
 export OMP_NUM_THREADS=$threads
 mem_in_gb=2

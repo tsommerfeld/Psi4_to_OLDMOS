@@ -26,7 +26,7 @@ Psi-guess
                        Version 1.2
 
                      laptop21                                          
-                     Sun 09 Jan 2022 06:00:30 PM CST                   
+                     Mon 10 Jan 2022 02:05:00 PM CST                   
                      integer*8 version is running
 
 ********************************************************************************
@@ -455,7 +455,7 @@ FINISH
   @TWOEL-I,      16836 INTEGRALS OF SYMMETRY TYPE  I J I J
   @TWOEL-I,       9619 INTEGRALS OF SYMMETRY TYPE  I I J J
   @TWOEL-I, TOTAL NUMBER OF 2-E INTEGRALS      44367.
-  @MOLECU-I, TWO ELECTRON INTEGRALS (CPU/WALL):        0.06/       0.02 SECONDS.
+  @MOLECU-I, TWO ELECTRON INTEGRALS (CPU/WALL):        0.07/       0.02 SECONDS.
  @CHECKOUT-I, Total execution time (CPU/WALL):         0.07/       0.02 seconds.
 --executable xvmol finished with status     0 in        0.03 seconds (walltime).
  --invoking executable--
@@ -512,8 +512,8 @@ FINISH
   --------------------------------------------------------------------
   Iteration         Total Energy            Largest Density Difference
   --------------------------------------------------------------------
-       0           -56.194987542461490              0.0000000000D+00
-     E(SCF)=       -56.194987542461391              0.3723360953D-08
+       0           -56.194987542461519              0.0000000000D+00
+     E(SCF)=       -56.194987542461433              0.3723335307D-08
 
    final occupation vector 
      4  1
@@ -522,8 +522,8 @@ FINISH
   SCF has converged.
 
  Density matrix saved to file den.dat
- total electron number:   10.000000000000011     
-     E(SCF)=       -56.194987542461561              0.1407363670D-08
+ total electron number:   10.000000000000023     
+     E(SCF)=       -56.194987542461590              0.1407396477D-08
 
   Eigenvector printing suppressed.
 
@@ -572,5 +572,5 @@ FINISH
 
  @CHECKOUT-I, Total execution time (CPU/WALL):         0.01/       0.01 seconds.
 --executable xvscf finished with status     0 in        0.01 seconds (walltime).
-  The final electronic energy is       -56.194987542461561 a.u. 
+  The final electronic energy is       -56.194987542461590 a.u. 
   This computation required                            0.17 seconds (walltime).

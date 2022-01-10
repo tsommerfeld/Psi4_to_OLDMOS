@@ -26,7 +26,7 @@ Core-guess
                        Version 1.2
 
                      laptop21                                          
-                     Sun 09 Jan 2022 06:51:05 PM CST                   
+                     Mon 10 Jan 2022 02:06:42 PM CST                   
                      integer*8 version is running
 
 ********************************************************************************
@@ -412,8 +412,8 @@ Line Symbol    AtNr   At. Mass
   in rdbas
   There are   14 basis functions.
  @GEOPT-W, Archive file not created for single-point calculation.
- @CHECKOUT-I, Total execution time (CPU/WALL):         0.15/       0.08 seconds.
---executable xjoda finished with status     0 in        0.13 seconds (walltime).
+ @CHECKOUT-I, Total execution time (CPU/WALL):         0.14/       0.08 seconds.
+--executable xjoda finished with status     0 in        0.14 seconds (walltime).
   TWOST is  F                    5
     0    0    0    7    7   11  100    8    0    1
     0    5    5   15    0  150    0    0    0   10
@@ -480,7 +480,7 @@ FINISH
   @TWOEL-I,        784 INTEGRALS OF SYMMETRY TYPE  I I J J
   @TWOEL-I, TOTAL NUMBER OF 2-E INTEGRALS       2821.
   @MOLECU-I, TWO ELECTRON INTEGRALS (CPU/WALL):        0.01/       0.00 SECONDS.
- @CHECKOUT-I, Total execution time (CPU/WALL):         0.02/       0.01 seconds.
+ @CHECKOUT-I, Total execution time (CPU/WALL):         0.01/       0.01 seconds.
 --executable xvmol finished with status     0 in        0.01 seconds (walltime).
  --invoking executable--
 /home/thomas/Packages/cfour19/bin/xvmol2ja
@@ -614,4 +614,4 @@ FINISH
  @CHECKOUT-I, Total execution time (CPU/WALL):         0.01/       0.00 seconds.
 --executable xvscf finished with status     0 in        0.01 seconds (walltime).
   The final electronic energy is      -109.741468486063042 a.u. 
-  This computation required                            0.16 seconds (walltime).
+  This computation required                            0.17 seconds (walltime).

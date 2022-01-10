@@ -6,14 +6,19 @@ Created on Wed Jan  5 12:50:17 2022
 @author: Thomas Sommerfeld
 """
 
-import numpy as np
+import os
 import sys
+curr_dir=os.getcwd()
+p=curr_dir.find('Samples')
+root=curr_dir[:p]
+sys.path.append(root+'lib')
+
 import argparse
 
 import psi4
-sys.path.append('../../../lib')
-from P4toC4_aux import basis_mapping, psi4_to_c4, write_oldmos
-from c4_comp_geo import cfour_comp_sym_and_geo
+import c4_comp_geo
+import P4toC4_aux
+
 
 def main():
 
@@ -26,7 +31,7 @@ def main():
 
     verbose = arguments.v
     Basis = arguments.b         
-    sym, coors = cfour_comp_sym_and_geo(arguments.fname)
+    sym, coors = c4_comp_geo.cfour_comp_sym_and_geo(arguments.fname)
 
     if verbose > 0:
         print('Molecule from', arguments.fname)
@@ -48,15 +53,19 @@ def main():
         print(mol_str)
         print('-------------------')
     h2o = psi4.geometry(mol_str)
-    E, wf = psi4.energy('scf', return_wfn=True)
+    E, wf = psi4.energy('scf', return_wfn=True, molecule=h2o)
     print(f'HF energy = {E}')
 
-    p2c_map, scale = basis_mapping(wf.basisset(), verbose=0)
-    Ca=np.array(wf.Ca())
-    Cb=np.array(wf.Cb())
-    Ca_C4 = psi4_to_c4(Ca, p2c_map, scale)
-    Cb_C4 = psi4_to_c4(Cb, p2c_map, scale)
-    write_oldmos('PSIMOS', Ca_C4, Cbs=Cb_C4)
+    
+    P4toC4_aux.make_OLDMOS(wf, verbose=verbose)
+    """
+    low-level calls
+    p2c_map, scale = P4toC4_aux.basis_mapping(wf.basisset(), verbose=0)
+    Ca_C4 = P4toC4_aux.psi4_to_c4(wf.Ca().np, p2c_map, scale)
+    Cb_C4 = P4toC4_aux.psi4_to_c4(wf.Cb().np, p2c_map, scale)
+    P4toC4_aux.write_oldmos('PSIMOS', Ca_C4, Cbs=Cb_C4)
+    """
+
     if verbose > 0:
         print('Psi4-MOs written to PSIMOS')
     return

@@ -10,7 +10,7 @@ Created on Wed Dec 15 17:27:58 2021
 import numpy as np
 import sys
 import psi4
-from SO_aux import SymOrbs
+import SO_aux
 
 
 
@@ -18,9 +18,10 @@ def make_OLDMOS(wfn, verbose=0, fname='PSIMOS'):
     """
     Core manager function: 
         Transforms Psi4-MOs into Cfour OLDMOS format and writes PSIMOS file.
+        
     - Establish the Psi4-AO to Cfour-AO mapping and its inverse.
-    - Establishes the Psi4-SO to Cfour-SO mapping and its inverse.
-    - Both mappings contribute a scaling factor.
+    - May establish the Psi4-SO to Cfour-SO mapping and its inverse.
+    - Both mappings contribute a scaling factor for nirrep > 1.
     - Apply the transformation for each irrep.
     - Write each block to PSIMOS
 
@@ -41,43 +42,51 @@ def make_OLDMOS(wfn, verbose=0, fname='PSIMOS'):
     for i in range(naos):
         c2p_map[p2c_map[i]] = i 
 
-    # MOs and SOs
-    Ls=wfn.aotoso()
-    C_SO_a = wfn.Ca()
-    C_SO_b = wfn.Cb()
-    if verbose > 0:
-        print('SO dimensions:', Ls.shape)
-        print('MO dimensions:', C_SO_a.shape)        
-    
     a_lst, b_lst = [], []
 
-    for isym in range(wfn.nirrep()):
-        SOs=SymOrbs(Ls.nph[isym], order=wfn.nirrep())
-        if verbose > 3:
-            SOs.print()
-        p4_first_AOs = SOs.first_AOs()
-        cfour_first_AOs = p2c_map[SOs.first_AOs()]
-        ao_scale = p2c_scale[SOs.first_AOs()]
-        so_c2p = np.argsort(cfour_first_AOs)
-        nsos=len(so_c2p)
-        so_p2c=np.zeros(nsos, int)
-        for i in range(nsos):
-            so_p2c[so_c2p[i]] = i
-        so_scale=SOs.inv_coef()
-        scale = so_scale*ao_scale
-        if verbose > 1:
-            print(f'\nIrrep {isym}')
-            print('AO-order  AO-order   Cfour    argsort    AO     SO')
-            print('  Psi4     Cfour    argsort   inverted  scale  scale')
-            for i in range(nsos):
-                print(f'{p4_first_AOs[i]:4d}{cfour_first_AOs[i]:9d}', end='')
-                print(f'{so_c2p[i]:11d}{so_p2c[i]:10d}', end='')
-                print(f'{ao_scale[i]:11.3f}{so_scale[i]:7.3f}')
-        
-        Ca = psi4_to_c4(C_SO_a.nph[isym], so_p2c, scale)
+    if wfn.nirrep == 1:
+        # MOs in the AO basis
+        Ca = psi4_to_c4(wfn.Ca().np, p2c_map, p2c_scale)
+        Cb = psi4_to_c4(wfn.Cb().np, p2c_map, p2c_scale)
         a_lst.append(Ca)
-        Cb = psi4_to_c4(C_SO_b.nph[isym], so_p2c, scale)
         b_lst.append(Cb)
+    else:
+        # MOs in the SO basis in the AO basis
+        Ls=wfn.aotoso()
+        C_SO_a = wfn.Ca()
+        C_SO_b = wfn.Cb()
+        if verbose > 0:
+            print('SO dimensions:', Ls.shape)
+            print('MO dimensions:', C_SO_a.shape)        
+        
+    
+        for isym in range(wfn.nirrep()):
+            SOs = SO_aux.SymOrbs(Ls.nph[isym], order=wfn.nirrep())
+            if verbose > 3:
+                SOs.print()
+            p4_first_AOs = SOs.first_AOs()
+            cfour_first_AOs = p2c_map[SOs.first_AOs()]
+            ao_scale = p2c_scale[SOs.first_AOs()]
+            so_c2p = np.argsort(cfour_first_AOs)
+            nsos=len(so_c2p)
+            so_p2c=np.zeros(nsos, int)
+            for i in range(nsos):
+                so_p2c[so_c2p[i]] = i
+            so_scale=SOs.inv_coef()
+            scale = so_scale*ao_scale
+            if verbose > 1:
+                print(f'\nIrrep {isym}')
+                print('AO-order  AO-order   Cfour    argsort    AO     SO')
+                print('  Psi4     Cfour    argsort   inverted  scale  scale')
+                for i in range(nsos):
+                    print(f'{p4_first_AOs[i]:4d}{cfour_first_AOs[i]:9d}', end='')
+                    print(f'{so_c2p[i]:11d}{so_p2c[i]:10d}', end='')
+                    print(f'{ao_scale[i]:11.3f}{so_scale[i]:7.3f}')
+            
+            Ca = psi4_to_c4(C_SO_a.nph[isym], so_p2c, scale)
+            a_lst.append(Ca)
+            Cb = psi4_to_c4(C_SO_b.nph[isym], so_p2c, scale)
+            b_lst.append(Cb)
 
     C_a = psi4.core.Matrix.from_array(a_lst)
     C_b = psi4.core.Matrix.from_array(b_lst)
@@ -551,7 +560,7 @@ def write_oldmo_block(fname, Cs, mode='w'):
 
 
 
-def write_oldmo(fname, Cas, Cbs=None, mode='w'):
+def write_oldmos(fname, Cas, Cbs=None, mode='w'):
     """
     Deprecated. May be deleted at some point.
 

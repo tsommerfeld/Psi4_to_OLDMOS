@@ -26,7 +26,7 @@ Psi-guess
                        Version 1.2
 
                      laptop21                                          
-                     Wed 05 Jan 2022 01:58:33 PM CST                   
+                     Mon 10 Jan 2022 02:34:47 PM CST                   
                      integer*8 version is running
 
 ********************************************************************************
@@ -477,7 +477,7 @@ FINISH
   @MOLECU-I, ONE ELECTRON INTEGRALS (CPU/WALL):        0.00/       0.00 SECONDS.
   @TWOEL-I,      21643 INTEGRALS OF SYMMETRY TYPE  I I I I
   @TWOEL-I, TOTAL NUMBER OF 2-E INTEGRALS      21643.
-  @MOLECU-I, TWO ELECTRON INTEGRALS (CPU/WALL):        0.04/       0.02 SECONDS.
+  @MOLECU-I, TWO ELECTRON INTEGRALS (CPU/WALL):        0.05/       0.02 SECONDS.
  @CHECKOUT-I, Total execution time (CPU/WALL):         0.05/       0.02 seconds.
 --executable xvmol finished with status     0 in        0.02 seconds (walltime).
  --invoking executable--
@@ -532,8 +532,8 @@ FINISH
   --------------------------------------------------------------------
   Iteration         Total Energy            Largest Density Difference
   --------------------------------------------------------------------
-       0           -76.026653646796589              0.0000000000D+00
-     E(SCF)=       -76.026653650328626              0.5335479836D-08
+       0           -76.026653646796476              0.0000000000D+00
+     E(SCF)=       -76.026653650328583              0.5335464404D-08
 
    final occupation vector 
      5
@@ -542,8 +542,8 @@ FINISH
   SCF has converged.
 
  Density matrix saved to file den.dat
- total electron number:   10.000000000000018     
-     E(SCF)=       -76.026653650328740              0.2706263547D-08
+ total electron number:   10.000000000000027     
+     E(SCF)=       -76.026653650328683              0.2706298075D-08
 
   Eigenvector printing suppressed.
 
@@ -587,5 +587,5 @@ FINISH
 
  @CHECKOUT-I, Total execution time (CPU/WALL):         0.01/       0.01 seconds.
 --executable xvscf finished with status     0 in        0.01 seconds (walltime).
-  The final electronic energy is       -76.026653650328740 a.u. 
+  The final electronic energy is       -76.026653650328683 a.u. 
   This computation required                            0.16 seconds (walltime).

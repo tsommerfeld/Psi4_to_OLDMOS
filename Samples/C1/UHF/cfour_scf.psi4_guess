@@ -26,7 +26,7 @@ Psi-guess
                        Version 1.2
 
                      laptop21                                          
-                     Wed 05 Jan 2022 04:13:45 PM CST                   
+                     Mon 10 Jan 2022 02:37:47 PM CST                   
                      integer*8 version is running
 
 ********************************************************************************
@@ -371,7 +371,7 @@ Line Symbol    AtNr   At. Mass
   There are   19 basis functions.
  @GEOPT-W, Archive file not created for single-point calculation.
  @CHECKOUT-I, Total execution time (CPU/WALL):         0.15/       0.08 seconds.
---executable xjoda finished with status     0 in        0.13 seconds (walltime).
+--executable xjoda finished with status     0 in        0.12 seconds (walltime).
   TWOST is  F                    5
     0    0    0    7    7   11  100    8    0    1
     1    5    5   15    0  150  999    0    0   10
@@ -508,8 +508,8 @@ FINISH
   --------------------------------------------------------------------
   Iteration         Total Energy            Largest Density Difference
   --------------------------------------------------------------------
-       0           -75.393838919729674              0.0000000000D+00
-     E(SCF)=       -75.393838921680683              0.1291473240D-07
+       0           -75.393838919729475              0.0000000000D+00
+     E(SCF)=       -75.393838921680640              0.1291473469D-07
 
    final occupation vector 
      5
@@ -518,9 +518,9 @@ FINISH
   SCF has converged.
 
  Density matrix saved to file den.dat
- total alpha spin electron number:   5.0000000000000027     
- total  beta spin electron number:   4.0000000000000071     
-     E(SCF)=       -75.393838921680697              0.5614558429D-08
+ total alpha spin electron number:   5.0000000000000053     
+ total  beta spin electron number:   4.0000000000000062     
+     E(SCF)=       -75.393838921680711              0.5614555945D-08
 
   Eigenvector printing suppressed.
 
@@ -590,5 +590,5 @@ FINISH
 
  @CHECKOUT-I, Total execution time (CPU/WALL):         0.01/       0.01 seconds.
 --executable xvscf finished with status     0 in        0.01 seconds (walltime).
-  The final electronic energy is       -75.393838921680697 a.u. 
-  This computation required                            0.16 seconds (walltime).
+  The final electronic energy is       -75.393838921680711 a.u. 
+  This computation required                            0.15 seconds (walltime).

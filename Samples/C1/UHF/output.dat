@@ -1,6 +1,6 @@
 
 *** tstart() called on laptop21
-*** at Wed Jan  5 16:13:44 2022
+*** at Mon Jan 10 14:37:47 2022
 
    => Loading Basis Set <=
 
@@ -112,17 +112,17 @@
                         Total Energy        Delta E     RMS |[F,P]|
 
    @UHF iter SAD:   -74.65596078421402   -7.46560e+01   0.00000e+00 
-   @UHF iter   1:   -75.37266918858759   -7.16708e-01   1.08268e-02 DIIS
-   @UHF iter   2:   -75.39157333997638   -1.89042e-02   3.61022e-03 DIIS
-   @UHF iter   3:   -75.39345628699938   -1.88295e-03   1.09324e-03 DIIS
-   @UHF iter   4:   -75.39377243906600   -3.16152e-04   3.63955e-04 DIIS
-   @UHF iter   5:   -75.39382304115205   -5.06021e-05   1.50737e-04 DIIS
-   @UHF iter   6:   -75.39383621345615   -1.31723e-05   5.71093e-05 DIIS
-   @UHF iter   7:   -75.39383875208755   -2.53863e-06   1.50593e-05 DIIS
-   @UHF iter   8:   -75.39383891654504   -1.64457e-07   3.27727e-06 DIIS
-   @UHF iter   9:   -75.39383892159383   -5.04879e-09   5.90820e-07 DIIS
-   @UHF iter  10:   -75.39383892174413   -1.50308e-10   5.65727e-08 DIIS
-   @UHF iter  11:   -75.39383892174534   -1.20792e-12   6.70853e-09 DIIS
+   @UHF iter   1:   -75.37266918858751   -7.16708e-01   1.08268e-02 DIIS
+   @UHF iter   2:   -75.39157333997632   -1.89042e-02   3.61022e-03 DIIS
+   @UHF iter   3:   -75.39345628699942   -1.88295e-03   1.09324e-03 DIIS
+   @UHF iter   4:   -75.39377243906593   -3.16152e-04   3.63955e-04 DIIS
+   @UHF iter   5:   -75.39382304115196   -5.06021e-05   1.50737e-04 DIIS
+   @UHF iter   6:   -75.39383621345618   -1.31723e-05   5.71093e-05 DIIS
+   @UHF iter   7:   -75.39383875208759   -2.53863e-06   1.50593e-05 DIIS
+   @UHF iter   8:   -75.39383891654506   -1.64457e-07   3.27727e-06 DIIS
+   @UHF iter   9:   -75.39383892159380   -5.04873e-09   5.90820e-07 DIIS
+   @UHF iter  10:   -75.39383892174415   -1.50351e-10   5.65727e-08 DIIS
+   @UHF iter  11:   -75.39383892174541   -1.26477e-12   6.70853e-09 DIIS
   Energy and wave function converged.
 
 
@@ -168,14 +168,14 @@
     DOCC [     4 ]
     SOCC [     1 ]
 
-  @UHF Final Energy:   -75.39383892174534
+  @UHF Final Energy:   -75.39383892174541
 
    => Energetics <=
 
     Nuclear Repulsion Energy =              4.3643472285129432
-    One-Electron Energy =                -112.7379052351434012
-    Two-Electron Energy =                  32.9797190848851187
-    Total Energy =                        -75.3938389217453420
+    One-Electron Energy =                -112.7379052351435433
+    Two-Electron Energy =                  32.9797190848851827
+    Total Energy =                        -75.3938389217454130
 
   UHF NO Occupations:
   HONO-2 :    3  A 1.9995023
@@ -207,12 +207,12 @@ Properties computed using the SCF density matrix
      X:    -0.0000      Y:    -0.0000      Z:    -1.8035     Total:     1.8035
 
 
-*** tstop() called on laptop21 at Wed Jan  5 16:13:45 2022
+*** tstop() called on laptop21 at Mon Jan 10 14:37:47 2022
 Module time:
-	user time   =       0.20 seconds =       0.00 minutes
-	system time =       0.00 seconds =       0.00 minutes
-	total time  =          1 seconds =       0.02 minutes
+	user time   =       0.19 seconds =       0.00 minutes
+	system time =       0.01 seconds =       0.00 minutes
+	total time  =          0 seconds =       0.00 minutes
 Total time:
-	user time   =       0.20 seconds =       0.00 minutes
-	system time =       0.00 seconds =       0.00 minutes
-	total time  =          1 seconds =       0.02 minutes
+	user time   =       0.19 seconds =       0.00 minutes
+	system time =       0.01 seconds =       0.00 minutes
+	total time  =          0 seconds =       0.00 minutes
