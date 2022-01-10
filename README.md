@@ -18,7 +18,7 @@ If everything is done exactly the **same** in both codes, this works as well as 
 
 Currently implemented/tested:
 * C1: RHF and UHF
-* Cs, C2, Ci: RHF
+* Cs, C2, Ci: RHF; Cs UHF
 * up to f-functions
 
 ## Workflow
@@ -38,6 +38,6 @@ Everything can be run from a single script, see the `run_me` scripts in `Samples
 
 * `Samples` : complete comparison of the build-in core guess with the Psi4-guess.
 * `CFOUR` : Psi4 basis sets (P4.BASIS) and some experimental scripts with symmetry.
-* `doc` : A notebook with markdown cells containing the most important documentation and thoughts.  
+* `doc` : Notebook with markdown cells containing the most important documentation and thoughts.  
 * `lib` : Python auxiliary functions.
-* `dev` : uncommented notebooks used for development.
+* `dev` : Lightly commented notebooks used for development.
