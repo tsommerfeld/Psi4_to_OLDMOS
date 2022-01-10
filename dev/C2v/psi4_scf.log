@@ -1,0 +1,61 @@
+
+  Memory set to 476.837 MiB by Python driver.
+Molecule from cfour_scf.for_orientation
+HE    0.00000000   0.00000000   3.20000000
+HE    1.00000000   2.00000000  -0.80000000
+HE   -1.00000000   2.00000000  -0.80000000
+HE    1.00000000  -2.00000000  -0.80000000
+HE   -1.00000000  -2.00000000  -0.80000000
+
+Basis is def2-SV
+-------------------
+0 1
+HE    0.00000000   0.00000000   3.20000000
+HE    1.00000000   2.00000000  -0.80000000
+HE   -1.00000000   2.00000000  -0.80000000
+HE    1.00000000  -2.00000000  -0.80000000
+HE   -1.00000000  -2.00000000  -0.80000000
+symmetry C2v
+units Bohr
+no_reorient
+-------------------
+HF energy = -14.021256185849381
+SO dimensions: ((10, 4), (10, 2), (10, 2), (10, 2))
+MO dimensions: ((4, 4), (2, 2), (2, 2), (2, 2))
+ 0   1.00000(  0)
+ 1   1.00000(  1)
+ 2   0.50000(  2)   0.50000(  4)   0.50000(  6)   0.50000(  8)
+ 3   0.50000(  3)   0.50000(  5)   0.50000(  7)   0.50000(  9)
+
+Irrep 0
+AO-order  AO-order   Cfour    argsort    AO     SO
+  Psi4     Cfour    argsort   inverted  scale  scale
+   0        0          0         0      1.000  1.000
+   1        1          1         1      1.000  1.000
+   2        2          2         2      1.000  2.000
+   3        3          3         3      1.000  2.000
+ 0   0.50000(  2)  -0.50000(  4)  -0.50000(  6)   0.50000(  8)
+ 1   0.50000(  3)  -0.50000(  5)  -0.50000(  7)   0.50000(  9)
+
+Irrep 1
+AO-order  AO-order   Cfour    argsort    AO     SO
+  Psi4     Cfour    argsort   inverted  scale  scale
+   2        2          0         0      1.000  2.000
+   3        3          1         1      1.000  2.000
+ 0   0.50000(  2)  -0.50000(  4)   0.50000(  6)  -0.50000(  8)
+ 1   0.50000(  3)  -0.50000(  5)   0.50000(  7)  -0.50000(  9)
+
+Irrep 2
+AO-order  AO-order   Cfour    argsort    AO     SO
+  Psi4     Cfour    argsort   inverted  scale  scale
+   2        2          0         0      1.000  2.000
+   3        3          1         1      1.000  2.000
+ 0   0.50000(  2)   0.50000(  4)  -0.50000(  6)  -0.50000(  8)
+ 1   0.50000(  3)   0.50000(  5)  -0.50000(  7)  -0.50000(  9)
+
+Irrep 3
+AO-order  AO-order   Cfour    argsort    AO     SO
+  Psi4     Cfour    argsort   inverted  scale  scale
+   2        2          0         0      1.000  2.000
+   3        3          1         1      1.000  2.000
+Psi4-MOs written to PSIMOS

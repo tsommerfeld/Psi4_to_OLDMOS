@@ -94,6 +94,22 @@ Psi4 basis DEF2-SV for element H atom 2
  0.0000000  1.0000000
 
 
+HE:P4_def2-SV
+Psi4 basis DEF2-SVP for element HE atom 3
+
+  1
+    0
+    2
+    4
+
+    38.3549367     5.7689081     1.2399407     0.2975782
+
+ 0.0238143  0.0000000
+ 0.1549091  0.0000000
+ 0.4699810  0.0000000
+ 0.0000000  1.0000000
+
+
 N:P4_def2-SV
 Psi4 basis DEF2-SVP for element N atom 1
 

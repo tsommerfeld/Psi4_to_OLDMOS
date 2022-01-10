@@ -37,10 +37,7 @@ def make_OLDMOS(wfn, verbose=0, fname='PSIMOS'):
     """
 
     p2c_map, p2c_scale = basis_mapping(wfn.basisset(), verbose=0)
-    naos=len(p2c_map)
-    c2p_map=np.zeros(naos, int)
-    for i in range(naos):
-        c2p_map[p2c_map[i]] = i 
+    #c2p_map = invert_mapping(p2c_map) 
 
     a_lst, b_lst = [], []
 
@@ -57,9 +54,7 @@ def make_OLDMOS(wfn, verbose=0, fname='PSIMOS'):
         C_SO_b = wfn.Cb()
         if verbose > 0:
             print('SO dimensions:', Ls.shape)
-            print('MO dimensions:', C_SO_a.shape)        
-        
-    
+            print('MO dimensions:', C_SO_a.shape)          
         for isym in range(wfn.nirrep()):
             SOs = SO_aux.SymOrbs(Ls.nph[isym], order=wfn.nirrep())
             if verbose > 3:
@@ -68,21 +63,17 @@ def make_OLDMOS(wfn, verbose=0, fname='PSIMOS'):
             cfour_first_AOs = p2c_map[SOs.first_AOs()]
             ao_scale = p2c_scale[SOs.first_AOs()]
             so_c2p = np.argsort(cfour_first_AOs)
-            nsos=len(so_c2p)
-            so_p2c=np.zeros(nsos, int)
-            for i in range(nsos):
-                so_p2c[so_c2p[i]] = i
+            so_p2c = invert_mapping(so_c2p)
             so_scale=SOs.inv_coef()
             scale = so_scale*ao_scale
             if verbose > 1:
                 print(f'\nIrrep {isym}')
                 print('AO-order  AO-order   Cfour    argsort    AO     SO')
                 print('  Psi4     Cfour    argsort   inverted  scale  scale')
-                for i in range(nsos):
+                for i in range(SOs.nsos):
                     print(f'{p4_first_AOs[i]:4d}{cfour_first_AOs[i]:9d}', end='')
                     print(f'{so_c2p[i]:11d}{so_p2c[i]:10d}', end='')
-                    print(f'{ao_scale[i]:11.3f}{so_scale[i]:7.3f}')
-            
+                    print(f'{ao_scale[i]:11.3f}{so_scale[i]:7.3f}')            
             Ca = psi4_to_c4(C_SO_a.nph[isym], so_p2c, scale)
             a_lst.append(Ca)
             Cb = psi4_to_c4(C_SO_b.nph[isym], so_p2c, scale)
@@ -333,49 +324,24 @@ def basis_mapping(basisset, verbose=1):
     return map_p2c, scale
 
 
-def ao_offset(basisset, verbose=0):
+def invert_mapping(a_to_b):
     """
-    Deprecated. Real old.
-    
-    nice, but works only for STO-3G
-    
-    offset vector for Psi4 to Cfour MO mapping
-    
-    Cfour_MO[i+offset[i]] = Psi4_MO[i]
-
-    for s-fns offset is 0
-    for p-shells offset is [+2,-1,-1] : (z,x,y) -> (x,y,z)
+    b[a_to_b[i]] = a[i] find b_to_a so that a[b_to_a[i]] = b[i]
 
     Parameters
     ----------
-    basisset : psi4.core.basisset
-        Psi4 class for basis sets
-        we need .nshells and .shell.am
+    a_to_b : int np.array 
 
     Returns
     -------
-    the offset vector for the basis set
+    b_to_a : int np.array
 
     """
-    if verbose > 0:
-        print('Creating offset vector')
-
-    ll = {'s': (1, [0]),
-          'p': (3, [2, -1, -1])}
-    nbf = basisset.nbf()
-    offset = np.zeros(nbf, int)
-
-    ibf = 0
-    for ishell in range(basisset.nshell()):
-        shell = basisset.shell(ishell)
-        am = shell.amchar
-        l = shell.am
-        if verbose > 0:
-            print(f"Shell {ishell}  {am} {l}")
-        add, p2c = ll[am]
-        offset[ibf:ibf+add] = p2c
-        ibf = ibf + add
-    return offset
+    n = len(a_to_b)
+    b_to_a = np.zeros(n, int)
+    for i in range(n):
+        b_to_a[a_to_b[i]] = i
+    return b_to_a
     
 
 def Cfour_irrep_order(n_psi, group, verbose=1):

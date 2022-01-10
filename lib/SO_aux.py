@@ -40,6 +40,9 @@ class SymOrbs:
             self.naos[jso] = n
             self.jao[:n,jso] = nonz
             self.cao[:n,jso] = so_vec[self.jao[:n,jso]]
+            
+    def nsos(self):
+        return self.nsos
 
     def print(self):
         """ print SOs as linear combinations """
