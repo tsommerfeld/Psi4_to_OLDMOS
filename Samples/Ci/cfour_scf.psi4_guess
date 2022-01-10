@@ -26,13 +26,13 @@ Psi-guess
                        Version 1.2
 
                      laptop21                                          
-                     Fri 07 Jan 2022 03:29:28 PM CST                   
+                     Sun 09 Jan 2022 06:51:06 PM CST                   
                      integer*8 version is running
 
 ********************************************************************************
 *                          Input from ZMAT file                                *
 ********************************************************************************
-Hydrazine in Ci                                                                 
+distorted Hydrazine in Ci                                                       
 N                                                                               
 N 1 NN2                                                                         
 H 2 HN3 1 HNN3                                                                  
@@ -49,6 +49,7 @@ DIH5=180.000
                                                                                 
 *CFOUR(CALC=SCF                                                                 
 BASIS=SPECIAL,SPHERICAL=ON                                                      
+OCCUPATION=5-4                                                                  
 REFERENCE=RHF                                                                   
 MEM_SIZE=2,MEM_UNIT=GB)                                                         
                                                                                 
@@ -210,7 +211,7 @@ H:P4_CC-PVDZ
        NON-HF               INONHF         OFF         [  0]    ***   
        NTOP_TAMP            ITOPT2             15               ***   
        NUC_MODEL            INUCMO         POINT       [  0]    ***   
-       OCCUPATION           IOCCU   ESTIMATED BY SCF 
+       OCCUPATION           IOCCU    5,  4,
        OPEN-SHELL           IOPEN          SPIN-ORBITAL[  0]    ***   
        OPTVIB               IOPTVB         OFF         [  0]    ***   
        ORBITALS             IORBTP         STANDARD    [  0]    ***   
@@ -307,7 +308,7 @@ H:P4_CC-PVDZ
     -------------------------------------------------------------------
  cholesky/tol? F   1.0000000000000005E-004
    6 entries found in Z-matrix 
-   Job Title : Hydrazine in Ci                                                                 
+   Job Title : distorted Hydrazine in Ci                                                       
    There are  6 unique internal coordinates.
    Of these,  0 will be optimized.
    User supplied Z-matrix: 
@@ -411,11 +412,11 @@ Line Symbol    AtNr   At. Mass
   in rdbas
   There are   48 basis functions.
  @GEOPT-W, Archive file not created for single-point calculation.
- @CHECKOUT-I, Total execution time (CPU/WALL):         0.14/       0.08 seconds.
---executable xjoda finished with status     0 in        0.13 seconds (walltime).
+ @CHECKOUT-I, Total execution time (CPU/WALL):         0.15/       0.08 seconds.
+--executable xjoda finished with status     0 in        0.12 seconds (walltime).
   TWOST is  F                    5
     0    0    0    7    7   11  100    8    0    1
-    0    5    5   15    0  150  999    0    0   10
+    0    5    5   15    0  150    0    0    0   10
     1    0    0    0    0    0  999    0    1   16
    64    0    0    1    0***** 4096    0    0    2
     0    0    0   10    0    0    5    5    1    0
@@ -435,7 +436,7 @@ Running with 2 threads/proc
 ********************************************************************************
 INTGRL        1    0    1    0    0    0    0    0    0                         
          *** CFOUR Program System (Release V0.1) ***                            
-Hydrazine in Ci                                                                 
+distorted Hydrazine in Ci                                                       
     3    1XYZ         0.10E-08              0    0                              
    9999.00      3.00                                                            
           7.00000000    1    3    1    1    1                                   
@@ -510,9 +511,9 @@ FINISH
   @TWOEL-I,     166176 INTEGRALS OF SYMMETRY TYPE  I J I J
   @TWOEL-I,      90000 INTEGRALS OF SYMMETRY TYPE  I I J J
   @TWOEL-I, TOTAL NUMBER OF 2-E INTEGRALS     346476.
-  @MOLECU-I, TWO ELECTRON INTEGRALS (CPU/WALL):        0.44/       0.17 SECONDS.
- @CHECKOUT-I, Total execution time (CPU/WALL):         0.45/       0.17 seconds.
---executable xvmol finished with status     0 in        0.18 seconds (walltime).
+  @MOLECU-I, TWO ELECTRON INTEGRALS (CPU/WALL):        0.46/       0.18 SECONDS.
+ @CHECKOUT-I, Total execution time (CPU/WALL):         0.47/       0.18 seconds.
+--executable xvmol finished with status     0 in        0.19 seconds (walltime).
  --invoking executable--
 /home/thomas/Packages/cfour19/bin/xvmol2ja
  @GETMEM-I,  Allocated    1907 MB of main memory.
@@ -546,6 +547,10 @@ FINISH
           Latest start for DIIS:   2
                      DIIS order:  10
 
+     Alpha population by irrep:   5    4
+      Beta population by irrep:   5    4
+
+
  @GETMEM-I,  Allocated       1 MB of main memory.
    Smallest overlap matrix eigenvalues 
      Symmetry    Eigenvalue    
@@ -556,29 +561,12 @@ FINISH
   starting vectors read from OLDMOS 
   going down and gssopt T
  @INITGES-I, Nonstandard initial guessing procedure. 
-  @INITGES-I, Occupancies from core Hamiltonian:
-
-          Alpha population by irrep:   4    5
-           Beta population by irrep:   4    5
-
-
   here  T
                     0 T   0.0000000000000000     
   --------------------------------------------------------------------
   Iteration         Total Energy            Largest Density Difference
   --------------------------------------------------------------------
-       0          -110.396337177750070              0.0000000000D+00
-       1          -110.939464433357415              0.1877389245D+01
-       2          -111.116338078533971              0.1489266111D+00
-       3          -111.177398203737397              0.6910607817D-01
-       4          -111.177881584651260              0.8136234357D-02
-       5          -111.177926683327911              0.3312310113D-02
-       6          -111.177928501185733              0.5500984861D-03
-       7          -111.177928634924427              0.1913233426D-03
-       8          -111.177928649138920              0.6656451537D-04
-       9          -111.177928650553071              0.2481596172D-04
-      10          -111.177928650573620              0.2002196968D-05
-      11          -111.177928650574160              0.3896977389D-06
+       0          -111.177928646949567              0.0000000000D+00
    final occupation vector 
      5  4
      5  4
@@ -586,15 +574,8 @@ FINISH
   SCF has converged.
 
  Density matrix saved to file den.dat
- total electron number:   18.000000000000060     
-     E(SCF)=      -111.177928650573591              0.4539742807D-07
-
-
-  Final occupancies:
-
-     Alpha population by irrep:   5    4
-      Beta population by irrep:   5    4
-
+ total electron number:   18.000000000000050     
+     E(SCF)=      -111.177928650573278              0.1406404759D-07
 
   Eigenvector printing suppressed.
 
@@ -701,62 +682,62 @@ FINISH
 
        MO #        E(hartree)               E(eV)           FULLSYM    COMPSYM
        ----   --------------------   --------------------   -------   ---------
-    1     1         -15.5608736131        -423.4328748893      A         A  (1)
-    2    25         -15.5604100306        -423.4202601690      B         B  (2)
-    3     2          -1.2467159384         -33.9248635442      A         A  (1)
-    4    26          -0.9961971213         -27.1079003344      B         B  (2)
-    5    27          -0.6890757215         -18.7507026295      B         B  (2)
-    6     3          -0.6091457928         -16.5756988138      A         A  (1)
-    7     4          -0.5531386492         -15.0516670374      A         A  (1)
-    8    28          -0.5284524389         -14.3799211411      B         B  (2)
-    9     5          -0.3285625886          -8.9406420823      A         A  (1)
+    1     1         -15.5608736135        -423.4328749026      A         A  (1)
+    2    25         -15.5604100310        -423.4202601813      B         B  (2)
+    3     2          -1.2467159387         -33.9248635531      A         A  (1)
+    4    26          -0.9961971231         -27.1079003836      B         B  (2)
+    5    27          -0.6890757198         -18.7507025835      B         B  (2)
+    6     3          -0.6091457973         -16.5756989345      A         A  (1)
+    7     4          -0.5531386481         -15.0516670072      A         A  (1)
+    8    28          -0.5284524402         -14.3799211758      B         B  (2)
+    9     5          -0.3285625851          -8.9406419866      A         A  (1)
   +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-   10     6           0.1922203560           5.2305815199      A         A  (1)
-   11    29           0.2129511477           5.7946950094      B         B  (2)
-   12    30           0.2398132913           6.5256510593      B         B  (2)
-   13     7           0.2932052236           7.9785193210      A         A  (1)
-   14    31           0.4568134093          12.4305241473      B         B  (2)
-   15    32           0.6804292191          18.5154193502      B         B  (2)
-   16    33           0.8316357841          22.6299589395      B         B  (2)
-   17     8           0.8395645778          22.8457123724      A         A  (1)
-   18     9           0.8775705143          23.8799064258      A         A  (1)
-   19    10           0.9271845565          25.2299730778      A         A  (1)
-   20    34           0.9745718958          26.5194480647      B         B  (2)
-   21    11           1.0182730849          27.7086178116      A         A  (1)
-   22    12           1.0851003105          29.5270789713      A         A  (1)
-   23    35           1.0995599322          29.9205452578      B         B  (2)
-   24    36           1.1143729077          30.3236267912      B         B  (2)
-   25    13           1.3356667412          36.3453378113      A         A  (1)
-   26    37           1.3487312856          36.7008421192      B         B  (2)
-   27    38           1.4042425241          38.2113796303      B         B  (2)
-   28    39           1.5332356687          41.7214613526      B         B  (2)
-   29    14           1.5993202671          43.5197145992      A         A  (1)
-   30    15           1.8112427015          49.2864168993      A         A  (1)
-   31    16           1.9139022028          52.0799237987      A         A  (1)
-   32    40           1.9254862536          52.3951418292      B         B  (2)
-   33    17           1.9917780661          54.1990336550      A         A  (1)
-   34    41           2.1238363386          57.7925217457      B         B  (2)
-   35    42           2.1979898238          59.8103405519      B         B  (2)
-   36    43           2.2690151248          61.7430371412      B         B  (2)
-   37    18           2.2850600345          62.1796413076      A         A  (1)
-   38    19           2.3456282992          63.8277874917      A         A  (1)
-   39    44           2.4181168075          65.8002999763      B         B  (2)
-   40    20           2.5281319369          68.7939636796      A         A  (1)
-   41    45           2.7122878975          73.8051018548      B         B  (2)
-   42    21           2.8825349598          78.4377596867      A         A  (1)
-   43    22           2.8935485855          78.7374556628      A         A  (1)
-   44    46           2.9390627926          79.9759601367      B         B  (2)
-   45    23           3.1577058627          85.9255402205      A         A  (1)
-   46    47           3.2829476970          89.3335436067      B         B  (2)
-   47    24           3.3441325468          90.9984679224      A         A  (1)
-   48    48           3.4501986888          93.8846742195      B         B  (2)
+   10     6           0.1922203541           5.2305814694      A         A  (1)
+   11    29           0.2129511472           5.7946949956      B         B  (2)
+   12    30           0.2398132914           6.5256510615      B         B  (2)
+   13     7           0.2932052236           7.9785193215      A         A  (1)
+   14    31           0.4568134054          12.4305240409      B         B  (2)
+   15    32           0.6804292194          18.5154193587      B         B  (2)
+   16    33           0.8316357836          22.6299589243      B         B  (2)
+   17     8           0.8395645782          22.8457123830      A         A  (1)
+   18     9           0.8775705140          23.8799064173      A         A  (1)
+   19    10           0.9271845537          25.2299730010      A         A  (1)
+   20    34           0.9745718974          26.5194481073      B         B  (2)
+   21    11           1.0182730850          27.7086178147      A         A  (1)
+   22    12           1.0851003113          29.5270789927      A         A  (1)
+   23    35           1.0995599322          29.9205452598      B         B  (2)
+   24    36           1.1143729044          30.3236267026      B         B  (2)
+   25    13           1.3356667406          36.3453377970      A         A  (1)
+   26    37           1.3487312856          36.7008421203      B         B  (2)
+   27    38           1.4042425234          38.2113796128      B         B  (2)
+   28    39           1.5332356678          41.7214613291      B         B  (2)
+   29    14           1.5993202663          43.5197145792      A         A  (1)
+   30    15           1.8112427007          49.2864168780      A         A  (1)
+   31    16           1.9139022020          52.0799237747      A         A  (1)
+   32    40           1.9254862528          52.3951418051      B         B  (2)
+   33    17           1.9917780656          54.1990336431      A         A  (1)
+   34    41           2.1238363379          57.7925217260      B         B  (2)
+   35    42           2.1979898234          59.8103405391      B         B  (2)
+   36    43           2.2690151240          61.7430371216      B         B  (2)
+   37    18           2.2850600341          62.1796412975      A         A  (1)
+   38    19           2.3456282985          63.8277874720      A         A  (1)
+   39    44           2.4181168073          65.8002999706      B         B  (2)
+   40    20           2.5281319363          68.7939636627      A         A  (1)
+   41    45           2.7122878972          73.8051018464      B         B  (2)
+   42    21           2.8825349594          78.4377596766      A         A  (1)
+   43    22           2.8935485846          78.7374556375      A         A  (1)
+   44    46           2.9390627924          79.9759601308      B         B  (2)
+   45    23           3.1577058625          85.9255402157      A         A  (1)
+   46    47           3.2829476964          89.3335435887      B         B  (2)
+   47    24           3.3441325465          90.9984679142      A         A  (1)
+   48    48           3.4501986884          93.8846742098      B         B  (2)
 
 
   iflags(77) is                     0
   iflags(38) is                     0
   VSCF finished.
 
- @CHECKOUT-I, Total execution time (CPU/WALL):         0.08/       0.04 seconds.
---executable xvscf finished with status     0 in        0.05 seconds (walltime).
-  The final electronic energy is      -111.177928650573591 a.u. 
-  This computation required                            0.36 seconds (walltime).
+ @CHECKOUT-I, Total execution time (CPU/WALL):         0.02/       0.01 seconds.
+--executable xvscf finished with status     0 in        0.02 seconds (walltime).
+  The final electronic energy is      -111.177928650573278 a.u. 
+  This computation required                            0.34 seconds (walltime).

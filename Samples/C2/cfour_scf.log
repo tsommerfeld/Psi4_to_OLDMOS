@@ -26,7 +26,7 @@ Core-guess
                        Version 1.2
 
                      laptop21                                          
-                     Fri 07 Jan 2022 02:49:01 PM CST                   
+                     Sun 09 Jan 2022 06:52:10 PM CST                   
                      integer*8 version is running
 
 ********************************************************************************
@@ -386,7 +386,7 @@ Line Symbol    AtNr   At. Mass
   in rdbas
   There are   12 basis functions.
  @GEOPT-W, Archive file not created for single-point calculation.
- @CHECKOUT-I, Total execution time (CPU/WALL):         0.14/       0.08 seconds.
+ @CHECKOUT-I, Total execution time (CPU/WALL):         0.15/       0.08 seconds.
 --executable xjoda finished with status     0 in        0.13 seconds (walltime).
   TWOST is  F                    5
     0    0    0    7    7   11  100    8    0    1
@@ -447,7 +447,7 @@ FINISH
   @TWOEL-I,        530 INTEGRALS OF SYMMETRY TYPE  I J I J
   @TWOEL-I,        353 INTEGRALS OF SYMMETRY TYPE  I I J J
   @TWOEL-I, TOTAL NUMBER OF 2-E INTEGRALS       1257.
-  @MOLECU-I, TWO ELECTRON INTEGRALS (CPU/WALL):        0.01/       0.00 SECONDS.
+  @MOLECU-I, TWO ELECTRON INTEGRALS (CPU/WALL):        0.00/       0.00 SECONDS.
  @CHECKOUT-I, Total execution time (CPU/WALL):         0.01/       0.00 seconds.
 --executable xvmol finished with status     0 in        0.01 seconds (walltime).
  --invoking executable--

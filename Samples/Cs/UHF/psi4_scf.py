@@ -40,12 +40,12 @@ def main():
     psi4.set_memory('500 MB')
     psi4.core.set_global_option("BASIS", Basis)
     psi4.core.set_global_option("SCF_TYPE", "pk")
-    psi4.core.set_global_option("REFERENCE", "RHF")
+    psi4.core.set_global_option("REFERENCE", "UHF")
     psi4.core.set_global_option("D_CONVERGENCE", 1e-8)
     psi4.core.set_global_option("PUREAM", "True")
     psi4.core.set_output_file('output.dat', False)
 
-    mol_str =  '0 1\n' + coors + 'symmetry ' + sym + '\n'
+    mol_str =  '1 2\n' + coors + 'symmetry ' + sym + '\n'
     mol_str += 'units Bohr\nno_reorient'
     if verbose > 1:
         print('-------------------')

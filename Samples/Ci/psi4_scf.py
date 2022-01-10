@@ -13,13 +13,11 @@ p=curr_dir.find('Samples')
 root=curr_dir[:p]
 sys.path.append(root+'lib')
 
-import numpy as np
 import argparse
 
 import psi4
-from P4toC4_aux import basis_mapping, psi4_to_c4, write_oldmos
 from c4_comp_geo import cfour_comp_sym_and_geo
-from SO_aux import SymOrbs
+from P4toC4_aux import make_OLDMOS
 
 def main():
 
@@ -57,53 +55,7 @@ def main():
     E, wf = psi4.energy('scf', return_wfn=True, molecule=mol)
     print(f'HF energy = {E}')
 
-    p2c_map, p2c_scale = basis_mapping(wf.basisset(), verbose=0)
-    naos=len(p2c_map)
-    c2p_map=np.zeros(naos, int)
-    for i in range(naos):
-        c2p_map[p2c_map[i]] = i 
-
-    # MOs and SOs
-    Ls=wf.aotoso()
-    C_SO=wf.Ca()
-    if verbose > 0:
-        print('SO dimensions:', Ls.shape)
-        print('MO dimensions:', C_SO.shape)        
-
-    irrep_lst = []
-    
-    for isym in range(wf.nirrep()):
-        SOs=SymOrbs(Ls.nph[isym], order=wf.nirrep())
-        if verbose > 3:
-            SOs.print()
-        p4_first_AOs = SOs.first_AOs()
-        cfour_first_AOs = p2c_map[SOs.first_AOs()]
-        ao_scale = p2c_scale[SOs.first_AOs()]
-        so_c2p = np.argsort(cfour_first_AOs)
-        nsos=len(so_c2p)
-        so_p2c=np.zeros(nsos, int)
-        for i in range(nsos):
-            so_p2c[so_c2p[i]] = i
-        so_scale=SOs.inv_coef()
-        scale = so_scale*ao_scale
-        if verbose > 1:
-            print(f'\nIrrep {isym}')
-            print('AO-order  AO-order   Cfour    argsort    AO     SO')
-            print('  Psi4     Cfour    argsort   inverted  scale  scale')
-            for i in range(nsos):
-                print(f'{p4_first_AOs[i]:4d}{cfour_first_AOs[i]:9d}', end='')
-                print(f'{so_c2p[i]:11d}{so_p2c[i]:10d}', end='')
-                print(f'{ao_scale[i]:11.3f}{so_scale[i]:7.3f}')
-        
-        C=psi4_to_c4(C_SO.nph[isym], so_p2c, scale, use_scale=True)
-        irrep_lst.append(C)
-                
-    C_SOr = psi4.core.Matrix.from_array(irrep_lst)
-    for irrep in range(wf.nirrep()):
-        mode = 'w'
-        if irrep > 0:
-            mode = 'a'
-        write_oldmos('PSIMOS', C_SOr.nph[irrep], mode=mode)
+    make_OLDMOS(wf, verbose)
 
     if verbose > 0:
         print('Psi4-MOs written to PSIMOS')

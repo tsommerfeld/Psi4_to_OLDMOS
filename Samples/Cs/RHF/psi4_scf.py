@@ -13,13 +13,16 @@ p=curr_dir.find('Samples')
 root=curr_dir[:p]
 sys.path.append(root+'lib')
 
-import numpy as np
 import argparse
 
 import psi4
-from P4toC4_aux import basis_mapping, psi4_to_c4, write_oldmos
 from c4_comp_geo import cfour_comp_sym_and_geo
-from SO_aux import SymOrbs
+from P4toC4_aux import make_OLDMOS
+
+# for low-level calls the following imports are needed:
+# import numpy as np
+# from P4toC4_aux import basis_mapping, psi4_to_c4, write_oldmos
+# from SO_aux import SymOrbs
 
 def main():
 
@@ -56,6 +59,14 @@ def main():
     mol = psi4.geometry(mol_str)
     E, wf = psi4.energy('scf', return_wfn=True, molecule=mol)
     print(f'HF energy = {E}')
+
+
+    make_OLDMOS(wf, verbose)
+
+    """
+
+    # low-level calls:
+
 
     p2c_map, p2c_scale = basis_mapping(wf.basisset(), verbose=0)
     naos=len(p2c_map)
@@ -95,7 +106,7 @@ def main():
                 print(f'{so_c2p[i]:11d}{so_p2c[i]:10d}', end='')
                 print(f'{ao_scale[i]:11.3f}{so_scale[i]:7.3f}')
         
-        C=psi4_to_c4(C_SO.nph[isym], so_p2c, scale, use_scale=True)
+        C=psi4_to_c4(C_SO.nph[isym], so_p2c, scale)
         irrep_lst.append(C)
                 
     C_SOr = psi4.core.Matrix.from_array(irrep_lst)
@@ -105,9 +116,13 @@ def main():
             mode = 'a'
         write_oldmos('PSIMOS', C_SOr.nph[irrep], mode=mode)
 
+    """
+
     if verbose > 0:
         print('Psi4-MOs written to PSIMOS')
     return
+    
+
 
 if __name__ == "__main__":
     main()

@@ -26,7 +26,7 @@ Core-guess
                        Version 1.2
 
                      laptop21                                          
-                     Fri 07 Jan 2022 02:30:47 PM CST                   
+                     Sun 09 Jan 2022 06:00:29 PM CST                   
                      integer*8 version is running
 
 ********************************************************************************
@@ -357,7 +357,7 @@ Line Symbol    AtNr   At. Mass
   There are    8 basis functions.
  @GEOPT-W, Archive file not created for single-point calculation.
  @CHECKOUT-I, Total execution time (CPU/WALL):         0.14/       0.08 seconds.
---executable xjoda finished with status     0 in        0.14 seconds (walltime).
+--executable xjoda finished with status     0 in        0.13 seconds (walltime).
   TWOST is  F                    5
     0    0    0    7    7   11  100    8    0    1
     0    5    5   15    0  150  999    0    0   10
@@ -424,7 +424,7 @@ FINISH
   @TWOEL-I,         58 INTEGRALS OF SYMMETRY TYPE  I I J J
   @TWOEL-I, TOTAL NUMBER OF 2-E INTEGRALS        335.
   @MOLECU-I, TWO ELECTRON INTEGRALS (CPU/WALL):        0.00/       0.00 SECONDS.
- @CHECKOUT-I, Total execution time (CPU/WALL):         0.01/       0.00 seconds.
+ @CHECKOUT-I, Total execution time (CPU/WALL):         0.00/       0.00 seconds.
 --executable xvmol finished with status     0 in        0.01 seconds (walltime).
  --invoking executable--
 /home/thomas/Packages/cfour19/bin/xvmol2ja
@@ -480,13 +480,13 @@ FINISH
   --------------------------------------------------------------------
        0            11.857989372522740              0.0000000000D+00
        1           -52.792761010554955              0.3167361785D+01
-       2           -55.377769543966920              0.2020851547D+01
-       3           -55.453174849770903              0.2458914522D+00
-       4           -55.454153595496379              0.6942184253D-01
+       2           -55.377769543966991              0.2020851547D+01
+       3           -55.453174849770889              0.2458914522D+00
+       4           -55.454153595496365              0.6942184253D-01
        5           -55.454201183546772              0.1439927979D-01
-       6           -55.454203947035055              0.3268639739D-02
+       6           -55.454203947035040              0.3268639739D-02
        7           -55.454204009796157              0.3932327694D-03
-       8           -55.454204009800478              0.1955181841D-05
+       8           -55.454204009800478              0.1955180970D-05
    final occupation vector 
      4  1
      4  1
@@ -494,8 +494,8 @@ FINISH
   SCF has converged.
 
  Density matrix saved to file den.dat
- total electron number:   10.000000000000000     
-     E(SCF)=       -55.454204009800520              0.2557279533D-07
+ total electron number:   10.000000000000004     
+     E(SCF)=       -55.454204009800463              0.2556407808D-07
 
   Eigenvector printing suppressed.
 
@@ -506,15 +506,15 @@ FINISH
 
        MO #        E(hartree)               E(eV)           FULLSYM    COMPSYM
        ----   --------------------   --------------------   -------   ---------
-    1     1         -15.3020005434        -416.3885809214     A'        A'  (1)
-    2     2          -1.0823166057         -29.4513305167     A'        A'  (1)
-    3     7          -0.5696578082         -15.5011761835    E          A'' (2)
-    4     3          -0.5696578082         -15.5011761833    E          A'  (1)
-    5     4          -0.3478949188          -9.4667015033     A'        A'  (1)
+    1     1         -15.3020005435        -416.3885809242     A'        A'  (1)
+    2     2          -1.0823166058         -29.4513305180     A'        A'  (1)
+    3     7          -0.5696578083         -15.5011761847    E          A'' (2)
+    4     3          -0.5696578083         -15.5011761845    E          A'  (1)
+    5     4          -0.3478949188          -9.4667015045     A'        A'  (1)
   +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    6     5           0.6271483744          17.0655739360     A'        A'  (1)
-    7     8           0.7275741213          19.7982972890    E          A'' (2)
-    8     6           0.7275741216          19.7982972989    E          A'  (1)
+    6     5           0.6271483744          17.0655739362     A'        A'  (1)
+    7     8           0.7275741213          19.7982972891    E          A'' (2)
+    8     6           0.7275741216          19.7982972990    E          A'  (1)
 
 
   iflags(77) is                     0
@@ -523,5 +523,5 @@ FINISH
 
  @CHECKOUT-I, Total execution time (CPU/WALL):         0.01/       0.00 seconds.
 --executable xvscf finished with status     0 in        0.01 seconds (walltime).
-  The final electronic energy is       -55.454204009800520 a.u. 
-  This computation required                            0.16 seconds (walltime).
+  The final electronic energy is       -55.454204009800463 a.u. 
+  This computation required                            0.15 seconds (walltime).

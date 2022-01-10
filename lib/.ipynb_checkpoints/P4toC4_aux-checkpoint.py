@@ -10,100 +10,14 @@ Created on Wed Dec 15 17:27:58 2021
 import numpy as np
 import sys
 import psi4
-from SO_aux import SymOrbs
-
-
-
-def make_OLDMOS(wfn, verbose=0, fname='PSIMOS'):
-    """
-    Core manager function: 
-        Transforms Psi4-MOs into Cfour OLDMOS format and writes PSIMOS file.
-    - Establish the Psi4-AO to Cfour-AO mapping and its inverse.
-    - Establishes the Psi4-SO to Cfour-SO mapping and its inverse.
-    - Both mappings contribute a scaling factor.
-    - Apply the transformation for each irrep.
-    - Write each block to PSIMOS
-
-    Parameters
-    ----------
-    wfn : psi4.core.wavefunction,  RHF or UHF wavefunction.
-    verbose : int,  verbosity level 
-
-    Returns
-    -------
-    None.
-
-    """
-
-    p2c_map, p2c_scale = basis_mapping(wfn.basisset(), verbose=0)
-    naos=len(p2c_map)
-    c2p_map=np.zeros(naos, int)
-    for i in range(naos):
-        c2p_map[p2c_map[i]] = i 
-
-    # MOs and SOs
-    Ls=wfn.aotoso()
-    C_SO_a = wfn.Ca()
-    C_SO_b = wfn.Cb()
-    if verbose > 0:
-        print('SO dimensions:', Ls.shape)
-        print('MO dimensions:', C_SO_a.shape)        
-    
-    a_lst, b_lst = [], []
-
-    for isym in range(wfn.nirrep()):
-        SOs=SymOrbs(Ls.nph[isym], order=wfn.nirrep())
-        if verbose > 3:
-            SOs.print()
-        p4_first_AOs = SOs.first_AOs()
-        cfour_first_AOs = p2c_map[SOs.first_AOs()]
-        ao_scale = p2c_scale[SOs.first_AOs()]
-        so_c2p = np.argsort(cfour_first_AOs)
-        nsos=len(so_c2p)
-        so_p2c=np.zeros(nsos, int)
-        for i in range(nsos):
-            so_p2c[so_c2p[i]] = i
-        so_scale=SOs.inv_coef()
-        scale = so_scale*ao_scale
-        if verbose > 1:
-            print(f'\nIrrep {isym}')
-            print('AO-order  AO-order   Cfour    argsort    AO     SO')
-            print('  Psi4     Cfour    argsort   inverted  scale  scale')
-            for i in range(nsos):
-                print(f'{p4_first_AOs[i]:4d}{cfour_first_AOs[i]:9d}', end='')
-                print(f'{so_c2p[i]:11d}{so_p2c[i]:10d}', end='')
-                print(f'{ao_scale[i]:11.3f}{so_scale[i]:7.3f}')
-        
-        Ca = psi4_to_c4(C_SO_a.nph[isym], so_p2c, scale)
-        a_lst.append(Ca)
-        Cb = psi4_to_c4(C_SO_b.nph[isym], so_p2c, scale)
-        b_lst.append(Cb)
-
-    C_a = psi4.core.Matrix.from_array(a_lst)
-    C_b = psi4.core.Matrix.from_array(b_lst)
-
-    for irrep in range(wfn.nirrep()):
-        mode = 'w'
-        if irrep > 0:
-            mode = 'a'
-        write_oldmo_block('PSIMOS', C_a.nph[irrep], mode=mode)
-
-    mode = 'a'
-    for irrep in range(wfn.nirrep()):
-        write_oldmo_block('PSIMOS', C_b.nph[irrep], mode=mode)
 
 
 
 def AO_MO_by_irrep(wfn, verbose=0):
     """
-    Not needed; may be deleted at some point.
     creates the psi4.core.Matrix C_AO_pi; each entry in C_AO_pi.nph has
         index 0: AOs
         index 1: MO[irrep]
-        
-    Probably this matrix can be created more elegantly from
-    wfn.Cas() and wfn.ao_to_so() 
-    
 
     Parameters
     ----------
@@ -144,9 +58,6 @@ def AO_MO_by_irrep(wfn, verbose=0):
 
 def AO_to_SO(C_AO_pi, wfn):
     """
-    Not needed. Just for deciding between wfn.ao_to_mo() and wfn.sobasisset() 
-    May be deleted. 
-    
     transforms n_irrep blocks of Psi4-MOs from the Psi4-AO 
     to the Psi4-SO representation
 
@@ -169,20 +80,65 @@ def AO_to_SO(C_AO_pi, wfn):
     return psi4.core.Matrix.from_array(irrep_lst)
 
 
+"""
 
-def psi4_to_c4(Cp4, map_p2c, scale):
+This function doesn't change the outcome of the transformation.
+We keep Psi4 order, it is simply a sum over AOs, no matter in which
+order.
+
+In other words, Cfour really uses a different SO order, and I have no clue
+what that order would be.
+
+
+
+
+"""
+
+
+def AO_to_Cfour_SO(C_AO_pi, wfn, map_p2c, scale):
     """
-    Core module function: 
-        Apply a Psi4-to-Cfour mapping of MOs in the AO or SO basis.
-    
+    transforms n_irrep blocks of Psi4-MOs from the Psi4-AO to the 
+    Cfour-SO representation
+
+    Parameters
+    ----------
+    C_AO_pi : psi4.core.Matrix C[AO:MO[irrep]]
+    wfn : psi4.core.wavefunction (tested for RHF)
+    map_p2c: np.array[AO]
+    scale:np.array[AO]
+    Cfour4_MO[map_p2c[i]] = Psi4_MO[i]/scale[i]
+    Cfour_AO_to_SO[map_p2c[i]] = Psi4_AO_to_SO[i]
+
+    Returns
+    -------
+    psi4.coreMatrix C[SO:MO[irrep]]
+    same dimensions as Psi4 MOs, but reordered and scaled
+
+    """
+    Ls = wfn.aotoso()
+    n_irrep = wfn.nirrep()
+    irrep_lst = []
+    for sym in range(n_irrep):
+        #L = Ls.nph[sym]
+        L = psi4_to_c4(Ls.nph[sym], map_p2c, scale, use_scale=False)
+        #C = C_AO_pi.nph[sym]
+        C = psi4_to_c4(C_AO_pi.nph[sym], map_p2c, scale, use_scale=True)
+        irrep_lst.append( np.matmul(np.transpose(L), C) )
+    return psi4.core.Matrix.from_array(irrep_lst)
+
+
+def psi4_to_c4(Cp4, map_p2c, scale, use_scale=True):
+    """
     reorder the Psi4_Matrix C into Cfour order based on map_p2c[]
-    Cfour4_C[map_p2c[i]] = Psi4_C[i]/scale[i]
+    Cfour4_C[map_p2c[i]] = Psi4_C[i]/scale[i]  [default, for MOs]
+    Cfour4_C[map_p2c[i]] = Psi4_C[i]           [for AO_to_SO matrix]
     
     Parameters
     ----------
     Cp4 : np.array(nao, nmo) Psi4-matrix C    
     map_p2c : np.array(nao) mapping vector Psi4 to Cfour
     scale : np.array(nao) scaling vector Psi4 to Cfour
+    use_scale: bool; don't use scale if reordering a AO-to-SO matrix
 
     Returns
     -------
@@ -194,17 +150,19 @@ def psi4_to_c4(Cp4, map_p2c, scale):
     if n_ao != nbf:
         msg = 'Error in psi4_to_c4: inconsistent AO-dimensions %d %d' % (nbf, n_ao)
         sys.exit(msg)
+    
     Cc4=np.zeros((n_ao,n_mo))
-    for i in range(n_ao):
-        Cc4[map_p2c[i],:] = Cp4[i,:] / scale[i]
+    if use_scale:
+        for i in range(n_ao):
+            Cc4[map_p2c[i],:] = Cp4[i,:]/scale[i]
+    else:
+        for i in range(n_ao):
+            Cc4[map_p2c[i],:] = Cp4[i,:]        
     return Cc4
 
 
 def basis_mapping(basisset, verbose=1):
     """
-    Core module function: 
-        Build the Psi4-to-Cfour AO mapping.
-    
     Computes the arrays needed for the operation:
     Cfour4_MO[map_p2c[i]] = Psi4_MO[i]/scale[i]    
     map_p2c = where to put MO coefficient i in the Cfour vector
@@ -326,8 +284,6 @@ def basis_mapping(basisset, verbose=1):
 
 def ao_offset(basisset, verbose=0):
     """
-    Deprecated. Real old.
-    
     nice, but works only for STO-3G
     
     offset vector for Psi4 to Cfour MO mapping
@@ -371,8 +327,6 @@ def ao_offset(basisset, verbose=0):
 
 def Cfour_irrep_order(n_psi, group, verbose=1):
     """
-    This is a sceleton to be written.
-    
     reorders the the vector n_per_irepp from Psi4 into Cfour order
     
     cfour[map[i]] = psi[i]
@@ -402,7 +356,7 @@ def Cfour_irrep_order(n_psi, group, verbose=1):
 
 def read_oldmos(fname, nmos, RHF=True, verbose=1):
     """
-    Read OLDMOS to compare with created PSIMOS
+    read OLDMOS to compare with created PSIMOS
     
     The number of MOs per irrep are known.
     We assume square matrices.
@@ -458,8 +412,6 @@ def read_oldmos(fname, nmos, RHF=True, verbose=1):
 
 def read_oldmos_C1(fname, verbose = 1):
     """
-    Deprecated: May be deleted.
-    
     read a Cfour OLDMOS file
     ASSUMES nAOs = nMOs and tries to work out nAOs
 
@@ -509,52 +461,8 @@ def read_oldmos_C1(fname, verbose = 1):
 
 
 
-def write_oldmo_block(fname, Cs, mode='w'):
+def write_oldmos(fname, Cas, Cbs=None, mode='w'):
     """
-    Write MOs in Cfour OLDMOS format
-    That means sets of four MOs   
-    C[0,0] C[0,1] C[0,2] C[0,3]
-    C[1,0] C[1,1] C[1,2] C[1,3]
-    C[2,0] C[2,1] C[2,2] C[2,3]
-    ...    ...     ...    ...
-
-    Format for each individual coefficient: 30.20E
-
-    Parameters
-    ----------
-    fname : str filename
-    Cs : np.array with MO coefficients Cs[n_bf,n_mo]
-    n_bf maybe n_aos or n_sos
-
-    Returns
-    -------
-    None.
-    """
-
-    f = open(fname, mode)
-    nbf = Cs.shape[0]
-
-    for j in range(0, nbf, 4):
-        """ Normally we write groups of 4 MOs. The last group may be smaller. """
-        ngr = 4
-        if j + ngr >= nbf:
-            ngr = nbf - j
-        for ao in range(nbf):
-            line = ''
-            for igr in range(ngr):
-                line += f"{Cs[ao,j+igr]:30.20E}"
-            line += "\n"
-            f.write(line)
-           
-    f.close()
-    return
-
-
-
-def write_oldmo(fname, Cas, Cbs=None, mode='w'):
-    """
-    Deprecated. May be deleted at some point.
-
     Write MOs in Cfour OLDMOS format
     That means packages of four MOs   
     C[0,0] C[0,1] C[0,2] C[0,3]
