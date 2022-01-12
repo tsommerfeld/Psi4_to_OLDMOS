@@ -21,6 +21,10 @@ mem_in_gb=2
 CurrDir=$PWD
 WorkDir=$CFOUR_SCRATCH
 
+if [ -z $WorkDir ]; then
+    echo WorkDir undefined
+    exit
+fi
 if [ ! -d $WorkDir ]; then
     echo $WorkDir does not exit.
     exit
