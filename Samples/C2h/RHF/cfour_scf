@@ -1,0 +1,71 @@
+#! /usr/bin/env bash
+
+BASIS=$1
+PSI_GUESS=$2
+
+if [ -z $BASIS ]; then
+    BASIS=STO-3G
+fi
+echo Basis is $BASIS
+
+if [ ! -z $PSI_GUESS ]; then
+    echo Psi-guess
+else
+    echo Core-guess
+fi
+
+GitRoot=../../..
+threads=2
+export OMP_NUM_THREADS=$threads
+mem_in_gb=2
+CurrDir=$PWD
+WorkDir=$CFOUR_SCRATCH
+
+if [ -z $WorkDir ]; then
+    echo WorkDir undefined
+    exit
+fi
+if [ ! -d $WorkDir ]; then
+    echo $WorkDir does not exit.
+    exit
+fi
+cd $WorkDir
+rm -rf $WorkDir/*
+
+cp $CurrDir/$GitRoot/Cfour/P4.BASIS $WorkDir/GENBAS
+if [ ! -z $PSI_GUESS ]; then
+    cp $CurrDir/PSIMOS $WorkDir/OLDMOS
+    touch $WorkDir/JFSGUESS
+fi
+
+cat >> ZMAT << EOF
+Hydrazine C2h
+N
+N 1 NN2
+H 2 HN3 1 HNN3
+H 2 HN3 1 HNN3 3 DIH4
+H 1 HN3 2 HNN3 3 DIH5
+H 1 HN3 2 HNN3 4 DIH5
+
+NN2=1.420000
+HN3=1.030000
+HNN3=109.471
+DIH4=115.000
+DIH5=180.000
+
+*CFOUR(CALC=SCF
+BASIS=SPECIAL,SPHERICAL=ON
+REFERENCE=RHF
+MEM_SIZE=$mem_in_gb,MEM_UNIT=GB)
+
+N:P4_$BASIS
+N:P4_$BASIS
+H:P4_$BASIS
+H:P4_$BASIS
+H:P4_$BASIS
+H:P4_$BASIS
+
+
+EOF
+
+xcfour
