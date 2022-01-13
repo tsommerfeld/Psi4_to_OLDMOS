@@ -17,8 +17,8 @@ and use the Psi4 orbitals as a guess in CFOUR.
 If everything is done exactly the **same** in both codes, this works as well as it should: CFOUR converges in one iteration.
 
 Currently implemented/tested:
-* C1: RHF and UHF
-* Cs, C2, Ci: RHF; Cs UHF
+* C1, Cs: RHF and UHF
+* C2, Ci, C2v, C2h, D2: RHF (but UHF is expected to work, see `doc`)
 * up to f-functions
 
 ## Workflow
@@ -32,11 +32,11 @@ Currently implemented/tested:
 5. Check the CFOUR core-guess. If it is not right, add an OCCUPATION statement to ZMAT. (The best start orbitals will not help with a wrong occupation.) 
 6. Start CFOUR with ZMAT, GENBAS, OLDMOS, and an empty file JFSGUESS present.
 
-Everything can be run from a single script, see the `run_me` scripts in `Samples`.
+Everything can be run from a single script, see the `run_me` scripts in `Samples`, but see the **Warnings** in the `Samples` `README`.
 
 ## Repository
 
-* `Samples` : complete comparison of the build-in core guess with the Psi4-guess.
+* `Samples` : collection of tests that compare the build-in core guess with the Psi4-guess.
 * `CFOUR` : Psi4 basis sets (P4.BASIS) and some experimental scripts with symmetry.
 * `doc` : Notebook with markdown cells containing the most important documentation and thoughts.  
 * `lib` : Python auxiliary functions.
