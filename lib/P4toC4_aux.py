@@ -82,6 +82,23 @@ def make_OLDMOS(wfn, verbose=0, fname='PSIMOS'):
     C_a = psi4.core.Matrix.from_array(a_lst)
     C_b = psi4.core.Matrix.from_array(b_lst)
 
+    p2c_irrep_map = Cfour_irrep_order(wfn)
+
+    for cfour_irrep in range(wfn.nirrep()):
+        mode = 'w'
+        if cfour_irrep > 0:
+            mode = 'a'
+        psi4_irrep = p2c_irrep_map[cfour_irrep]
+        write_oldmo_block('PSIMOS', C_a.nph[psi4_irrep], mode=mode)
+
+    mode = 'a'
+    for cfour_irrep in range(wfn.nirrep()):
+        psi4_irrep = p2c_irrep_map[cfour_irrep]
+        write_oldmo_block('PSIMOS', C_b.nph[psi4_irrep], mode=mode)
+
+    """
+    Old: no reordering
+    
     for irrep in range(wfn.nirrep()):
         mode = 'w'
         if irrep > 0:
@@ -91,6 +108,7 @@ def make_OLDMOS(wfn, verbose=0, fname='PSIMOS'):
     mode = 'a'
     for irrep in range(wfn.nirrep()):
         write_oldmo_block('PSIMOS', C_b.nph[irrep], mode=mode)
+    """
 
 
 
@@ -344,36 +362,43 @@ def invert_mapping(a_to_b):
     return b_to_a
     
 
-def Cfour_irrep_order(n_psi, group, verbose=1):
+def Cfour_irrep_order(wfn):
     """
-    This is a sceleton to be written.
+    returns the Psi4 to Cfour irrep mapping: p2c_irrep_map
     
-    reorders the the vector n_per_irepp from Psi4 into Cfour order
-    
-    cfour[map[i]] = psi[i]
+    to be used for writing OLDMOS, so we have cfour_irrep and need psi4_irrep:
+    psi4_irrep = p2c_irrep_map[cfour_irrep]
     
     Parameters
     ----------
-    n_psi: np.array(int); number of orbitals per irrep in Psi4
-    group : str; Schoenflies symbol; lower case
+    a Psi4 wavefunction object, which has the molecule, which has, the point group
     verbose : output level
 
     Returns
     -------
-    n_cfour; the reordered array according to Cfour convention
+    p2c_irrep_map
     
     --------
-    C1, C2, Cs, Ci : nothing to do
+    C1: [0] 
+    C2, Cs, Ci : [0,1]
     
-    C2v: A1, A2, B1, B2 -> A1, B1, B2, A2
+    C2V: [0,2,3,1]    =   A1, A2, B1, B2 -> A1, B1, B2, A2
     C2h:   -> Ag, Au, Bu, Bg
     D2:   -> A, B2, B1, B3
     D2h:   -> Ag, B2u, B3u, B1g,   B1u, B2g, B3g, Au
     """
-    #c2v = (0, 3, 1, 2)
-    if len(n_psi) < 4:
-        return n_psi
-
+    mol = wfn.molecule()
+    ptgr = mol.point_group()
+    s = ptgr.symbol().lower()
+    
+    if s in 'c1':
+        return [0]
+    if s in 'c2 cs ci':
+        return [0, 1]
+    if s in 'c2v':
+        return [0, 2, 3, 1]
+    
+    
 
 def read_oldmos(fname, nmos, RHF=True, verbose=1):
     """

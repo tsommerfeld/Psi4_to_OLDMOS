@@ -9,8 +9,8 @@ BASIS=CC-PVDZ
 #   (2) run Psi4 for to create GUESS
 #   (3) run Cfour/$BASIS with GUESS
 #
-./cfour_scf > cfour_scf.log
-./psi4_scf.py -b $BASIS cfour_scf.log > psi4_scf.log
+./cfour_scf > cfour_scf.orientation
+../../psi4_scf.py -b $BASIS -c 0 -m 1 cfour_scf.orientation > psi4_scf.log
 ./cfour_scf $BASIS GUESS > cfour_scf.psi4_guess
 
 

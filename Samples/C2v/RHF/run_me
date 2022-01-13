@@ -10,7 +10,7 @@ BASIS=CC-PVDZ
 #   (3) run Cfour/$BASIS with GUESS
 #
 ./cfour_scf > cfour_scf.orientation
-../../psi4_scf.py -b $BASIS -c 1 -m 2 -r UHF cfour_scf.orientation > psi4_scf.log
+../../psi4_scf.py -b $BASIS cfour_scf.orientation > psi4_scf.log
 ./cfour_scf $BASIS GUESS > cfour_scf.psi4_guess
 
 

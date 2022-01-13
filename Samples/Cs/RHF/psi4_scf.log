@@ -1,13 +1,23 @@
 
   Memory set to 476.837 MiB by Python driver.
-Molecule from cfour_scf.log
+Molecule from cfour_scf.orientation
 N     0.00000000   0.12321896   0.00000000
 H     1.79828758  -0.57068247   0.00000000
 H    -0.89914379  -0.57068247   1.55736273
 H    -0.89914379  -0.57068247  -1.55736273
 
 Basis is CC-PVDZ
-HF energy = -56.194987542460474
+-------------------
+0 1
+N     0.00000000   0.12321896   0.00000000
+H     1.79828758  -0.57068247   0.00000000
+H    -0.89914379  -0.57068247   1.55736273
+H    -0.89914379  -0.57068247  -1.55736273
+symmetry Cs
+units Bohr
+no_reorient
+-------------------
+HF energy = -56.194987542460495
 SO dimensions: ((29, 19), (29, 10))
 MO dimensions: ((19, 19), (10, 10))
 Psi4-MOs written to PSIMOS

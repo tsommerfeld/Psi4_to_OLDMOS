@@ -26,7 +26,7 @@ Core-guess
                        Version 1.2
 
                      laptop21                                          
-                     Mon 10 Jan 2022 02:06:00 PM CST                   
+                     Wed 12 Jan 2022 07:35:59 PM CST                   
                      integer*8 version is running
 
 ********************************************************************************
@@ -355,8 +355,8 @@ Line Symbol    AtNr   At. Mass
   in rdbas
   There are   24 basis functions.
  @GEOPT-W, Archive file not created for single-point calculation.
- @CHECKOUT-I, Total execution time (CPU/WALL):         0.15/       0.08 seconds.
---executable xjoda finished with status     0 in        0.12 seconds (walltime).
+ @CHECKOUT-I, Total execution time (CPU/WALL):         0.14/       0.08 seconds.
+--executable xjoda finished with status     0 in        0.13 seconds (walltime).
   TWOST is  F                    5
     0    0    0    7    7   11  100    8    0    1
     1    5    5   15    0  150    0    0    0   10
@@ -455,7 +455,7 @@ FINISH
   @TWOEL-I,       3185 INTEGRALS OF SYMMETRY TYPE  I I J J
   @TWOEL-I, TOTAL NUMBER OF 2-E INTEGRALS      22139.
   @MOLECU-I, TWO ELECTRON INTEGRALS (CPU/WALL):        0.03/       0.01 SECONDS.
- @CHECKOUT-I, Total execution time (CPU/WALL):         0.04/       0.01 seconds.
+ @CHECKOUT-I, Total execution time (CPU/WALL):         0.03/       0.01 seconds.
 --executable xvmol finished with status     0 in        0.02 seconds (walltime).
  --invoking executable--
 /home/thomas/Packages/cfour19/bin/xvmol2ja
@@ -510,19 +510,19 @@ FINISH
        0             9.073432657898778              0.0000000000D+00
        1           -70.661512087294952              0.1288311541D+01
        2           -73.548426538527494              0.1216139539D+01
-       3           -75.596288344502170              0.8554419775D+00
-       4           -75.630904525759135              0.5188527557D-01
-       5           -75.632774130283408              0.1302092346D-01
-       6           -75.632900243103776              0.3668502836D-02
-       7           -75.632910588512544              0.1593856662D-02
-       8           -75.632912079700347              0.5374872806D-03
-       9           -75.632912558731746              0.2570614607D-03
-      10           -75.632912745757324              0.2012448421D-03
-      11           -75.632912761568235              0.7236332472D-04
-      12           -75.632912761609276              0.4202015295D-05
-      13           -75.632912761611038              0.5867802160D-06
-      14           -75.632912761611522              0.2690504813D-06
-      15           -75.632912761611678              0.1116740053D-06
+       3           -75.596288344502213              0.8554419775D+00
+       4           -75.630904525759121              0.5188527557D-01
+       5           -75.632774130283337              0.1302092346D-01
+       6           -75.632900243103833              0.3668502836D-02
+       7           -75.632910588512431              0.1593856662D-02
+       8           -75.632912079700318              0.5374872806D-03
+       9           -75.632912558731789              0.2570614607D-03
+      10           -75.632912745757295              0.2012448420D-03
+      11           -75.632912761568306              0.7236332492D-04
+      12           -75.632912761609333              0.4202020299D-05
+      13           -75.632912761610896              0.5868735969D-06
+      14           -75.632912761611465              0.2689758841D-06
+      15           -75.632912761611735              0.1116454116D-06
    final occupation vector 
      4  1
      4  0
@@ -530,9 +530,9 @@ FINISH
   SCF has converged.
 
  Density matrix saved to file den.dat
- total alpha spin electron number:   5.0000000000000098     
- total  beta spin electron number:   4.0000000000000053     
-     E(SCF)=       -75.632912761611465              0.3032351178D-07
+ total alpha spin electron number:   4.9999999999999991     
+ total  beta spin electron number:   4.0000000000000115     
+     E(SCF)=       -75.632912761611692              0.3033224769D-07
 
   Eigenvector printing suppressed.
 
@@ -591,7 +591,7 @@ FINISH
     9     8           0.4535367912          12.3413628395     A'        A'  (1)
    10     9           0.7370982075          20.0574608373     A'        A'  (1)
    11    10           0.8457032944          23.0127553354     A'        A'  (1)
-   12    20           0.8716994373          23.7201463074     A''       A'' (2)
+   12    20           0.8716994373          23.7201463075     A''       A'' (2)
    13    11           1.0439238335          28.4066101278     A'        A'  (1)
    14    21           1.0671812810          29.0394774138     A''       A'' (2)
    15    22           1.2712331072          34.5920095888     A''       A'' (2)
@@ -612,5 +612,5 @@ FINISH
 
  @CHECKOUT-I, Total execution time (CPU/WALL):         0.02/       0.01 seconds.
 --executable xvscf finished with status     0 in        0.02 seconds (walltime).
-  The final electronic energy is       -75.632912761611465 a.u. 
+  The final electronic energy is       -75.632912761611692 a.u. 
   This computation required                            0.17 seconds (walltime).

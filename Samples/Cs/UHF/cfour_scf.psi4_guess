@@ -26,7 +26,7 @@ Psi-guess
                        Version 1.2
 
                      laptop21                                          
-                     Mon 10 Jan 2022 02:06:00 PM CST                   
+                     Wed 12 Jan 2022 07:35:59 PM CST                   
                      integer*8 version is running
 
 ********************************************************************************
@@ -356,7 +356,7 @@ Line Symbol    AtNr   At. Mass
   There are   24 basis functions.
  @GEOPT-W, Archive file not created for single-point calculation.
  @CHECKOUT-I, Total execution time (CPU/WALL):         0.15/       0.08 seconds.
---executable xjoda finished with status     0 in        0.12 seconds (walltime).
+--executable xjoda finished with status     0 in        0.13 seconds (walltime).
   TWOST is  F                    5
     0    0    0    7    7   11  100    8    0    1
     1    5    5   15    0  150    0    0    0   10
@@ -509,7 +509,7 @@ FINISH
   --------------------------------------------------------------------
   Iteration         Total Energy            Largest Density Difference
   --------------------------------------------------------------------
-       0           -75.632912764964303              0.0000000000D+00
+       0           -75.632912764964274              0.0000000000D+00
    final occupation vector 
      4  1
      4  0
@@ -517,9 +517,9 @@ FINISH
   SCF has converged.
 
  Density matrix saved to file den.dat
- total alpha spin electron number:   5.0000000000000071     
- total  beta spin electron number:   4.0000000000000044     
-     E(SCF)=       -75.632912761611507              0.1324468363D-07
+ total alpha spin electron number:   5.0000000000000107     
+ total  beta spin electron number:   4.0000000000000071     
+     E(SCF)=       -75.632912761611507              0.1324468246D-07
 
   Eigenvector printing suppressed.
 
@@ -600,4 +600,4 @@ FINISH
  @CHECKOUT-I, Total execution time (CPU/WALL):         0.01/       0.01 seconds.
 --executable xvscf finished with status     0 in        0.01 seconds (walltime).
   The final electronic energy is       -75.632912761611507 a.u. 
-  This computation required                            0.16 seconds (walltime).
+  This computation required                            0.17 seconds (walltime).
