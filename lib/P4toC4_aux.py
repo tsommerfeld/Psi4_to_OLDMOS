@@ -82,7 +82,7 @@ def make_OLDMOS(wfn, verbose=0, fname='PSIMOS'):
     C_a = psi4.core.Matrix.from_array(a_lst)
     C_b = psi4.core.Matrix.from_array(b_lst)
 
-    p2c_irrep_map = Cfour_irrep_order(wfn)
+    p2c_irrep_map = Cfour_irrep_order(wfn, verbose=verbose)
 
     for cfour_irrep in range(wfn.nirrep()):
         mode = 'w'
@@ -362,7 +362,7 @@ def invert_mapping(a_to_b):
     return b_to_a
     
 
-def Cfour_irrep_order(wfn):
+def Cfour_irrep_order(wfn, verbose=1):
     """
     returns the Psi4 to Cfour irrep mapping: p2c_irrep_map
     
@@ -381,23 +381,31 @@ def Cfour_irrep_order(wfn):
     --------
     C1: [0] 
     C2, Cs, Ci : [0,1]
-    
-    C2V: [0,2,3,1]    =   A1, A2, B1, B2 -> A1, B1, B2, A2
-    C2h:   -> Ag, Au, Bu, Bg
+                         Psi4           -> Cfour
+    C2V: [0, 2, 3, 1] =  A1, A2, B1, B2 -> A1, B1, B2, A2
+    C2h: [0, 2, 3, 1] =  Ag, Bg, Au, Bu -> Ag, Au, Bu, Bg
+
+
     D2:   -> A, B2, B1, B3
     D2h:   -> Ag, B2u, B3u, B1g,   B1u, B2g, B3g, Au
     """
     mol = wfn.molecule()
     ptgr = mol.point_group()
     s = ptgr.symbol().lower()
-    
-    if s in 'c1':
-        return [0]
-    if s in 'c2 cs ci':
-        return [0, 1]
-    if s in 'c2v':
+    if verbose > 0:
+        print(f'Irrep mapping for syymetry {s}.')
+
+    nirrep = wfn.nirrep()
+    default = np.arange(nirrep)
+    if nirrep < 4:
+        return default
+        
+    if s in 'c2v c2h':
         return [0, 2, 3, 1]
     
+    print('\n\nError: Unimplemented point group '+s+'\n\n')
+    return None
+
     
 
 def read_oldmos(fname, nmos, RHF=True, verbose=1):

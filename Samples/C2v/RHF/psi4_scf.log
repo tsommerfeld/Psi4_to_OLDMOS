@@ -21,7 +21,7 @@ symmetry C2v
 units Bohr
 no_reorient
 -------------------
-HF energy = -111.16956028954348
+HF energy = -111.16956028954336
 SO dimensions: ((48, 15), (48, 9), (48, 15), (48, 9))
 MO dimensions: ((15, 15), (9, 9), (15, 15), (9, 9))
 Psi4-MOs written to PSIMOS
