@@ -1,0 +1,15 @@
+zmat angstroms
+ n
+ n   1 nn2     
+ h    2 hn3         1 hnn3      
+ h    2 hn3         1 hnn3          3 dih4   
+ h    1 hn3         2 hnn3          3 dih5   
+ h    1 hn3         2 hnn3          4 dih5   
+variables
+nn2         1.420000
+hn3         1.030000
+hnn3        109.471
+dih4        115.000
+dih5          0.000
+constants
+end

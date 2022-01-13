@@ -365,6 +365,12 @@ def invert_mapping(a_to_b):
 def Cfour_irrep_order(wfn, verbose=1):
     """
     returns the Psi4 to Cfour irrep mapping: p2c_irrep_map
+
+    Psi4 uses Cotton order: 
+        https://psicode.org/psi4manual/master/psithonmol.html#symmetry
+
+    Cfour does not.
+
     
     to be used for writing OLDMOS, so we have cfour_irrep and need psi4_irrep:
     psi4_irrep = p2c_irrep_map[cfour_irrep]
@@ -377,8 +383,8 @@ def Cfour_irrep_order(wfn, verbose=1):
     Returns
     -------
     p2c_irrep_map
-    
     --------
+    
     C1: [0] 
     C2, Cs, Ci : [0,1]
                          Psi4           -> Cfour
@@ -386,14 +392,17 @@ def Cfour_irrep_order(wfn, verbose=1):
     C2h: [0, 2, 3, 1] =  Ag, Bg, Au, Bu -> Ag, Au, Bu, Bg
 
 
-    D2:   -> A, B2, B1, B3
-    D2h:   -> Ag, B2u, B3u, B1g,   B1u, B2g, B3g, Au
+    D2:  [0, 2, 1, 3] =  A, B1, B2, B3  -> A, B2, B1, B3
+
+    D2h:   [0, 6, 7, 1,  5, 2, 3, 4]
+           Ag, B1g, B2g, B3g,   Au,  B1u, B2u, B3u 
+        -> Ag, B2u, B3u, B1g,   B1u, B2g, B3g, Au
     """
     mol = wfn.molecule()
     ptgr = mol.point_group()
     s = ptgr.symbol().lower()
     if verbose > 0:
-        print(f'Irrep mapping for syymetry {s}.')
+        print(f'Irrep mapping for symmetry {s}.')
 
     nirrep = wfn.nirrep()
     default = np.arange(nirrep)
@@ -402,6 +411,12 @@ def Cfour_irrep_order(wfn, verbose=1):
         
     if s in 'c2v c2h':
         return [0, 2, 3, 1]
+    
+    if s == 'd2':
+        return [0, 2, 1, 3]
+    
+    if s == 'd2h':
+        return [0, 6, 7, 1,  5, 2, 3, 4]
     
     print('\n\nError: Unimplemented point group '+s+'\n\n')
     return None

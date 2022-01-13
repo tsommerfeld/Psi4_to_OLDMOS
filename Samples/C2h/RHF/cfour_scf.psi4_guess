@@ -34,8 +34,10 @@ Psi-guess
 
                        Version 2.1
 
+ Bingo
                      laptop21                                          
-                     Wed 12 Jan 2022 08:58:11 PM CST                   
+ Bingo
+                     Wed 12 Jan 2022 10:03:34 PM CST                   
                      integer*8 version is running
 
 ********************************************************************************
@@ -360,7 +362,7 @@ H:P4_CC-PVDZ
   ECPDATA file not present.   Using default ECPDATA. 
   There are   48 basis functions.
  @GEOPT-W, Archive file not created for single-point calculation.
- @CHECKOUT-I, Total execution time (CPU/WALL):        0.22/       0.11 seconds.
+ @CHECKOUT-I, Total execution time (CPU/WALL):        0.22/       0.12 seconds.
 --executable xjoda finished with status     0 in        0.12 seconds (walltime).
  --invoking executable--
 /home/thomas/Packages/cfour-v2.1/bin/xvmol
@@ -437,7 +439,7 @@ FINISH
   @TWOEL-I, TOTAL NUMBER OF 2-E INTEGRALS     174756.
   @MOLECU-I, TWO ELECTRON INTEGRALS (CPU/WALL):        0.14/       0.07 SECONDS.
  @CHECKOUT-I, Total execution time (CPU/WALL):        0.14/       0.07 seconds.
---executable xvmol finished with status     0 in        0.08 seconds (walltime).
+--executable xvmol finished with status     0 in        0.07 seconds (walltime).
  --invoking executable--
 /home/thomas/Packages/cfour-v2.1/bin/xvmol2ja
  @GETMEM-I,  Allocated    1907 MB of main memory.
@@ -482,7 +484,7 @@ FINISH
   --------------------------------------------------------------------
   Iteration         Total Energy            Largest Density Difference
   --------------------------------------------------------------------
-       0          -111.177266971171406              0.0000000000D+00
+       0          -111.177266971171719              0.0000000000D+00
    current occupation vector 
      4  1  3  1
      4  1  3  1
@@ -490,8 +492,8 @@ FINISH
   SCF has converged.
 
  Density matrix saved to file den.dat
- total electron number:   18.000000000000007     
-     E(SCF)=      -111.177266974371236              0.1970717133D-08
+ total electron number:   17.999999999999996     
+     E(SCF)=      -111.177266974371150              0.1970718751D-08
 
   Eigenvector printing suppressed.
 
@@ -567,5 +569,5 @@ FINISH
 
  @CHECKOUT-I, Total execution time (CPU/WALL):        0.02/       0.01 seconds.
 --executable xvscf finished with status     0 in        0.01 seconds (walltime).
-  The final electronic energy is      -111.177266974371236 a.u. 
+  The final electronic energy is      -111.177266974371150 a.u. 
   This computation required                            0.22 seconds (walltime).
