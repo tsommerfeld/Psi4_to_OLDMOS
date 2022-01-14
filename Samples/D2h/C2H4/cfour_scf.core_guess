@@ -35,7 +35,7 @@ Core-guess
                        Version 2.1
 
                      laptop21                                          
-                     Thu 13 Jan 2022 06:11:51 PM CST                   
+                     Thu 13 Jan 2022 07:18:46 PM CST                   
                      integer*8 version is running
 
 ********************************************************************************
@@ -435,9 +435,9 @@ FINISH
   @TWOEL-I,      17649 INTEGRALS OF SYMMETRY TYPE  I I J J
   @TWOEL-I,      42963 INTEGRALS OF SYMMETRY TYPE  I J K L
   @TWOEL-I, TOTAL NUMBER OF 2-E INTEGRALS      93892.
-  @MOLECU-I, TWO ELECTRON INTEGRALS (CPU/WALL):        0.10/       0.05 SECONDS.
+  @MOLECU-I, TWO ELECTRON INTEGRALS (CPU/WALL):        0.09/       0.05 SECONDS.
  @CHECKOUT-I, Total execution time (CPU/WALL):        0.10/       0.05 seconds.
---executable xvmol finished with status     0 in        0.06 seconds (walltime).
+--executable xvmol finished with status     0 in        0.05 seconds (walltime).
  --invoking executable--
 /home/thomas/Packages/cfour-v2.1/bin/xvmol2ja
  @GETMEM-I,  Allocated    1907 MB of main memory.
@@ -627,7 +627,7 @@ FINISH
 
   VSCF finished.
 
- @CHECKOUT-I, Total execution time (CPU/WALL):        0.03/       0.01 seconds.
+ @CHECKOUT-I, Total execution time (CPU/WALL):        0.02/       0.01 seconds.
 --executable xvscf finished with status     0 in        0.02 seconds (walltime).
   The final electronic energy is       -78.040104073250887 a.u. 
   This computation required                            0.20 seconds (walltime).

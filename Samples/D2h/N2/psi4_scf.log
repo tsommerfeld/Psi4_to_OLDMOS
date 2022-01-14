@@ -13,7 +13,7 @@ symmetry D2h
 units Bohr
 no_reorient
 -------------------
-HF energy = -108.93503768416335
+HF energy = -108.93503768416329
 SO dimensions: ((28, 7), (28, 1), (28, 3), (28, 3), (28, 1), (28, 7), (28, 3), (28, 3))
 MO dimensions: ((7, 7), (1, 1), (3, 3), (3, 3), (1, 1), (7, 7), (3, 3), (3, 3))
 Irrep mapping for symmetry d2h.

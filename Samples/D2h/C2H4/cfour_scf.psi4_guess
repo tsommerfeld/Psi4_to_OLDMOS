@@ -35,7 +35,7 @@ Psi-guess
                        Version 2.1
 
                      laptop21                                          
-                     Thu 13 Jan 2022 06:11:50 PM CST                   
+                     Thu 13 Jan 2022 07:18:46 PM CST                   
                      integer*8 version is running
 
 ********************************************************************************
@@ -580,4 +580,4 @@ FINISH
  @CHECKOUT-I, Total execution time (CPU/WALL):        0.02/       0.01 seconds.
 --executable xvscf finished with status     0 in        0.01 seconds (walltime).
   The final electronic energy is       -78.040104073250816 a.u. 
-  This computation required                            0.19 seconds (walltime).
+  This computation required                            0.20 seconds (walltime).

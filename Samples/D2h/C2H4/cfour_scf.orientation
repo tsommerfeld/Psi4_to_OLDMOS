@@ -35,7 +35,7 @@ Core-guess
                        Version 2.1
 
                      laptop21                                          
-                     Thu 13 Jan 2022 06:11:50 PM CST                   
+                     Thu 13 Jan 2022 07:18:45 PM CST                   
                      integer*8 version is running
 
 ********************************************************************************
@@ -360,8 +360,8 @@ H:P4_STO-3G
   ECPDATA file not present.   Using default ECPDATA. 
   There are   14 basis functions.
  @GEOPT-W, Archive file not created for single-point calculation.
- @CHECKOUT-I, Total execution time (CPU/WALL):        0.22/       0.12 seconds.
---executable xjoda finished with status     0 in        0.13 seconds (walltime).
+ @CHECKOUT-I, Total execution time (CPU/WALL):        0.23/       0.12 seconds.
+--executable xjoda finished with status     0 in        0.14 seconds (walltime).
  --invoking executable--
 /home/thomas/Packages/cfour-v2.1/bin/xvmol
 

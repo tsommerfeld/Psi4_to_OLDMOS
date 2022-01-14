@@ -394,9 +394,11 @@ def Cfour_irrep_order(wfn, verbose=1):
 
     D2:  [0, 2, 1, 3] =  A, B1, B2, B3  -> A, B2, B1, B3
 
-    D2h:   [0, 6, 7, 1,  5, 3, 2, 4]
+    D2h:   [0, 6, 7, 1,  5, 3, 2, 4] is incorrect
            Ag, B1g, B2g, B3g,   Au,  B1u, B2u, B3u 
-        -> Ag, B2u, B3u, B1g,   B1u, B3g, B2g, Au
+        -> Ag, B2u, B3u, B1g,   B1u, B3g, B2g, Au  ?????
+    D2h:   [0, 7, 6, 1,  5, 2, 3, 4] is correct
+           It seems Cfour and Psi4 do not agree on what to call "2" and "3".
     """
     mol = wfn.molecule()
     ptgr = mol.point_group()
@@ -416,7 +418,7 @@ def Cfour_irrep_order(wfn, verbose=1):
         return [0, 2, 1, 3]
     
     if s == 'd2h':
-        return [0, 7, 6, 1,  5, 3, 2, 4]
+        return [0, 7, 6, 1,  5, 2, 3, 4]
     
     print('\n\nError: Unimplemented point group '+s+'\n\n')
     return None

@@ -35,7 +35,7 @@ Core-guess
                        Version 2.1
 
                      laptop21                                          
-                     Thu 13 Jan 2022 06:45:28 PM CST                   
+                     Thu 13 Jan 2022 07:19:29 PM CST                   
                      integer*8 version is running
 
 ********************************************************************************
@@ -407,7 +407,7 @@ H:P4_CC-PVDZ
   There are   96 basis functions.
  @GEOPT-W, Archive file not created for single-point calculation.
  @CHECKOUT-I, Total execution time (CPU/WALL):        0.22/       0.12 seconds.
---executable xjoda finished with status     0 in        0.12 seconds (walltime).
+--executable xjoda finished with status     0 in        0.13 seconds (walltime).
  --invoking executable--
 /home/thomas/Packages/cfour-v2.1/bin/xvmol
 
@@ -488,7 +488,7 @@ FINISH
 /home/thomas/Packages/cfour-v2.1/bin/xvmol2ja
  @GETMEM-I,  Allocated    1907 MB of main memory.
  @CHECKOUT-I, Total execution time (CPU/WALL):        0.00/       0.00 seconds.
---executable xvmol2ja finished with status     0 in        0.01 seconds (walltime).
+--executable xvmol2ja finished with status     0 in        0.00 seconds (walltime).
  --invoking executable--
 /home/thomas/Packages/cfour-v2.1/bin/xvscf
   There are   96 functions in the AO basis.
@@ -738,4 +738,4 @@ FINISH
  @CHECKOUT-I, Total execution time (CPU/WALL):        0.15/       0.08 seconds.
 --executable xvscf finished with status     0 in        0.08 seconds (walltime).
   The final electronic energy is      -304.031146202277569 a.u. 
-  This computation required                            0.71 seconds (walltime).
+  This computation required                            0.72 seconds (walltime).

@@ -35,7 +35,7 @@ Psi-guess
                        Version 2.1
 
                      laptop21                                          
-                     Thu 13 Jan 2022 06:07:07 PM CST                   
+                     Thu 13 Jan 2022 07:04:02 PM CST                   
                      integer*8 version is running
 
 ********************************************************************************
@@ -329,7 +329,7 @@ N:P4_CC-PVDZ
   There are   28 basis functions.
  @GEOPT-W, Archive file not created for single-point calculation.
  @CHECKOUT-I, Total execution time (CPU/WALL):        0.22/       0.12 seconds.
---executable xjoda finished with status     0 in        0.12 seconds (walltime).
+--executable xjoda finished with status     0 in        0.13 seconds (walltime).
  --invoking executable--
 /home/thomas/Packages/cfour-v2.1/bin/xvmol
 
@@ -448,8 +448,8 @@ FINISH
   SCF has converged.
 
  Density matrix saved to file den.dat
- total electron number:   14.000000000000011     
-     E(SCF)=      -108.935037683214389              0.6109421802D-08
+ total electron number:   14.000000000000000     
+     E(SCF)=      -108.935037683214304              0.6109296735D-08
 
   Eigenvector printing suppressed.
 
@@ -483,29 +483,29 @@ FINISH
     3     2          -1.4260968132         -38.8060671495    SGg+        Ag (1)
     4    16          -0.7938783137         -21.6025271665    SGu+       B1u (5)
     5     3          -0.6203680272         -16.8810722377    SGg+        Ag (1)
-    6    11          -0.5830822150         -15.8664737064    PIu        B3u (3)
-    7     8          -0.5830822150         -15.8664737064    PIu        B2u (2)
+    6     8          -0.5830822150         -15.8664737064    PIu        B2u (2)
+    7    11          -0.5830822150         -15.8664737064    PIu        B3u (3)
   +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    8    22           0.1438652088           3.9147713555    PIg        B3g (6)
-    9    25           0.1438652088           3.9147713555    PIg        B2g (7)
+    8    25           0.1438652088           3.9147713555    PIg        B2g (7)
+    9    22           0.1438652088           3.9147713555    PIg        B3g (6)
    10    17           0.5700680091          15.5123391592    SGu+       B1u (5)
    11     4           0.8437828571          22.9604988313    SGg+        Ag (1)
-   12    12           0.8883537111          24.1733334281    PIu        B3u (3)
-   13     9           0.8883537111          24.1733334281    PIu        B2u (2)
+   12    12           0.8883537111          24.1733334281    PIu        B2u (3)
+   13     9           0.8883537111          24.1733334281    PIu        B3u (2)
    14     5           0.9858234370          26.8256195082    SGg+        Ag (1)
    15    26           1.0380688979          28.2472907772    PIg        B2g (7)
    16    23           1.0380688979          28.2472907772    PIg        B3g (6)
    17    18           1.0548080254          28.7027855913    SGu+       B1u (5)
    18    19           1.5860928154          43.1597797085    SGu+       B1u (5)
-   19     6           1.7784178139          48.3932089805    DEg         Ag (1)
-   20    14           1.7784178139          48.3932089805    DEg        B1g (4)
-   21    10           1.8236316072          49.6235388444    PIu        B2u (2)
-   22    13           1.8236316072          49.6235388444    PIu        B3u (3)
-   23    20           2.2579717509          61.4425350203    DEu        B1u (5)
-   24    28           2.2579717509          61.4425350203    DEu         Au (8)
+   19    14           1.7784178139          48.3932089805    DEg        B1g (4)
+   20     6           1.7784178139          48.3932089805    DEg         Ag (1)
+   21    13           1.8236316072          49.6235388444    PIu        B2u (3)
+   22    10           1.8236316072          49.6235388444    PIu        B3u (2)
+   23    28           2.2579717509          61.4425350203    DEu         Au (8)
+   24    20           2.2579717509          61.4425350203    DEu        B1u (5)
    25     7           2.7926948981          75.9930915901    SGg+        Ag (1)
-   26    24           2.9262107146          79.6262416630    PIg        B3g (6)
-   27    27           2.9262107146          79.6262416630    PIg        B2g (7)
+   26    27           2.9262107146          79.6262416630    PIg        B2g (7)
+   27    24           2.9262107146          79.6262416630    PIg        B3g (6)
    28    21           3.1717993361          86.3090478036    SGu+       B1u (5)
 
 
@@ -513,5 +513,5 @@ FINISH
 
  @CHECKOUT-I, Total execution time (CPU/WALL):        0.01/       0.01 seconds.
 --executable xvscf finished with status     0 in        0.01 seconds (walltime).
-  The final electronic energy is      -108.935037683214389 a.u. 
+  The final electronic energy is      -108.935037683214304 a.u. 
   This computation required                            0.16 seconds (walltime).
