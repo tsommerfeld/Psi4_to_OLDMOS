@@ -35,7 +35,7 @@ Core-guess
                        Version 2.1
 
                      laptop21                                          
-                     Thu 13 Jan 2022 06:16:26 PM CST                   
+                     Thu 13 Jan 2022 06:45:28 PM CST                   
                      integer*8 version is running
 
 ********************************************************************************
@@ -406,7 +406,7 @@ H:P4_CC-PVDZ
   ECPDATA file not present.   Using default ECPDATA. 
   There are   96 basis functions.
  @GEOPT-W, Archive file not created for single-point calculation.
- @CHECKOUT-I, Total execution time (CPU/WALL):        0.23/       0.12 seconds.
+ @CHECKOUT-I, Total execution time (CPU/WALL):        0.22/       0.12 seconds.
 --executable xjoda finished with status     0 in        0.12 seconds (walltime).
  --invoking executable--
 /home/thomas/Packages/cfour-v2.1/bin/xvmol
@@ -481,9 +481,9 @@ FINISH
   @TWOEL-I,     184950 INTEGRALS OF SYMMETRY TYPE  I I J J
   @TWOEL-I,     827658 INTEGRALS OF SYMMETRY TYPE  I J K L
   @TWOEL-I, TOTAL NUMBER OF 2-E INTEGRALS    1365144.
-  @MOLECU-I, TWO ELECTRON INTEGRALS (CPU/WALL):        0.61/       0.50 SECONDS.
+  @MOLECU-I, TWO ELECTRON INTEGRALS (CPU/WALL):        0.60/       0.49 SECONDS.
  @CHECKOUT-I, Total execution time (CPU/WALL):        0.61/       0.50 seconds.
---executable xvmol finished with status     0 in        0.51 seconds (walltime).
+--executable xvmol finished with status     0 in        0.50 seconds (walltime).
  --invoking executable--
 /home/thomas/Packages/cfour-v2.1/bin/xvmol2ja
  @GETMEM-I,  Allocated    1907 MB of main memory.
@@ -738,4 +738,4 @@ FINISH
  @CHECKOUT-I, Total execution time (CPU/WALL):        0.15/       0.08 seconds.
 --executable xvscf finished with status     0 in        0.08 seconds (walltime).
   The final electronic energy is      -304.031146202277569 a.u. 
-  This computation required                            0.72 seconds (walltime).
+  This computation required                            0.71 seconds (walltime).

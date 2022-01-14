@@ -416,7 +416,7 @@ def Cfour_irrep_order(wfn, verbose=1):
         return [0, 2, 1, 3]
     
     if s == 'd2h':
-        return [0, 7, 6, 1,  5, 2, 3, 4]
+        return [0, 7, 6, 1,  5, 3, 2, 4]
     
     print('\n\nError: Unimplemented point group '+s+'\n\n')
     return None
