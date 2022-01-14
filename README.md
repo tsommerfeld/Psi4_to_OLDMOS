@@ -16,10 +16,10 @@ and use the Psi4 orbitals as a guess in CFOUR.
 
 If everything is done exactly the **same** in both codes, this works as well as it should: CFOUR converges in one iteration.
 
-Currently implemented/tested:
-* C1, Cs: RHF and UHF
-* C2, Ci, C2v, C2h, D2: RHF (but UHF is expected to work, see `doc`)
-* up to f-functions
+Currently tested:
+* C1, Cs: RHF and UHF.
+* C2, Ci, C2v, C2h, D2, D2h: RHF (but UHF is expected to work, see `doc`).
+* up to f-functions (g-functions will not work).
 
 ## Workflow
 
@@ -29,7 +29,7 @@ Currently implemented/tested:
 2. Run the desired SCF in Psi4.
 3. For optimal results, use the Psi4 wavefunction object to create GENBAS (see notebooks). Psi4 uses segmented contraction, CFOUR doesn't. 
 4. Create OLDMOS as shown in the provided Jupyter notebooks and Python scripts.
-5. Check the CFOUR core-guess. If it is not right, add an OCCUPATION statement to ZMAT. (The best start orbitals will not help with a wrong occupation.) 
+5. Check the CFOUR core-guess for the desired basis (not for STO-3G). If it is not right, add an OCCUPATION statement to ZMAT. The best start orbitals will not help with a wrong occupation-guess. 
 6. Start CFOUR with ZMAT, GENBAS, OLDMOS, and an empty file JFSGUESS present.
 
 Everything can be run from a single script, see the `run_me` scripts in `Samples`, but see the **Warnings** in the `Samples` `README`.
