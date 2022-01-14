@@ -1,0 +1,20 @@
+
+  Memory set to 476.837 MiB by Python driver.
+Molecule from cfour_scf.orientation
+N    -0.00000000   0.00000000   1.09604138
+N     0.00000000   0.00000000  -1.09604138
+
+Basis is CC-PVDZ
+-------------------
+0 1
+N    -0.00000000   0.00000000   1.09604138
+N     0.00000000   0.00000000  -1.09604138
+symmetry D2h
+units Bohr
+no_reorient
+-------------------
+HF energy = -108.93503768416335
+SO dimensions: ((28, 7), (28, 1), (28, 3), (28, 3), (28, 1), (28, 7), (28, 3), (28, 3))
+MO dimensions: ((7, 7), (1, 1), (3, 3), (3, 3), (1, 1), (7, 7), (3, 3), (3, 3))
+Irrep mapping for symmetry d2h.
+Psi4-MOs written to PSIMOS

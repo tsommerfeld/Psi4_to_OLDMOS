@@ -1,0 +1,23 @@
+zmat angstroms
+ o
+ o   1 oo2     
+ o    2 oo3         1 ooo3      
+ o    1 oo3         2 ooo3          3 dih4   
+ h    4 ho5         3 hoo5          2 dih5   
+ h    4 ho5         3 hoo5          2 -dih5  
+ h    3 ho5         4 hoo5          1 dih5   
+ h    3 ho5         4 hoo5          1 -dih5  
+ h    1 ho5         2 hoo5          3 dih5   
+ h    1 ho5         2 hoo5          3 -dih5  
+ h    2 ho5         1 hoo5          4 dih5   
+ h    2 ho5         1 hoo5          4 -dih5  
+variables
+oo2         5.000000
+oo3         4.000000
+ooo3         90.000
+dih4          0.000
+ho5         0.950000
+hoo5         52.300
+dih5        125.000
+constants
+end

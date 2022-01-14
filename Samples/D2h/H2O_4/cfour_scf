@@ -1,0 +1,86 @@
+#! /usr/bin/env bash
+
+BASIS=$1
+PSI_GUESS=$2
+
+if [ -z $BASIS ]; then
+    BASIS=STO-3G
+fi
+echo Basis is $BASIS
+
+if [ ! -z $PSI_GUESS ]; then
+    echo Psi-guess
+else
+    echo Core-guess
+fi
+
+GitRoot=../../..
+threads=2
+export OMP_NUM_THREADS=$threads
+mem_in_gb=2
+CurrDir=$PWD
+WorkDir=$CFOUR_SCRATCH
+
+if [ -z $WorkDir ]; then
+    echo WorkDir undefined
+    exit
+fi
+if [ ! -d $WorkDir ]; then
+    echo $WorkDir does not exit.
+    exit
+fi
+cd $WorkDir
+rm -rf $WorkDir/*
+
+cp $CurrDir/$GitRoot/Cfour/P4.BASIS $WorkDir/GENBAS
+if [ ! -z $PSI_GUESS ]; then
+    cp $CurrDir/PSIMOS $WorkDir/OLDMOS
+    touch $WorkDir/JFSGUESS
+fi
+
+cat >> ZMAT << EOF
+(H2O)4 in a D2h arrangement
+O
+O 1 OO2
+O 2 OO3 1 OOO3
+O 1 OO3 2 OOO3 3 DIH4
+H 4 HO5 3 HOO5 2 DIH5
+H 4 HO5 3 HOO5 2 DIH6
+H 3 HO5 4 HOO5 1 DIH5
+H 3 HO5 4 HOO5 1 DIH6
+H 1 HO5 2 HOO5 3 DIH5
+H 1 HO5 2 HOO5 3 DIH6
+H 2 HO5 1 HOO5 4 DIH5
+H 2 HO5 1 HOO5 4 DIH6
+
+OO2=5.000000
+OO3=4.000000
+OOO3=90.000
+DIH4=0.000
+HO5=0.950000
+HOO5=52.300
+DIH5=125.000
+DIH6=-125.000
+
+*CFOUR(CALC=SCF
+BASIS=SPECIAL,SPHERICAL=ON
+REFERENCE=RHF
+MEM_SIZE=$mem_in_gb,MEM_UNIT=GB)
+
+O:P4_$BASIS
+O:P4_$BASIS
+O:P4_$BASIS
+O:P4_$BASIS
+H:P4_$BASIS
+H:P4_$BASIS
+H:P4_$BASIS
+H:P4_$BASIS
+H:P4_$BASIS
+H:P4_$BASIS
+H:P4_$BASIS
+H:P4_$BASIS
+
+
+EOF
+
+xcfour
