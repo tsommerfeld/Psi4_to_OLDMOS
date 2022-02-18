@@ -1,6 +1,8 @@
 
-*** tstart() called on laptop21
-*** at Thu Jan 13 19:18:46 2022
+Scratch directory: /home/thomas/psi4_scratch/
+
+*** tstart() called on suedost4
+*** at Thu Jan 20 15:10:08 2022
 
    => Loading Basis Set <=
 
@@ -56,34 +58,17 @@
   Guess Type is SAD.
   Energy threshold   = 1.00e-06
   Density threshold  = 1.00e-08
-  Integral threshold = 0.00e+00
+  Integral threshold = 1.00e-12
 
   ==> Primary Basis <==
 
   Basis Set: CC-PVDZ
     Blend: CC-PVDZ
     Number of shells: 24
-    Number of basis function: 48
+    Number of basis functions: 48
     Number of Cartesian functions: 50
     Spherical Harmonics?: true
     Max angular momentum: 2
-
-  ==> Pre-Iterations <==
-
-   -------------------------------------------------------
-    Irrep   Nso     Nmo     Nalpha   Nbeta   Ndocc  Nsocc
-   -------------------------------------------------------
-     Ag        11      11       0       0       0       0
-     B1g        7       7       0       0       0       0
-     B2g        4       4       0       0       0       0
-     B3g        2       2       0       0       0       0
-     Au         2       2       0       0       0       0
-     B1u        4       4       0       0       0       0
-     B2u        7       7       0       0       0       0
-     B3u       11      11       0       0       0       0
-   -------------------------------------------------------
-    Total      48      48       8       8       8       0
-   -------------------------------------------------------
 
   ==> Integral Setup <==
 
@@ -113,25 +98,43 @@
 
     OpenMP threads:              1
 
-  Minimum eigenvalue in the overlap matrix is 4.6962317531E-03.
-  Using Symmetric Orthogonalization.
+  Minimum eigenvalue in the overlap matrix is 8.5432700913E-03.
+  Reciprocal condition number of the overlap matrix is 1.9487392027E-03.
+    Using symmetric orthogonalization.
 
-  SCF Guess: Superposition of Atomic Densities via on-the-fly atomic UHF.
+  ==> Pre-Iterations <==
+
+  SCF Guess: Superposition of Atomic Densities via on-the-fly atomic UHF (no occupation information).
+
+   -------------------------
+    Irrep   Nso     Nmo    
+   -------------------------
+     Ag        11      11 
+     B1g        7       7 
+     B2g        4       4 
+     B3g        2       2 
+     Au         2       2 
+     B1u        4       4 
+     B2u        7       7 
+     B3u       11      11 
+   -------------------------
+    Total      48      48
+   -------------------------
 
   ==> Iterations <==
 
                         Total Energy        Delta E     RMS |[F,P]|
 
-   @RHF iter SAD:   -77.33401506945991   -7.73340e+01   0.00000e+00 
-   @RHF iter   1:   -77.98767892746022   -6.53664e-01   1.43176e-02 DIIS
-   @RHF iter   2:   -78.03366592348824   -4.59870e-02   5.35349e-03 DIIS
-   @RHF iter   3:   -78.03971378874732   -6.04787e-03   1.01261e-03 DIIS
+   @RHF iter SAD:   -77.33401506945982   -7.73340e+01   0.00000e+00 
+   @RHF iter   1:   -77.98767892746019   -6.53664e-01   1.43176e-02 DIIS
+   @RHF iter   2:   -78.03366592348814   -4.59870e-02   5.35349e-03 DIIS
+   @RHF iter   3:   -78.03971378874729   -6.04787e-03   1.01261e-03 DIIS
    @RHF iter   4:   -78.04010105690237   -3.87268e-04   8.43143e-05 DIIS
-   @RHF iter   5:   -78.04010403372872   -2.97683e-06   9.50095e-06 DIIS
-   @RHF iter   6:   -78.04010407272355   -3.89948e-08   1.06970e-06 DIIS
-   @RHF iter   7:   -78.04010407316868   -4.45127e-10   2.06432e-07 DIIS
-   @RHF iter   8:   -78.04010407318734   -1.86589e-11   2.53057e-08 DIIS
-   @RHF iter   9:   -78.04010407318773   -3.97904e-13   4.21972e-09 DIIS
+   @RHF iter   5:   -78.04010403372858   -2.97683e-06   9.50095e-06 DIIS
+   @RHF iter   6:   -78.04010407272348   -3.89949e-08   1.06970e-06 DIIS
+   @RHF iter   7:   -78.04010407316861   -4.45127e-10   2.06432e-07 DIIS
+   @RHF iter   8:   -78.04010407318727   -1.86589e-11   2.53057e-08 DIIS
+   @RHF iter   9:   -78.04010407318759   -3.26850e-13   4.21972e-09 DIIS
   Energy and wave function converged.
 
 
@@ -167,14 +170,14 @@
              Ag   B1g   B2g   B3g    Au   B1u   B2u   B3u 
     DOCC [     3,    1,    0,    0,    0,    1,    1,    2 ]
 
-  @RHF Final Energy:   -78.04010407318773
+  @RHF Final Energy:   -78.04010407318759
 
    => Energetics <=
 
     Nuclear Repulsion Energy =             33.4235543750201316
-    One-Electron Energy =                -170.1441663315771109
-    Two-Electron Energy =                  58.6805078833692448
-    Total Energy =                        -78.0401040731877345
+    One-Electron Energy =                -170.1441663315768835
+    Two-Electron Energy =                  58.6805078833691667
+    Total Energy =                        -78.0401040731875923
 
 Computation Completed
 
@@ -196,12 +199,12 @@ Properties computed using the SCF density matrix
      X:    -0.0000      Y:     0.0000      Z:     0.0000     Total:     0.0000
 
 
-*** tstop() called on laptop21 at Thu Jan 13 19:18:46 2022
+*** tstop() called on suedost4 at Thu Jan 20 15:10:08 2022
 Module time:
-	user time   =       0.40 seconds =       0.01 minutes
+	user time   =       0.50 seconds =       0.01 minutes
 	system time =       0.01 seconds =       0.00 minutes
 	total time  =          0 seconds =       0.00 minutes
 Total time:
-	user time   =       0.40 seconds =       0.01 minutes
+	user time   =       0.50 seconds =       0.01 minutes
 	system time =       0.01 seconds =       0.00 minutes
 	total time  =          0 seconds =       0.00 minutes

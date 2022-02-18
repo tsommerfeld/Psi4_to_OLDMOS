@@ -1,7 +1,7 @@
 Basis is CC-PVDZ
 Psi-guess
  --invoking executable--
-/home/thomas/Packages/cfour-v2.1/bin/xjoda
+/home/thomas/Cfour/cfour-v2.1/bin/xjoda
 
 
    *************************************************************************
@@ -34,8 +34,8 @@ Psi-guess
 
                        Version 2.1
 
-                     laptop21                                          
-                     Thu 13 Jan 2022 07:18:46 PM CST                   
+                     suedost4                                          
+                     Thu 20 Jan 2022 03:10:08 PM CST                   
                      integer*8 version is running
 
 ********************************************************************************
@@ -316,11 +316,11 @@ H:P4_CC-PVDZ
    *The optimization is constrained.
    *The following   3 parameters can have non-zero 
     derivatives within the totally symmetric subspace:
-             A    [ 8]  R2   [ 2]  R    [ 1]
+             A    [11]  R2   [10]  R    [ 1]
    *The following   0 parameters are to be optimized:
 
    *The following coordinates must be varied in an  unconstrained optimization.
-             A    [ 8]  R2   [ 2]  R    [ 1]
+             A    [11]  R2   [10]  R    [ 1]
 --------------------------------------------------------------------------------
 
 
@@ -330,8 +330,8 @@ H:P4_CC-PVDZ
  Z-matrix   Atomic            Coordinates (in bohr)
   Symbol    Number           X              Y              Z
  ----------------------------------------------------------------
-     C         6        -1.25383355     0.00000000     0.00000000
-     C         6         1.25383355     0.00000000     0.00000000
+     C         6        -1.25383355    -0.00000000     0.00000000
+     C         6         1.25383355    -0.00000000     0.00000000
      H         1        -2.33427909     1.74258027     0.00000000
      H         1        -2.33427909    -1.74258027    -0.00000000
      H         1         2.33427909     1.74258027     0.00000000
@@ -360,10 +360,10 @@ H:P4_CC-PVDZ
   ECPDATA file not present.   Using default ECPDATA. 
   There are   48 basis functions.
  @GEOPT-W, Archive file not created for single-point calculation.
- @CHECKOUT-I, Total execution time (CPU/WALL):        0.22/       0.12 seconds.
---executable xjoda finished with status     0 in        0.12 seconds (walltime).
+ @CHECKOUT-I, Total execution time (CPU/WALL):        0.31/       0.18 seconds.
+--executable xjoda finished with status     0 in        0.19 seconds (walltime).
  --invoking executable--
-/home/thomas/Packages/cfour-v2.1/bin/xvmol
+/home/thomas/Cfour/cfour-v2.1/bin/xvmol
 
 Running with 2 threads/proc
 
@@ -377,7 +377,7 @@ C2H4
     2    3 X  Y   Z   0.10E-08              0    0                              
    9999.00      3.00                                                            
           6.00000000    1    3    1    1    1                                   
-C #1  -1.253833546462990   0.000000000000000   0.000000000000000                
+C #1  -1.253833546462990  -0.000000000000000   0.000000000000000                
     9    3                                                                      
    6665.0000000000000        6.9200000000000002E-004  -1.4600000000000000E-004  
    1000.0000000000000        5.3290000000000004E-003  -1.1540000000000001E-003  
@@ -435,16 +435,16 @@ FINISH
   @TWOEL-I,      17649 INTEGRALS OF SYMMETRY TYPE  I I J J
   @TWOEL-I,      42963 INTEGRALS OF SYMMETRY TYPE  I J K L
   @TWOEL-I, TOTAL NUMBER OF 2-E INTEGRALS      93892.
-  @MOLECU-I, TWO ELECTRON INTEGRALS (CPU/WALL):        0.09/       0.05 SECONDS.
- @CHECKOUT-I, Total execution time (CPU/WALL):        0.10/       0.05 seconds.
---executable xvmol finished with status     0 in        0.05 seconds (walltime).
+  @MOLECU-I, TWO ELECTRON INTEGRALS (CPU/WALL):        0.15/       0.08 SECONDS.
+ @CHECKOUT-I, Total execution time (CPU/WALL):        0.16/       0.08 seconds.
+--executable xvmol finished with status     0 in        0.08 seconds (walltime).
  --invoking executable--
-/home/thomas/Packages/cfour-v2.1/bin/xvmol2ja
+/home/thomas/Cfour/cfour-v2.1/bin/xvmol2ja
  @GETMEM-I,  Allocated    1907 MB of main memory.
  @CHECKOUT-I, Total execution time (CPU/WALL):        0.00/       0.00 seconds.
---executable xvmol2ja finished with status     0 in        0.00 seconds (walltime).
+--executable xvmol2ja finished with status     0 in        0.01 seconds (walltime).
  --invoking executable--
-/home/thomas/Packages/cfour-v2.1/bin/xvscf
+/home/thomas/Cfour/cfour-v2.1/bin/xvscf
   There are   48 functions in the AO basis.
 
   There are 8 irreducible representations.
@@ -478,7 +478,7 @@ FINISH
   Memory information:     120866 words required.
   Fock matrices are constructed from AO integral file.
  @GETMEM-I,  Allocated       0 MB of main memory.
-  Initialization and symmetry analysis required      0.001 seconds.
+  Initialization and symmetry analysis required      0.002 seconds.
 
   here 
   starting vectors read from OLDMOS 
@@ -486,7 +486,7 @@ FINISH
   --------------------------------------------------------------------
   Iteration         Total Energy            Largest Density Difference
   --------------------------------------------------------------------
-       0           -78.040104078533645              0.0000000000D+00
+       0           -78.040104078533574              0.0000000000D+00
    current occupation vector 
      3  2  1  1  1  0  0  0
      3  2  1  1  1  0  0  0
@@ -494,8 +494,8 @@ FINISH
   SCF has converged.
 
  Density matrix saved to file den.dat
- total electron number:   16.000000000000004     
-     E(SCF)=       -78.040104073250816              0.1953377939D-08
+ total electron number:   15.999999999999980     
+     E(SCF)=       -78.040104073250689              0.1953461247D-08
 
   Eigenvector printing suppressed.
 
@@ -579,5 +579,5 @@ FINISH
 
  @CHECKOUT-I, Total execution time (CPU/WALL):        0.02/       0.01 seconds.
 --executable xvscf finished with status     0 in        0.01 seconds (walltime).
-  The final electronic energy is       -78.040104073250816 a.u. 
-  This computation required                            0.20 seconds (walltime).
+  The final electronic energy is       -78.040104073250689 a.u. 
+  This computation required                            0.30 seconds (walltime).
